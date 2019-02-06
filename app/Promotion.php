@@ -11,6 +11,6 @@ class Promotion extends Model
     }
 
     public function internaute(){
-        return $this->belongstoMany('App\Internaute')->using('App\Adhesion');
+        return $this->belongstoMany('App\User')->using('App\Adhesion');
     }
 }

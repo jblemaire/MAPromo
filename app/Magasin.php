@@ -18,8 +18,8 @@ class Magasin extends Model
         return $this->belongsTo('App\Ville');
     }
 
-    public function responsable(){
-        return $this->belongsTo('App\Responsable');
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 
     public function promotion(){

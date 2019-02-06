@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdhesionTable extends Migration
+class CreateAdhesionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAdhesionTable extends Migration
      */
     public function up()
     {
-        Schema::create('adhesion', function (Blueprint $table) {
+        Schema::create('adhesions', function (Blueprint $table) {
             /**Column**/
             $table->integer('Promotion_idPromo');
             $table->integer('Internaute_idInternaute');
@@ -22,8 +22,8 @@ class CreateAdhesionTable extends Migration
 
             /**Index**/
             $table->primary(['Promotion_idPromo', 'Internaute_idInternaute']);
-            $table->foreign('Promotion_idPromo')->references('idPromo')->on('Promotion'); //clé étrangere
-            $table->foreign('Internaute_idInternaute')->references('idInternaute')->on('Internaute'); //clé étrangere
+            $table->foreign('Promotion_idPromo')->references('idPromo')->on('Promotions'); //clé étrangere
+            $table->foreign('Internaute_idInternaute')->references('idUser')->on('Users'); //clé étrangere
 
 
 
@@ -37,6 +37,6 @@ class CreateAdhesionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adhesion');
+        Schema::dropIfExists('adhesions');
     }
 }

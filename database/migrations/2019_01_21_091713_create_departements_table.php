@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypeTable extends Migration
+class CreateDepartementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('type', function (Blueprint $table) {
+        Schema::create('departements', function (Blueprint $table) {
             /**Column**/
-            $table->integer('idType')->autoIncrement();
-            $table->string('libType');
+            $table->string('idDepartement');
+            $table->string('libDepartement');
+
+            /**Index**/
+            $table->primary('idDepartement');
         });
     }
 
@@ -27,6 +30,6 @@ class CreateTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type');
+        Schema::dropIfExists('departements');
     }
 }

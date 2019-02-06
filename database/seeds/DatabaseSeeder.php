@@ -14,8 +14,6 @@ class DatabaseSeeder extends Seeder
         Eloquent::unguard();
 
         $this->call('VilleSeeder');
-        $this->command->info('Ville table seeded!');
-
         $path = 'app/doc_db/ville_dep.sql';
         DB::unprepared(file_get_contents($path));
         $this->command->info('Ville table seeded!');

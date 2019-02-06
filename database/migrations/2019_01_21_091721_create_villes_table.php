@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVilleTable extends Migration
+class CreateVillesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreateVilleTable extends Migration
      */
     public function up()
     {
-        Schema::create('ville', function (Blueprint $table) {
+        Schema::create('villes', function (Blueprint $table) {
             /**Column**/
             $table->string('codeINSEEVille');
             $table->string('cpVille');
             $table->string('nomVille');
             $table->integer('popVille');
-            $table->float('latVille');
-            $table->float('longVille');
+            $table->decimal('latVille',10,8);
+            $table->decimal('longVille',10,8);
             $table->string('idDepartement');
 
 
             /**Index**/
             $table->primary(['codeINSEEVille','cpVille']);
-            $table->foreign('idDepartement')->references('idDepartement')->on('Departement');
+            $table->foreign('idDepartement')->references('idDepartement')->on('Departements');
         });
     }
 
@@ -37,6 +37,6 @@ class CreateVilleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ville');
+        Schema::dropIfExists('villes');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePromotionTable extends Migration
+class CreatePromotionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePromotionTable extends Migration
      */
     public function up()
     {
-        Schema::create('promotion', function (Blueprint $table) {
+        Schema::create('promotions', function (Blueprint $table) {
             /**Column**/
             $table->integer('idPromo')->autoIncrement();
             $table->dateTime('dateDebutPromo');
@@ -29,7 +29,7 @@ class CreatePromotionTable extends Migration
             $table->softDeletes();
 
             /**Index**/
-            $table->foreign('idMagasin')->references('idMagasin')->on('Magasin');
+            $table->foreign('idMagasin')->references('idMagasin')->on('Magasins');
         });
     }
 
@@ -40,6 +40,6 @@ class CreatePromotionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promotion');
+        Schema::dropIfExists('promotions');
     }
 }
