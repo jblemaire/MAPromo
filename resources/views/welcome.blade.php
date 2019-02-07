@@ -12,6 +12,10 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
               integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
               crossorigin=""/>
+        <!-- Styles -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="../../css/general.css">
+
 
         <!--Script -->
         <script src="../../js/script.js"></script>
@@ -28,8 +32,14 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
+                        <div class="dropdown">
+                            <button class="dropbtn">Register</button>
+                            <div class="dropdown-content">
+                                <a href="{{ route('register') }}">Client</a>
+                                <a href="{{ route('register') }}">Responsable Magasin</a>
+                            </div>
+                        </div>
                         <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
                     @endauth
                 </div>
             @endif
