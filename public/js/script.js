@@ -1,16 +1,6 @@
-"use strict";
-
 let map, osmUrl, osmAttrib, osm, marker, markersLayer;
 
-let $ajax=(param,url,data,done,error) => {
-    let getUrl=(objet)=>{
-        let result = new Array();
-        for(let i in objet){
-            result.push(i+"="+encodeURIComponent(objet[i]));
-        }
-        return result.join('&');
-    };
-
+/*let $ajax=(param,url,data,done,error) => {
     let Xhr=()=>{
         let xhr = null;
         if (window.XDomainRequest) {
@@ -45,24 +35,10 @@ let $ajax=(param,url,data,done,error) => {
         xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
         xhttp.send(data);
     }
-};
+};*/
 
 function error(e){
     alert(e.statusText);
-}
-
-function SetMap(){
-    let zone= document.getElementById('browsers').firstChild;
-    let lat = zone.dataset.lat;
-    let long = zone.dataset.long;
-    map.setView([lat, long], 13).addLayer(osm);
-    let bounds = map.getBounds();
-    let NE = bounds.getNorthEast();
-    let SW = bounds.getSouthWest();
-    // console.log(bounds.getNorthEast());
-    //console.log(bounds.getSouthWest());
-    //let location = input.getElementById('browsers').firstChild;
-    //console.log(location.dataset.lat);
 }
 
 function createList(){
@@ -72,7 +48,11 @@ function createList(){
     datalist.id = "villes";
     input.onkeyup = () => {
         if(input.value.length >= 3)
-            $ajax("post", 'library/ajax/getVilles.php', "ville="+input.value, addDatalist, error);
+            axios.post('/city_search', {
+                ville: input.value
+            })
+                .then(addDatalist)
+                .catch(error);
     };
     input.onchange = () => {
         let latitude, longitude;
@@ -100,38 +80,35 @@ function createList(){
     osmAttrib='Map data © OpenStreetMap contributors';
     osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
     map.setView([47.0, 3.0], 6).addLayer(osm);
-    let markers = [];
     markersLayer = new L.LayerGroup();
     /***-------***/
 
     map.on('moveend', function(){
-        let bounds = {};
         let infos = map.getBounds();
-        // console.log(map.getBounds());
-        // map.getBounds()['_SouthWest']['lat'];
         let SW = infos['_southWest']; //Long et lat du Sud Ouest
         let NE =  infos['_northEast'];//Long et lat du Nord Est
-        let SW_lat = SW['lat'];
-        let SW_lng = SW['lng'];
-        let NE_lat = NE['lat'];
-        let NE_lng = NE['lng'];
-        let SW_send = SW_lat+'|'+SW_lng;
-        let NE_send = NE_lat+'|'+NE_lng;
-        $ajax("post", 'library/ajax/getMagasins.php', "SW="+SW_send+"&NE="+NE_send, addMarker, error);
+        let SW_send = SW['lat']+'|'+SW['lng'];
+        let NE_send = NE['lat']+'|'+NE['lng'];
+        axios.post('/stores_search', {
+            'SW': SW_send,
+            'NE': NE_send,
+        })
+            .then(addMarker)
+            .catch(error);
     });
 
 }
 
 function addDatalist(r){
-    let res = r.responseText;
-    res = JSON.parse(res);
+    let res = r.data;
     let datalist = document.getElementById('villes');
     datalist.innerHTML="";
     for(let i = 0; i < res.length ; i++){
         let option = document.createElement("option");
-        option.setAttribute("value", res[i].nom_ville);
-        option.setAttribute("data-latitude", res[i].latitude);
-        option.setAttribute("data-longitude", res[i].longitude);
+        let ville = res[i].nomVille + " - " + res[i].cpVille;
+        option.setAttribute("value", ville);
+        option.setAttribute("data-latitude", res[i].latVille);
+        option.setAttribute("data-longitude", res[i].longVille);
         datalist.appendChild(option);
     }
 }
@@ -141,11 +118,11 @@ function setVille(latitude, longitude){
 }
 
 function addMarker(r){
-    let res = JSON.parse(r.responseText);
+    let res = r.data;
     markersLayer.clearLayers();
     for (let i = 0; i < res.length; i++) {
-        marker= L.marker([ res[i].latitude, res[i].longitude]);
-        marker.bindPopup(`<b>${res[i].nom_mag}</b> <br />${res[i].adresse1} ${res[i].adresse2} <br />${res[i].cpVille} ${res[i].nomVille}`);
+        marker= L.marker([ res[i].latMagasin, res[i].longMagasin]);
+        marker.bindPopup(`<b>${res[i].nomMagasin}</b> <br />${res[i].adresse1Magasin} ${res[i].adresse2Magasin} <br />${res[i].cpVille} ${res[i].nomVille}`);
         markersLayer.addLayer(marker);
     }
     markersLayer.addTo(map);
