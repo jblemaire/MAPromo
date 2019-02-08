@@ -33,13 +33,13 @@
                 <a href="{{ url('/home') }}">Home</a>
             @else
                 <div class="dropdown">
-                    <button class="dropbtn">Register</button>
+                    <button class="dropbtn">S'inscrire</button>
                     <div class="dropdown-content">
-                        <a href="{{ route('register') }}">Client</a>
-                        <a href="{{ route('register') }}">Responsable Magasin</a>
+                        <a href="{{ route('register',['type'=>"2"]) }}">Client</a>
+                        <a href="{{ route('register', ['type'=>"3"]) }}">Responsable Magasin</a>
                     </div>
                 </div>
-                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('login') }}">Se connecter</a>
             @endauth
         </div>
     @endif
