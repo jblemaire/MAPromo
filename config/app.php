@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * For Captcha
+         */
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
     ],
 
     /*

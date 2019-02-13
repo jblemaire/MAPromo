@@ -1,42 +1,5 @@
 let map, osmUrl, osmAttrib, osm, marker, markersLayer;
 
-/*let $ajax=(param,url,data,done,error) => {
-    let Xhr=()=>{
-        let xhr = null;
-        if (window.XDomainRequest) {
-            xhr = new XDomainRequest();
-        } else if (window.XMLHttpRequest) {
-            xhr = new XMLHttpRequest();
-        } else {
-            alert("Votre navigateur ne gère pas l'AJAX cross-domain !");
-        }
-        return xhr;
-    };
-
-    let xhttp = Xhr();  // xhttp objet de type XMLHttpRequest
-
-    xhttp.onload=function(){
-        if (this.status===200) done(this);
-        else error(this);
-    };
-
-    if ( param === "get" ) {
-        url += data+"&cache="+new Date().getTime();
-        xhttp.open("get", url, true);
-        xhttp.send();
-    } else if ( param === "post" ) {
-        if(data===null){
-            data = "cache="+new Date().getTime();
-        }
-        else {
-            data = data+"&cache="+new Date().getTime();
-        }
-        xhttp.open("post", url, true);
-        xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-        xhttp.send(data);
-    }
-};*/
-
 function error(e){
     alert(e.statusText);
 }
@@ -100,6 +63,7 @@ function createList(){
 }
 
 function addDatalist(r){
+    //console.log(r.data);
     let res = r.data;
     let datalist = document.getElementById('villes');
     datalist.innerHTML="";
@@ -126,4 +90,15 @@ function addMarker(r){
         markersLayer.addLayer(marker);
     }
     markersLayer.addTo(map);
+}
+
+function changeTypeInscription(value){
+    let title = document.getElementById('titre-form');
+    if(value==="2")
+        title.innerText = "Inscription Client";
+    else if (value==="3")
+        title.innerText = "Inscription Responsable de Magasin";
+    let inputType = document.getElementById('type');
+    inputType.value = value;
+
 }
