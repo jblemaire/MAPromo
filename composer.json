@@ -10,6 +10,7 @@
         "fideloper/proxy": "~3.3",
         "laravel-frontend-presets/argon": "^1.0",
         "laravel/framework": "5.5.*",
+        "laravel/socialite": "^3.2",
         "laravel/tinker": "~1.0"
     },
     "require-dev": {

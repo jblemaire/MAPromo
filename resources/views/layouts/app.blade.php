@@ -19,12 +19,14 @@
 
     <!--Script -->
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
             integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
             crossorigin="">
     </script>
+
+    @yield('head')
+
 </head>
 <body>
 <div id="app">
@@ -60,11 +62,11 @@
                         <li><a href="{{ route('register') }}">Inscription</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                            <a href="#" onclick="toggle()" class="dropbtn" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 {{ Auth::user()->prenomUser }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-content">
                                 <li>
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
