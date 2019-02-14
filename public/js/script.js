@@ -63,7 +63,7 @@ function createList(){
 }
 
 function addDatalist(r){
-    //console.log(r.data);
+    console.log(r);
     let res = r.data;
     let datalist = document.getElementById('villes');
     datalist.innerHTML="";

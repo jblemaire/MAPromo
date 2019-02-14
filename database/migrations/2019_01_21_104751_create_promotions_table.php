@@ -29,7 +29,7 @@ class CreatePromotionsTable extends Migration
             $table->softDeletes();
 
             /**Index**/
-            $table->foreign('idMagasin')->references('idMagasin')->on('Magasins');
+            $table->foreign('idMagasin')->references('idMagasin')->on('magasins');
         });
     }
 

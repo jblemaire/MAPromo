@@ -26,7 +26,7 @@ class CreateVillesTable extends Migration
 
             /**Index**/
             $table->primary(['codeINSEEVille','cpVille']);
-            $table->foreign('idDepartement')->references('idDepartement')->on('Departements');
+            $table->foreign('idDepartement')->references('idDepartement')->on('departements');
         });
     }
 
