@@ -34,10 +34,10 @@ class CreateMagasinsTable extends Migration
             $table->softDeletes();
 
             /**Index**/
-            $table->foreign('codeINSEEVille')->references('codeINSEEVille')->on('Villes');
-            $table->foreign('idResponsable')->references('idUser')->on('Users');
-            $table->foreign('idType')->references('idType')->on('Types');
-            $table->foreign('idCategorie')->references('idCategorie')->on('Categories');
+            $table->foreign('codeINSEEVille')->references('codeINSEEVille')->on('villes');
+            $table->foreign('idResponsable')->references('idUser')->on('users');
+            $table->foreign('idType')->references('idType')->on('types');
+            $table->foreign('idCategorie')->references('idCategorie')->on('categories');
 
         });
     }

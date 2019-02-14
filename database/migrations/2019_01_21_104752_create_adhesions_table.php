@@ -22,8 +22,8 @@ class CreateAdhesionsTable extends Migration
 
             /**Index**/
             $table->primary(['Promotion_idPromo', 'Internaute_idInternaute']);
-            $table->foreign('Promotion_idPromo')->references('idPromo')->on('Promotions'); //clé étrangere
-            $table->foreign('Internaute_idInternaute')->references('idUser')->on('Users'); //clé étrangere
+            $table->foreign('Promotion_idPromo')->references('idPromo')->on('promotions'); //clé étrangere
+            $table->foreign('Internaute_idInternaute')->references('idUser')->on('users'); //clé étrangere
 
 
 

@@ -20,7 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('idType');
 
             /**Index**/
-            $table->foreign('idType')->references('idType')->on('Types'); //clé étrangere
+            $table->foreign('idType')->references('idType')->on('types'); //clé étrangere
 
         });
     }
