@@ -6,15 +6,26 @@
 
 @section('content')
     <div id="content" class="content">
-        <script>
-            createList();
-        </script>
+        <div class="input-group mb-3">
+            <input type="hidden" id="latitude">
+            <input type="hidden" id="longitude">
+            <input type="text" class="form-control" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
+            <datalist id="villes"></datalist>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>
+            </div>
+        </div>
+        <div id="map" style="width:500px; height:500px;">
+            <script>
+                initMap()
+            </script>
+        </div>
     </div>
 @endsection
 
 @section('connexion')
     <div class="modal" id="connexion" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
@@ -82,7 +93,7 @@
 
 @section('inscription')
     <div class="modal" id="inscription" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button onclick="changeTypeInscription(this.value)" value="2">Je suis un client</button>
