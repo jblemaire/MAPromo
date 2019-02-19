@@ -11,7 +11,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',[
+        'types' => App\Type::get()
+    ]);
 });
 
 Auth::routes();
@@ -20,4 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/city_search', 'HomeController@postCitiesSearch')->name('cities_search_post');
 Route::post('/stores_search', 'HomeController@postStoresSearch')->name('stores_search_post');
+Route::post('/categories_search', 'HomeController@postCategoriesSearch')->name('categories_search_post');
+
 

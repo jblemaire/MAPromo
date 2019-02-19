@@ -6,6 +6,7 @@ function error(e){
 
 function searchVilles(){
     let input = document.getElementById('inputVille');
+
     if(input.value.length >= 3)
         axios.post('/city_search', {
             ville: input.value
@@ -50,26 +51,36 @@ function addDatalist(r){
 
 function setVille(latitude, longitude){
     map.setView([latitude, longitude], 13).addLayer(osm);
+    getStores();
 
     map.on('moveend', function(){
         if(latitude !== "" && longitude!=="") {
-            let infos = map.getBounds();
-            let SW = infos['_southWest']; //Long et lat du Sud Ouest
-            let NE = infos['_northEast'];//Long et lat du Nord Est
-            let SW_send = SW['lat'] + '|' + SW['lng'];
-            let NE_send = NE['lat'] + '|' + NE['lng'];
-            axios.post('/stores_search', {
-                'SW': SW_send,
-                'NE': NE_send,
-            })
-                .then(addMarker)
-                .catch(error);
+            getStores();
         }
     });
 }
 
+function getStores(){
+    let infos = map.getBounds();
+    let SW = infos['_southWest']; //Long et lat du Sud Ouest
+    let NE = infos['_northEast'];//Long et lat du Nord Est
+    let SW_send = SW['lat'] + '|' + SW['lng'];
+    let NE_send = NE['lat'] + '|' + NE['lng'];
+    let type = document.getElementById('selectType').value;
+    let cat = document.getElementById('selectCategorie').value;
+    axios.post('/stores_search', {
+        'SW': SW_send,
+        'NE': NE_send,
+        'type': type,
+        'categorie': cat
+    })
+        .then(addMarker)
+        .catch(error);
+}
+
 function addMarker(r){
     let res = r.data;
+    console.log(res);
     markersLayer.clearLayers();
     for (let i = 0; i < res.length; i++) {
         marker= L.marker([ res[i].latMagasin, res[i].longMagasin]);
@@ -106,3 +117,45 @@ window.onclick = function(event) {
         }
     }
 };
+
+function searchCategories(){
+    let type = document.getElementById('selectType').value;
+    if(type !== ""){
+        axios.post('/categories_search', {
+            'idType': type
+        })
+            .then(addCategories)
+            .catch(error);
+    }
+    else{
+        document.getElementById('selectCategorie').disabled = true;
+    }
+}
+
+function addCategories(r){
+    let res = r.data;
+    let cat = document.getElementById('selectCategorie');
+    cat.innerHTML="";
+    if(res.length === 0){
+        let option = document.createElement("option");
+        option.setAttribute("value", "");
+        option.appendChild(document.createTextNode('Aucune catégorie pour ce type de magasin'));
+        cat.disabled = true;
+        cat.appendChild(option);
+    }
+    else{
+        let option = document.createElement("option");
+        option.setAttribute("value", "");
+        option.appendChild(document.createTextNode('--Choisir une categorie--'));
+        cat.appendChild(option);
+        for(let i = 0; i < res.length ; i++){
+            let option = document.createElement("option");
+            option.setAttribute("value", res[i].idCategorie);
+            option.appendChild(document.createTextNode(res[i].libCategorie));
+            cat.disabled = false;
+            cat.appendChild(option);
+        }
+    }
+
+}
+

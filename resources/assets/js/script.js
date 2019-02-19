@@ -106,3 +106,14 @@ window.onclick = function(event) {
         }
     }
 };
+
+
+function searchTypes(){
+    axios.post('/types_search', null)
+        .then(addTypes)
+        .catch(error);
+}
+
+function addTypes(r){
+    console.log(r);
+}
