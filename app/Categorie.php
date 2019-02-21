@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Categorie extends Model
 {
     public function type(){
-        return $this->belongsTo('App\Type');
+        return $this->belongsTo(Type::class);
     }
 
-    public function magasin(){
-        return $this->hasMany('App\Magasin');
+    public function magasins(){
+        return $this->hasMany(Magasin::class);
     }
 }

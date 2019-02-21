@@ -156,6 +156,18 @@ function addCategories(r){
             cat.appendChild(option);
         }
     }
-
 }
 
+function updateTabUser(){
+    axios.get('users_list', {
+        'admin': $('#checkAdmin').prop('checked'),
+        'internaute' : $('#checkInternaute').prop('checked'),
+        'responsable': $('#checkResponsable').prop('checked'),
+    })
+        .then(updateTab)
+        .catch(error);
+}
+
+function updateTab(user){
+    $(".users").html(user);
+}

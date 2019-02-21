@@ -114,6 +114,8 @@
                             <button type="submit" class="btn btn-primary">
                                 S'inscrire
                             </button>
+							
+							<a href="{{url('/login/facebook')}}" class="btn btn-primary">S'inscrire avec Facebook</a>
                         </div>
                     </div>
                 </form>

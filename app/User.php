@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nomUser', 'prenomUser', 'mailUser', 'mdpUser', 'telUser', 'idRole'
+        'nomUser', 'prenomUser', 'mailUser', 'mdpUser', 'telUser', 'idRole', 'provider_id'
     ];
 
     /**
@@ -34,11 +34,15 @@ class User extends Authenticatable
         'mdpUser', 'remember_token',
     ];
 
-    public function promotion(){
-        return $this->belongstoMany('App\Promotion')->using('App\Adhesion');
+    public function promotions(){
+        return $this->belongstoMany(Promotion::class)->using(Adhesion::class);
     }
 
-    public function magasin(){
-        return $this->hasMany('App\Magasin');
+    public function magasins(){
+        return $this->hasMany(Magasin::class);
+    }
+
+    public function role(){
+        return $this->belongsTo(Role::class);
     }
 }

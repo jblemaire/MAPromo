@@ -11,8 +11,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+            <a class="title navbar-brand" href="{{ url('/') }}">
+                {{ $title }}
             </a>
         </div>
 
@@ -26,31 +26,21 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
             @guest
-                <!--<li><a href="{{ route('login') }}">Connexion</a></li>
-                        <li><a href="{{ route('register') }}">Inscription</a></li>-->
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexion">Connexion</button></li>
-                    <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscription">Inscription</li>
+                    <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscription">Inscription</button></li>
                 @else
-                    <li class="dropdown">
-                        <a href="#" onclick="toggle()" class="dropbtn" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                            {{ Auth::user()->prenomUser }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-content">
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    Déconnexion
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
+                    <li><a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">Déconnexion</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                     </li>
                 @endguest
+                @if(Auth::user() && Auth::user()->idRole === 1)
+                    <li><a href="{{route('admin')}}">Gestion des tables</a></li>
+                @endif
+                <li><a href="#">À propos</a></li>
             </ul>
         </div>
     </div>

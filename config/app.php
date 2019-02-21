@@ -182,6 +182,7 @@ return [
          */
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 		Barryvdh\Debugbar\ServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
 		'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

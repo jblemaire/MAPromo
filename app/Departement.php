@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departement extends Model
 {
-    public function ville(){
-        return $this->hasMany('App\Ville');
+    public function villes(){
+        return $this->hasMany(Ville::class);
     }
 }

@@ -18,11 +18,5 @@
     </footer>
 
 </div>
-
-@if(!Auth::id())
-    @include('includes.login')
-    @include('includes.register')
-@endif
-
 </body>
 </html>
