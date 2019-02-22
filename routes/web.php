@@ -34,13 +34,19 @@ Route::get('admin/', function () {
     return view('admin.admin', [
         'title' => 'Espace Admin',
     ]);
-})->name('admin')->middleware('auth');
-Route::get('admin/users_list', 'Admin\AdminController@getUsersList')->name('users_list')->middleware('auth');
-Route::get('admin/magasins_list', 'Admin\AdminController@getMagasinsList')->name('magasins_list')->middleware('auth');
-Route::get('admin/types_list', 'Admin\AdminController@getTypesList')->name('types_list')->middleware('auth');
-Route::get('admin/categories_list', 'Admin\AdminController@getCategoriesList')->name('categories_list')->middleware('auth');
-Route::get('admin/promotions_list', 'Admin\AdminController@getPromotionsList')->name('promotions_list')->middleware('auth');
-Route::get('admin/adhesions_list', 'Admin\AdminController@getAdhesionsList')->name('adhesions_list')->middleware('auth');
+})->name('admin')->middleware('admin');
+Route::get('admin/users_list/{idUser?}', 'Admin\AdminController@getUsersList')->name('users_list')->middleware('admin');
+Route::get('admin/magasins_list/{idMagasin?}', 'Admin\AdminController@getMagasinsList')->name('magasins_list')->middleware('admin');
+Route::get('admin/magasins_list/user/{idUser?}', 'Admin\AdminController@getMagasinsListByUser')->name('magasins_list_user')->middleware('admin');
+Route::get('admin/types_list', 'Admin\AdminController@getTypesList')->name('types_list')->middleware('admin');
+Route::get('admin/categories_list/{idType?}', 'Admin\AdminController@getCategoriesList')->name('categories_list')->middleware('admin');
+Route::get('admin/promotions_list', 'Admin\AdminController@getPromotionsList')->name('promotions_list')->middleware('admin');
+Route::get('admin/promotions_list/magasin/{idMagasin?}', 'Admin\AdminController@getPromotionsListByMagasin')->name('promotions_list_magasin')->middleware('admin');
+Route::get('admin/adhesions_list/promo/{idPromo?}', 'Admin\AdminController@getAdhesionsListByPromo')->name('adhesions_list_promo')->middleware('admin');
+Route::get('admin/adhesions_list/user/{idUser?}', 'Admin\AdminController@getAdhesionsListByUser')->name('adhesions_list_user')->middleware('admin');
+
+Route::post('admin/types_list/addType', 'Admin\AdminController@postTypes')->name('add_type')->middleware('admin');
+Route::post('admin/categories_list/addCategorie', 'Admin\AdminController@postCategories')->name('add_categorie')->middleware('admin');
 
 
 

@@ -26,6 +26,7 @@ class CreatePromotionsTable extends Migration
             $table->string('photo2Promo')->nullable();
             $table->string('photo3Promo')->nullable();
             $table->integer('idMagasin');
+            $table->timestamps();
             $table->softDeletes();
 
             /**Index**/

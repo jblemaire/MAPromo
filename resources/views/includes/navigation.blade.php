@@ -23,8 +23,11 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" style="flex-direction: row">
                 <!-- Authentication Links -->
+                @if(Auth::user() && Auth::user()->idRole === 1)
+                    <li><a href="{{route('admin')}}">Gestion des tables</a></li>
+                @endif
             @guest
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexion">Connexion</button></li>
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscription">Inscription</button></li>
@@ -37,9 +40,7 @@
                         </form>
                     </li>
                 @endguest
-                @if(Auth::user() && Auth::user()->idRole === 1)
-                    <li><a href="{{route('admin')}}">Gestion des tables</a></li>
-                @endif
+
                 <li><a href="#">À propos</a></li>
             </ul>
         </div>

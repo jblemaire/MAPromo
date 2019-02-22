@@ -4,22 +4,23 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Id Promotion</th>
             <th scope="col">Promotion</th>
-            <th scope="col">Id Internaute</th>
             <th scope="col">Internaute</th>
             <th scope="col">Note</th>
             <th scope="col">Commentaire</th>
         </tr>
         </thead>
         <tbody>
+        @if(!count($adhesions))
+            <tr>
+                <td colspan="4" class="text-center">Aucune adhésion trouvée</td>
+            </tr>
+        @endif
         @foreach($adhesions as $adhesion)
             <tr>
-                <th scope="row">{{$adhesion->Promotion_idPromo}}</th>
                 <td>{{$adhesion->libPromo}}</td>
-                <th scope="row">{{$adhesion->Internaute_idInternaute}}</th>
                 <td>{{$adhesion->nomUser}} {{$adhesion->prenomUser}}</td>
-                <td>{{$adhesion->noteAdhesion}}</td>
+                <td>{{$adhesion->noteAdhesion}} / 5</td>
                 <td>{{$adhesion->commentaireAdhesion}}</td>
             </tr>
         @endforeach
