@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -52,10 +52,8 @@ class RegisterController extends Controller
             'lastname' => 'required|string|max:255',
             'mailUser' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'g-recaptcha-response' => 'required|captcha',
+            //'g-recaptcha-response' => 'required|captcha',
         ]);
-
-
 
     }
 

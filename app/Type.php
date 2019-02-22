@@ -6,12 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    public function magasin(){
-        return $this->hasMany('App\Magasin');
+
+    protected $fillable = [
+        'libType'
+    ];
+
+    public $timestamps = false;
+
+    public function magasins(){
+        return $this->hasMany(Magasin::class);
     }
 
-    public function categorie(){
-        return $this->hasMany('App\Categorie');
+    public function categories(){
+        return $this->hasMany(Categorie::class);
     }
 
 }

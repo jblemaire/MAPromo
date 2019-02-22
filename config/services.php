@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '318981825391151',
+        'client_secret' => 'cfaeda17b84a1864c75f429332557911',
+        'redirect' => 'http://mapromo.tk/login/facebook/callback',
+    ],
+
 ];

@@ -26,10 +26,10 @@ class ValueSeeder extends Seeder
 
         /**User**/
         DB::table('users')->insertGetId([
-            'nomUser' => 'Ally',
-            'prenomUser' => 'Bmjj',
-            'mailUser' => 'admin@admin.com',
-            'mdpUser' => '', // secret
+            'nomUser' => 'Mapromo',
+            'prenomUser' => 'admin',
+            'mailUser' => 'mapromo.site@gmail.com',
+            'mdpUser' => bcrypt('MAPromo2019'), // secret
             'telUser' => '',
             'idRole' => 1
         ]);
@@ -129,15 +129,15 @@ class ValueSeeder extends Seeder
         factory(App\Magasin::class, 200)->create();
 
 
-        /*
+
         /**Promotion
         $promo1 = DB::table('promotions')->insertGetId([
-            'dateDebutPromo' => '2019-01-15',
-            'dateFinPromo' => '2019-01-31',
-            'libPromo' => 'Toutes les pressions à -50% avant 20h',
+            'dateDebutPromo' => '2019-02-10',
+            'dateFinPromo' => '2019-02-24',
+            'libPromo' => 'C\'est la Saint-Valentin ! Alors profiter de -20% sur tous les accessoires pour lui et pour elle',
             'etatPromo' => 1,
-            'codePromo' => 'TBL',
-            'codeAvisPromo' => 'Gu1',
+            'codePromo' => 'STV',
+            'codeAvisPromo' => '5pY',
             'idMagasin' => $mag2
         ]);
 
@@ -181,7 +181,7 @@ class ValueSeeder extends Seeder
             'Internaute_idInternaute' => $internaute3,
             'noteAdhesion' => 3,
             'commentaireAdhesion' => 'Cool'
-        ]);
-        */
+        ]);**/
+
     }
 }

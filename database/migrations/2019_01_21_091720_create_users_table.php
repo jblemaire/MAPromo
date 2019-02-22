@@ -19,9 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('nomUser');
             $table->string('prenomUser');
             $table->string('mailUser')->unique();
-            $table->string('mdpUser');
+            $table->string('mdpUser')->nullable();
             $table->string('telUser')->nullable();
             $table->integer('idRole');
+            $table->string('provider_id')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
