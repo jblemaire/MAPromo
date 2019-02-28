@@ -92,12 +92,25 @@ function addMarker(r){
 
 function changeTypeInscription(value){
     let title = document.getElementById('titre-form');
-    if(value==="2")
+    let btnFb = document.getElementById('btnFb');
+    if(value==="2") {
         title.innerText = "Inscription Client";
-    else if (value==="3")
+        btnFb.href = '/login/facebook';
+        btnFb.style.backgroundColor = "#007bff";
+        btnFb.style.borderColor = "#007bff";
+        btnFb.style.cursor = "pointer";
+    }
+    else if (value==="3") {
         title.innerText = "Inscription Responsable de Magasin";
+        btnFb.href = 'javascript: void(0)';
+        btnFb.style.backgroundColor= "grey";
+        btnFb.style.borderColor = "grey";
+        btnFb.style.cursor = "not-allowed";
+        console.log(btnFb.disabled);
+    }
     let inputType = document.getElementById('type');
     inputType.value = value;
+
 
 }
 
@@ -156,4 +169,81 @@ function addCategories(r){
             cat.appendChild(option);
         }
     }
+}
+
+function supprComm(idPromo, idUser){
+    axios.post('/admin/delete_com', {
+        'idPromo': idPromo,
+        'idUser': idUser
+    })
+        .then(window.location.reload())
+        .catch(error);
+}
+
+function getVilleByCp(codePostal){
+    if(codePostal.length === 5){
+        axios.post('/magasins/city_search_by_cp', {
+            'cpVille': codePostal
+        })
+            .then(addSelectVille)
+            .catch(error);
+    }
+    else{
+        let selectVille = document.getElementById('villeMag');
+        selectVille.innerHTML="";
+        let option = document.createElement("option");
+        option.appendChild(document.createTextNode('Le code Postal n\'est pas valide'));
+        selectVille.disabled = true;
+        selectVille.appendChild(option);
+        document.getElementById('longMag').value = '';
+        document.getElementById('latMag').value = '';
+    }
+}
+
+function addSelectVille(r){
+    let res = r.data;
+    let selectVille = document.getElementById('villeMag');
+    selectVille.innerHTML="";
+    if(res.length === 0 ){
+        let option = document.createElement("option");
+        option.appendChild(document.createTextNode('Aucune villes trouvée'));
+        selectVille.disabled = true;
+        selectVille.appendChild(option);
+    }
+    else {
+        for (let i = 0 ; i < res.length ; i++){
+            let option = document.createElement("option");
+            option.setAttribute("value", res[i].codeINSEEVille);
+            option.appendChild(document.createTextNode(res[i].nomVille));
+            selectVille.disabled = false;
+            selectVille.appendChild(option);
+            document.getElementById('longMag').value = '';
+            document.getElementById('latMag').value = '';
+        }
+    }
+}
+
+function getCoordonnes(){
+    let codeINSEE = document.getElementById('villeMag').value;
+    let numRue = document.getElementById('adresse1Mag').value;
+    let adresse = document.getElementById('adresse2Mag').value;
+
+    let queryAdresse = numRue + ' ' + adresse;
+    queryAdresse = queryAdresse.split(' ').join('+');
+
+    axios.get('https://api-adresse.data.gouv.fr/search/?q='+queryAdresse+'&citycode='+codeINSEE, null)
+        .then(addCoordonnes)
+        .catch(error);
+}
+
+function addCoordonnes(r){
+    let res = r.data;
+    let longitude = res.features[0].geometry.coordinates[0];
+    let latitude = res.features[0].geometry.coordinates[1];
+
+    document.getElementById('longMag').value = longitude;
+    document.getElementById('latMag').value = latitude;
+
+
+
 }

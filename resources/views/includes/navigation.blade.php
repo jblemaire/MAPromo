@@ -27,7 +27,13 @@
                 <!-- Authentication Links -->
                 @if(Auth::user() && Auth::user()->idRole === 1)
                     <li><a href="{{route('admin')}}">Gestion des tables</a></li>
+                @elseif(Auth::user() && Auth::user()->idRole === 2)
+                    <li><a href="">Mon compte</a></li>
+                @elseif(Auth::user() && Auth::user()->idRole === 3)
+                    <li><a href="">Mon compte</a></li>
+                    <li><a href="{{route('magasins')}}">Mes magasins</a></li>
                 @endif
+
             @guest
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexion">Connexion</button></li>
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscription">Inscription</button></li>

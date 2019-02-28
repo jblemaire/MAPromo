@@ -6,6 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Magasin extends Model
 {
+
+    protected $primaryKey = 'idMagasin';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nomMagasin',
+        'adresse1Magasin',
+        'adresse2Magasin',
+        'latMagasin',
+        'longMagasin',
+        'mailMagasin',
+        'telMagasin',
+        'siretMagasin',
+        'codeINSEEVille',
+        'idResponsable',
+        'idType',
+        'idCategorie'
+    ];
+
     public function type(){
         return $this->belongsTo(Type::class);
     }
