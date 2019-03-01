@@ -11,151 +11,137 @@ class ValueSeeder extends Seeder
      */
     public function run()
     {
-        /**Internaute**/
-        $internaute1 = DB::table('internaute')->insertGetId([
-            'nomInternaute' => 'Vaujambon',
-            'prenomInternaute' => 'Andy',
-            'mailInternaute' => 'andyvaujambon05@gmail.com',
-            'mdpInternaute' => ''
-        ]);
-        $internaute2 = DB::table('internaute')->insertGetId([
-            'nomInternaute' => 'Cobeure',
-            'prenomInternaute' => 'Harry',
-            'mailInternaute' => 'xharrycotblancx@gmail.com',
-            'mdpInternaute' => ''
-        ]);
-        $internaute3 = DB::table('internaute')->insertGetId([
-            'nomInternaute' => 'Orak',
-            'prenomInternaute' => 'Anne',
-            'mailInternaute' => 'anneorakdu04@orange.fr',
-            'mdpInternaute' => ''
+        /**Role**/
+        DB::table('roles')->insertGetId([
+            'libRole' => 'Admin'
         ]);
 
-        /**Responsable**/
-        $resp1 = DB::table('responsable')->insertGetId([
-            'nomResponsable' => 'Croche',
-            'prenomResponsable' => 'Sarah',
-            'mailResponsable' => 'crochesarah@gmail.com',
-            'mdpResponsable' => ''
+        DB::table('roles')->insertGetId([
+            'libRole' => 'Internaute'
         ]);
-        $resp2 = DB::table('responsable')->insertGetId([
-            'nomResponsable' => 'Encieu',
-            'prenomResponsable' => 'Cécile',
-            'mailResponsable' => 'cécileencieu@gmail.com',
-            'mdpResponsable' => ''
+
+        DB::table('roles')->insertGetId([
+            'libRole' => 'Responsable'
         ]);
-        $resp3 = DB::table('responsable')->insertGetId([
-            'nomResponsable' => 'Timètre',
-            'prenomResponsable' => 'Vincent',
-            'mailResponsable' => 'vincenttimetre@orange.fr',
-            'mdpResponsable' => ''
+
+        /**User**/
+        DB::table('users')->insertGetId([
+            'nomUser' => 'Mapromo',
+            'prenomUser' => 'admin',
+            'mailUser' => 'mapromo.site@gmail.com',
+            'mdpUser' => bcrypt('MAPromo2019'), // secret
+            'telUser' => '',
+            'idRole' => 1
         ]);
+
+        factory(App\User::class, 100)->create();
 
         /**Type**/
-        $type1 = DB::table('type')->insertGetId([
+        $type1 = DB::table('types')->insertGetId([
+            'libType' => 'Animalerie'
+        ]);
+        $type2 = DB::table('types')->insertGetId([
+            'libType' => 'Restaurant'
+        ]);
+        $type3 = DB::table('types')->insertGetId([
+            'libType' => 'Chocolaterie'
+        ]);
+        $type4 = DB::table('types')->insertGetId([
+            'libType' => 'Armurerie'
+        ]);
+        $type5 = DB::table('types')->insertGetId([
+            'libType' => 'Grande Surface'
+        ]);
+        $type6 = DB::table('types')->insertGetId([
+            'libType' => 'Pâtisserie'
+        ]);
+        $type7 = DB::table('types')->insertGetId([
+            'libType' => 'Boulangerie'
+        ]);
+        $type8 = DB::table('types')->insertGetId([
             'libType' => 'Boucherie'
         ]);
-        $type2 = DB::table('type')->insertGetId([
-            'libType' => 'Bar'
+        $type9 = DB::table('types')->insertGetId([
+            'libType' => 'Poissonerie'
         ]);
-        $type3 = DB::table('type')->insertGetId([
-            'libType' => 'Fast-Food'
+        $type10 = DB::table('types')->insertGetId([
+            'libType' => 'Sex-shop'
+        ]);
+        $type11 = DB::table('types')->insertGetId([
+            'libType' => 'Débit de boisson'
         ]);
 
         /**Categorie**/
-        $cat1 = DB::table('categorie')->insertGetId([
-            'libCategorie' => 'Hallal',
-            'idType' => $type1
-        ]);
-        $cat2 = DB::table('categorie')->insertGetId([
-            'libCategorie' => 'Pub',
+        $cat1 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Pizzeria',
             'idType' => $type2
         ]);
-        $cat3 = DB::table('categorie')->insertGetId([
+        $cat2 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Fast-food',
+            'idType' => $type2
+        ]);
+        $cat3 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Sandwicherie',
+            'idType' => $type2
+        ]);
+        $cat4 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Chinois',
+            'idType' => $type2
+        ]);
+        $cat5 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Indien',
+            'idType' => $type2
+        ]);
+        $cat6 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Kebab',
+            'idType' => $type2
+        ]);
+        $cat7 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Mexicain',
+            'idType' => $type2
+        ]);
+        $cat8 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Chevaline',
+            'idType' => $type8
+        ]);
+        $cat9 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Brasserie',
+            'idType' => $type11
+        ]);
+        $cat10 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Café',
+            'idType' => $type11
+        ]);
+        $cat11 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Salon de thé',
+            'idType' => $type11
+        ]);
+        $cat12 = DB::table('categories')->insertGetId([
+            'libCategorie' => 'Bar',
+            'idType' => $type11
+        ]);
+        $cat13 = DB::table('categories')->insertGetId([
             'libCategorie' => 'Cave',
-            'idType' => $type2
+            'idType' => $type11
         ]);
 
         /**Magasin**/
-        $mag1 = DB::table('magasin')->insertGetId([
-            'nomMagasin' => 'La Petite Boucherie',
-            'adresse1Magasin' => '',
-            'adresse2Magasin' => 'Square Voltaire',
-            'latMagasin' => 48.862725,
-            'longMagasin' => 2.287592000000018,
-            'mailMagasin' => 'lapetiteboucherie05@gmail.com',
-            'siretMagasin' => '',
-            'codeINSEEVille' => '05061',
-            'idResponsable' => $resp1,
-            'idType'=> $type1
-        ]);
+        factory(App\Magasin::class, 200)->create();
 
-        $mag2 = DB::table('magasin')->insertGetId([
-            'nomMagasin' => 'The Black Lions',
-            'adresse1Magasin' => '1',
-            'adresse2Magasin' => 'Rue Amédée Para',
-            'latMagasin' => 44.5583992,
-            'longMagasin' => 6.077590500000042,
-            'mailMagasin' => 'theblacklions@gmail.com',
-            'siretMagasin' => '',
-            'codeINSEEVille' => '05061',
-            'idResponsable' => $resp2,
-            'idType'=> $type2,
-            'idCategorie' =>  $cat2
-        ]);
 
-        $mag3 = DB::table('magasin')->insertGetId([
-            'nomMagasin' => 'My Beers Gap',
-            'adresse1Magasin' => '9021',
-            'adresse2Magasin' => 'Route des Fauvins',
-            'latMagasin' => 44.5640873,
-            'longMagasin' => 6.092279700000063,
-            'mailMagasin' => 'gap@mybeers.fr',
-            'siretMagasin' => '',
-            'codeINSEEVille' => '05061',
-            'idResponsable' => $resp3,
-            'idType'=> $type2,
-            'idCategorie' =>  $cat3
-        ]);
 
-        $mag4 = DB::table('magasin')->insertGetId([
-            'nomMagasin' => 'Burger And Grill\'s',
-            'adresse1Magasin' => '8',
-            'adresse2Magasin' => 'Place du Revelly',
-            'latMagasin' => 44.5609758,
-            'longMagasin' => 6.08006720000003,
-            'mailMagasin' => 'gap@burgerandgrills.fr',
-            'siretMagasin' => '80405805500018',
-            'codeINSEEVille' => '05061',
-            'idResponsable' => $resp2,
-            'idType'=> $type3
-        ]);
-
-        $mag5 = DB::table('magasin')->insertGetId([
-            'nomMagasin' => 'Chez Fred',
-            'adresse1Magasin' => '10',
-            'adresse2Magasin' => 'Boulevard de la Libération',
-            'latMagasin' => 44.56113799999999,
-            'longMagasin' => 6.078820700000051,
-            'mailMagasin' => 'gap@chezfred.fr',
-            'siretMagasin' => '',
-            'codeINSEEVille' => '05061',
-            'idResponsable' => $resp1,
-            'idType'=> $type3
-        ]);
-
-        /**Promotion**/
-        $promo1 = DB::table('promotion')->insertGetId([
-            'dateDebutPromo' => '2019-01-15',
-            'dateFinPromo' => '2019-01-31',
-            'libPromo' => 'Toutes les pressions à -50% avant 20h',
+        /**Promotion
+        $promo1 = DB::table('promotions')->insertGetId([
+            'dateDebutPromo' => '2019-02-10',
+            'dateFinPromo' => '2019-02-24',
+            'libPromo' => 'C\'est la Saint-Valentin ! Alors profiter de -20% sur tous les accessoires pour lui et pour elle',
             'etatPromo' => 1,
-            'codePromo' => 'TBL',
-            'codeAvisPromo' => 'Gu1',
+            'codePromo' => 'STV',
+            'codeAvisPromo' => '5pY',
             'idMagasin' => $mag2
         ]);
 
-        $promo2 = DB::table('promotion')->insertGetId([
+        $promo2 = DB::table('promotions')->insertGetId([
             'dateDebutPromo' => '2019-01-01',
             'dateFinPromo' => '2019-01-13',
             'libPromo' => 'Toutes les pizzas sont à -20%',
@@ -165,7 +151,7 @@ class ValueSeeder extends Seeder
             'idMagasin' => $mag5
         ]);
 
-        $promo3 = DB::table('promotion')->insertGetId([
+        $promo3 = DB::table('promotions')->insertGetId([
             'dateDebutPromo' => '2019-01-21',
             'dateFinPromo' => '2019-02-21',
             'libPromo' => 'GigaTacos à -10% pour les étudiants',
@@ -175,26 +161,27 @@ class ValueSeeder extends Seeder
             'idMagasin' => $mag4
         ]);
 
-        /**Adhésion**/
-        DB::table('adhesion')->insertGetId([
+        /**Adhésion
+        DB::table('adhesions')->insertGetId([
             'Promotion_idPromo' => $promo1,
             'Internaute_idInternaute' => $internaute2,
             'noteAdhesion' => 4,
             'commentaireAdhesion' => 'La bière était trop bonnes, vive la Guiness!'
         ]);
 
-        DB::table('adhesion')->insertGetId([
+        DB::table('adhesions')->insertGetId([
             'Promotion_idPromo' => $promo2,
             'Internaute_idInternaute' => $internaute1,
             'noteAdhesion' => 1,
             'commentaireAdhesion' => 'De toute façon elles sont pas bonnes les pizzas'
         ]);
 
-        DB::table('adhesion')->insertGetId([
+        DB::table('adhesions')->insertGetId([
             'Promotion_idPromo' => $promo1,
             'Internaute_idInternaute' => $internaute3,
             'noteAdhesion' => 3,
             'commentaireAdhesion' => 'Cool'
-        ]);
+        ]);**/
+
     }
 }

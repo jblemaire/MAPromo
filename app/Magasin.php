@@ -7,22 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Magasin extends Model
 {
     public function type(){
-        return $this->belongsTo('App\Type');
+        return $this->belongsTo(Type::class);
     }
 
     public function categorie(){
-        return $this->belongsTo('App\Categorie');
+        return $this->belongsTo(Categorie::class);
     }
 
     public function ville(){
-        return $this->belongsTo('App\Ville');
+        return $this->belongsTo(Ville::class);
     }
 
-    public function responsable(){
-        return $this->belongsTo('App\Responsable');
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
-    public function promotion(){
-        return $this->hasMany('App\Promotion');
+    public function promotions(){
+        return $this->hasMany(Promotion::class);
     }
 }

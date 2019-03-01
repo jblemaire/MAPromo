@@ -1,4 +1,4 @@
-INSERT INTO `departement` (`idDepartement`, `libDepartement`) VALUES
+INSERT INTO `departements` (`idDepartement`, `libDepartement`) VALUES
 ('01', 'Ain'),
 ('02', 'Aisne'),
 ('03', 'Allier'),
@@ -102,7 +102,7 @@ INSERT INTO `departement` (`idDepartement`, `libDepartement`) VALUES
 ('975', 'Saint-Pierre-et-Miquelon'),
 ('976', 'Mayotte');
 
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('01284', '01', 'Ozan', '01190', 500, 4.91667, 46.3833),
 ('01123', '01', 'Cormoranche-sur-Saône', '01290', 1000, 4.83333, 46.2333),
 ('01298', '01', 'Plagne', '01130', 100, 5.73333, 46.1833),
@@ -925,7 +925,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('02063', '02', 'Bellenglise', '02420', 400, 3.25, 49.9167),
 ('02150', '02', 'Cerny-en-Laonnois', '02860', 100, 3.66667, 49.45),
 ('02519', '02', 'Montloué', '02340', 200, 4.06667, 49.6667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('02678', '02', 'Sainte-Geneviève', '02340', 100, 4.07139, 49.7195),
 ('02544', '02', 'Neuve-Maison', '02500', 600, 4.03333, 49.9333),
 ('02085', '02', 'Bézu-Saint-Germain', '02400', 700, 3.4, 49.1),
@@ -1749,7 +1749,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('04065', '04', 'Cruis', '04230', 600, 5.83333, 44.0667),
 ('04096', '04', 'Jausiers', '04850', 1100, 6.73333, 44.4167),
 ('04111', '04', 'Mane', '04300', 1400, 5.76667, 43.9333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('04081', '04', 'Esparron-de-Verdon', '04550', 400, 5.98333, 43.7333),
 ('04208', '04', 'Simiane-la-Rotonde', '04150', 600, 5.56667, 43.9833),
 ('04126', '04', 'Montclar', '04140', 500, 6.33333, 44.4),
@@ -2567,7 +2567,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('08142', '08', 'Donchery', '08350', 2400, 4.86667, 49.7),
 ('08278', '08', 'Marquigny', '08390', 100, 4.7, 49.55),
 ('08109', '08', 'Chatel-Chéhéry', '08250', 200, 4.95, 49.2833);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('08370', '08', 'Rouvroy-sur-Audry', '08150', 600, 4.48333, 49.7833),
 ('08454', '08', 'Touligny', '08430', 100, 4.63333, 49.6667),
 ('08037', '08', 'Auvillers-les-Forges', '08260', 900, 4.35, 49.8667),
@@ -3403,7 +3403,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('10262', '10', 'Neuville-sur-Seine', '10250', 400, 4.41667, 48.0333),
 ('10065', '10', 'Brillecourt', '10240', 100, 4.36667, 48.4667),
 ('10077', '10', 'Champigny-sur-Aube', '10700', 100, 4.06667, 48.5667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('10157', '10', 'La Fosse-Corduan', '10100', 200, 3.65, 48.45),
 ('10408', '10', 'Viâpres-le-Petit', '10380', 100, 4.03333, 48.5667),
 ('10425', '10', 'Villery', '10320', 300, 4.01667, 48.1667),
@@ -4221,7 +4221,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('12053', '12', 'La Capelle-Balaguier', '12260', 300, 1.93333, 44.4333),
 ('12278', '12', 'Tayrac', '12440', 200, 2.23333, 44.2),
 ('12194', '12', 'Quins', '12800', 800, 2.36667, 44.2333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('12164', '12', 'Mur-de-Barrez', '12600', 800, 2.65, 44.85),
 ('12001', '12', 'Agen-d\'Aveyron', '12630', 1100, 2.68333, 44.3667),
 ('12077', '12', 'Cornus', '12540', 500, 3.16667, 43.9),
@@ -5016,7 +5016,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('14128', '14', 'Campandré-Valcongrain', '14260', 100, -0.583333, 48.9833),
 ('14457', '14', 'Moutiers-en-Auge', '14620', 100, -0.016667, 48.9),
 ('14557', '14', 'Saint-Arnoult', '14800', 1100, 0.083333, 49.3333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('14569', '14', 'Sainte-Croix-sur-Mer', '14480', 200, -0.516667, 49.3167),
 ('14416', '14', 'Le Mesnil-Caussois', '14380', 100, -1.01667, 48.85),
 ('14089', '14', 'Bougy', '14210', 400, -0.516667, 49.1167),
@@ -5821,7 +5821,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('16138', '16', 'Fléac', '16730', 3500, 0.1, 45.6667),
 ('16157', '16', 'Le Grand-Madieu', '16450', 200, 0.433333, 45.9333),
 ('16226', '16', 'Montignac-Charente', '16330', 700, 0.116667, 45.7833);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('16092', '16', 'Chavenat', '16320', 200, 0.166667, 45.45),
 ('16255', '16', 'Parzac', '16450', 100, 0.416667, 45.9333),
 ('16162', '16', 'Gurat', '16320', 200, 0.266667, 45.4333),
@@ -6623,7 +6623,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('18134', '18', 'Lury-sur-Arnon', '18120', 700, 2.05, 47.1167),
 ('18019', '18', 'Azy', '18220', 500, 2.71667, 47.1833),
 ('18003', '18', 'Aix-d\'Angillon', '18220', 1900, 2.56667, 47.2);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('18247', '18', 'Savigny-en-Septaine', '18390', 700, 2.55, 47.0333),
 ('18191', '18', 'Raymond', '18130', 200, 2.68333, 46.9667),
 ('18099', '18', 'Garigny', '18140', 200, 2.9, 47.0833),
@@ -7438,7 +7438,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('21240', '21', 'Échevannes', '21120', 200, 5.16667, 47.5333),
 ('21332', '21', 'Labergement-lès-Seurre', '21820', 900, 5.08333, 47),
 ('21230', '21', 'Diénay', '21120', 300, 5.06667, 47.5167);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('21527', '21', 'La Rochepot', '21340', 300, 4.68333, 46.95),
 ('21118', '21', 'Busserotte-et-Montenaille', '21580', 0, 4.97667, 47.6631),
 ('21562', '21', 'Saint-Maurice-sur-Vingeanne', '21610', 200, 5.4, 47.5833),
@@ -8255,7 +8255,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('23046', '23', 'Chambonchard', '23110', 100, 2.55, 46.1833),
 ('23109', '23', 'Linard', '23220', 200, 1.86667, 46.3667),
 ('23014', '23', 'Azat-Châtenet', '23210', 100, 1.76667, 46.0667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('23004', '23', 'Anzême', '23000', 600, 1.86667, 46.2667),
 ('23151', '23', 'Peyrat-la-Nonière', '23130', 500, 2.25, 46.0833),
 ('23115', '23', 'Magnat-l\'Étrange', '23260', 200, 2.28333, 45.7833),
@@ -9047,7 +9047,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('25187', '25', 'Dambelin', '25150', 500, 6.68333, 47.3833),
 ('25335', '25', 'Liebvillers', '25190', 200, 6.78333, 47.3333),
 ('25259', '25', 'Frasne', '25560', 1800, 6.15973, 46.8556);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('25136', '25', 'Chaucenne', '25170', 500, 5.9, 47.2833),
 ('25498', '25', 'Rognon', '25680', 0, 6.31667, 47.4167),
 ('25115', '25', 'Champagney', '25170', 300, 5.90584, 47.2559),
@@ -9868,7 +9868,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('26153', '26', 'Laborel', '26560', 100, 5.6, 44.2833),
 ('26068', '26', 'Le Chalon', '26350', 200, 5.08333, 45.15),
 ('26291', '26', 'Saint-Andéol', '26150', 100, 5.26667, 44.8);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('26077', '26', 'Charmes-sur-l\'Herbasse', '26260', 900, 5.01667, 45.1333),
 ('26320', '26', 'Saint-Nazaire-en-Royans', '26190', 700, 5.25, 45.0667),
 ('26346', '26', 'Suze', '26400', 300, 5.11667, 44.7667),
@@ -10656,7 +10656,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('28079', '28', 'Chapelle-Royale', '28290', 400, 1.05, 48.15),
 ('28291', '28', 'Ouarville', '28150', 600, 1.76667, 48.35),
 ('28320', '28', 'Rouvray-Saint-Florentin', '28150', 200, 1.56667, 48.25);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('28170', '28', 'Garancières-en-Drouais', '28500', 300, 1.28333, 48.7),
 ('28156', '28', 'Fontaine-Simon', '28240', 900, 1.01667, 48.5),
 ('28421', '28', 'Voise', '28700', 300, 1.71667, 48.4),
@@ -11466,7 +11466,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('30084', '30', 'Codolet', '30200', 700, 4.7, 44.1167),
 ('30207', '30', 'Pouzilhac', '30210', 600, 4.58333, 44.05),
 ('30338', '30', 'Vallérargues', '30580', 100, 4.35, 44.1333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('30178', '30', 'Montfaucon', '30150', 1400, 4.75, 44.0833),
 ('30018', '30', 'Aspères', '30250', 500, 4.05, 43.8),
 ('30253', '30', 'Saint-Florent-sur-Auzonnet', '30960', 1100, 4.11667, 44.2333),
@@ -12286,7 +12286,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('32416', '32', 'Sarrant', '32120', 300, 0.916667, 43.7667),
 ('32066', '32', 'Brugnens', '32500', 300, 0.733333, 43.85),
 ('32392', '32', 'Saint-Martin-Gimois', '32450', 100, 0.816667, 43.5167);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('32131', '32', 'Flamarens', '32340', 100, 0.8, 44.0167),
 ('32154', '32', 'Homps', '32120', 100, 0.866667, 43.8167),
 ('32145', '32', 'Gée-Rivière', '32720', 0, -0.183333, 43.6667),
@@ -13093,7 +13093,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('33399', '33', 'Saint-Félix-de-Foncaude', '33540', 300, -0.116667, 44.65),
 ('33247', '33', 'Listrac-de-Durèze', '33790', 200, 0.05, 44.7667),
 ('33291', '33', 'Montagoudin', '33190', 200, 0.000277778, 44.5667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('33223', '33', 'Landerrouat', '33790', 200, 0.15898, 44.742),
 ('33523', '33', 'Targon', '33760', 1900, -0.266667, 44.7333),
 ('33238', '33', 'Léognan', '33850', 9000, -0.6, 44.7333),
@@ -13896,7 +13896,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('35127', '35', 'Guignen', '35580', 3200, -1.85, 47.9167),
 ('35124', '35', 'Grand-Fougeray', '35390', 2300, -1.73333, 47.7167),
 ('35070', '35', 'Châteauneuf-d\'Ille-et-Vilaine', '35430', 1100, 0.0702788, 48.5612);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('35006', '35', 'Argentré-du-Plessis', '35370', 4100, -1.15, 48.0667),
 ('35095', '35', 'Dol-de-Bretagne', '35120', 5000, -1.75, 48.55),
 ('35183', '35', 'Mondevert', '35370', 800, -1.1, 48.0833),
@@ -14706,7 +14706,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('38317', '38', 'Le Pont-de-Claix', '38800', 11500, 5.7, 45.1167),
 ('38264', '38', 'La Morte', '38350', 100, 5.85, 45.0333),
 ('38389', '38', 'Saint-Georges-d\'Espéranche', '38790', 3100, 5.06667, 45.55);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('38382', '38', 'Saint-Égrève', '38120', 15800, 5.68306, 45.2317),
 ('38126', '38', 'Corenc', '38700', 3800, 5.76667, 45.2167),
 ('38532', '38', 'Vénérieu', '38460', 600, 5.28333, 45.6667),
@@ -15540,7 +15540,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('40255', '40', 'Saint-Cricq-Villeneuve', '40190', 400, -0.35, 43.8833),
 ('40068', '40', 'Cassen', '40380', 500, -0.866667, 43.7667),
 ('40155', '40', 'Linxe', '40260', 1200, -1.25, 43.9167);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('40062', '40', 'Campet-et-Lamolère', '40090', 300, -0.6, 43.9167),
 ('40162', '40', 'Lucbardez-et-Bargues', '40090', 400, -0.4, 43.9667),
 ('40138', '40', 'Lacrabe', '40700', 200, -0.583333, 43.6167),
@@ -16353,7 +16353,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('42175', '42', 'Pouilly-lès-Feurs', '42110', 1100, 4.23333, 45.8),
 ('42259', '42', 'Saint-Martin-la-Plaine', '42800', 3600, 4.6, 45.5333),
 ('42196', '42', 'Sainte-Agathe-en-Donzy', '42510', 100, 4.31667, 45.8333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('42045', '42', 'La Chambonie', '42440', 100, 3.75, 45.75),
 ('42332', '42', 'Villerest', '42300', 4400, 4.03667, 45.9934),
 ('42275', '42', 'Saint-Priest-en-Jarez', '42270', 6100, 4.36667, 45.4667),
@@ -17151,7 +17151,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('45183', '45', 'Lion-en-Beauce', '45410', 100, 1.93333, 48.1333),
 ('45156', '45', 'Girolles', '45120', 700, 2.71667, 48.0667),
 ('45171', '45', 'Isdes', '45620', 600, 2.25, 47.6667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('45134', '45', 'Épieds-en-Beauce', '45130', 1400, 1.61667, 47.95),
 ('45187', '45', 'Lorris', '45260', 2900, 2.51667, 47.8833),
 ('45336', '45', 'Viglain', '45600', 900, 2.3, 47.7333),
@@ -17969,7 +17969,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('48116', '48', 'Le Pont-de-Montvert', '48220', 300, 3.75, 44.3667),
 ('48067', '48', 'Gabriac', '48110', 100, 3.73333, 44.1833),
 ('48164', '48', 'Saint-Julien-du-Tournel', '48190', 100, 3.66667, 44.4833);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('48157', '48', 'Sainte-Hélène', '48190', 100, 3.60278, 44.5192),
 ('48146', '48', 'Sainte-Enimie', '48210', 500, 3.41667, 44.3667),
 ('48062', '48', 'Fontanès', '48300', 100, 3.78333, 44.7667),
@@ -18750,7 +18750,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('50319', '50', 'Le Mesnil-Raoult', '50420', 400, -1.06667, 49.0333),
 ('50262', '50', 'La Lande-d\'Airou', '50800', 500, -1.28333, 48.8167),
 ('50200', '50', 'Ger', '50850', 900, -0.8, 48.6833);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('50073', '50', 'Branville-Hague', '50440', 200, -1.78333, 49.65),
 ('50473', '50', 'Saint-Georges-d\'Elle', '50680', 400, -0.966667, 49.15),
 ('50584', '50', 'Subligny', '50870', 300, -1.36667, 48.75),
@@ -19557,7 +19557,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('51051', '51', 'Berméricourt', '51220', 100, 3.98333, 49.35),
 ('51308', '51', 'Jonchery-sur-Vesle', '51140', 2000, 3.81667, 49.2833),
 ('51305', '51', 'Janvry', '51390', 100, 3.88333, 49.25);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('51657', '51', 'Vrigny', '51390', 200, 3.91667, 49.2333),
 ('51562', '51', 'Taissy', '51500', 2300, 4.1, 49.2167),
 ('51586', '51', 'Unchair', '51170', 200, 3.75, 49.2833),
@@ -20360,7 +20360,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('53041', '53', 'Brains-sur-les-Marches', '53350', 200, -1.18333, 47.8833),
 ('53212', '53', 'Saint-Denis-du-Maine', '53170', 400, -0.533333, 47.9667),
 ('53046', '53', 'Le Buret', '53170', 300, -0.516667, 47.9167);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('53067', '53', 'Chémeré-le-Roi', '53340', 500, -0.433333, 47.9833),
 ('53074', '53', 'Contest', '53100', 900, -0.65, 48.2667),
 ('53135', '53', 'Livré-la-Touche', '53400', 800, -0.966667, 47.8833),
@@ -21180,7 +21180,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('55438', '55', 'Romagne-sous-Montfaucon', '55110', 200, 5.08333, 49.3333),
 ('55570', '55', 'Villotte-sur-Aire', '55260', 200, 5.35, 48.85),
 ('55239', '55', 'Haumont-près-Samogneux', '55100', 0, 5.35251, 49.2728);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('55229', '55', 'Han-sur-Meuse', '55300', 300, 5.53333, 48.8667),
 ('55033', '55', 'Baulny', '55270', 0, 5.01667, 49.2667),
 ('55073', '55', 'Bras-sur-Meuse', '55100', 700, 5.38333, 49.2167),
@@ -21998,7 +21998,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('57651', '57', 'Siersthal', '57410', 600, 7.35, 49.0333),
 ('57299', '57', 'Hartzviller', '57870', 900, 7.08333, 48.6667),
 ('57403', '57', 'Liéhon', '57420', 100, 6.25, 49);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('57112', '57', 'Brouck', '57220', 100, 6.51667, 49.1333),
 ('57527', '57', 'Orny', '57420', 400, 6.25, 49.0167),
 ('57203', '57', 'Évrange', '57570', 200, 6.2, 49.5),
@@ -22834,7 +22834,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('59187', '59', 'Éclaibes', '59330', 300, 3.93333, 50.2),
 ('59654', '59', 'Waziers', '59119', 7700, 3.11667, 50.3833),
 ('59233', '59', 'Flaumont-Waudrechies', '59440', 400, 3.96861, 50.1262);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('59181', '59', 'Dourlers', '59440', 500, 3.93333, 50.1667),
 ('59216', '59', 'Eswars', '59400', 400, 3.26667, 50.2167),
 ('59395', '59', 'Mazinghien', '59360', 300, 3.6, 50.05),
@@ -23658,7 +23658,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('60452', '60', 'Neuville-Bosc', '60119', 500, 2.01667, 49.2),
 ('60302', '60', 'Haudivillers', '60510', 800, 2.25, 49.4833),
 ('60195', '60', 'Delincourt', '60240', 500, 1.83333, 49.25);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('60068', '60', 'Béthisy-Saint-Pierre', '60320', 3200, 2.81667, 49.3),
 ('60645', '60', 'Trie-la-Ville', '60590', 300, 1.83333, 49.3),
 ('60395', '60', 'Méru', '60110', 12800, 2.13333, 49.2333),
@@ -24464,7 +24464,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('61234', '61', 'Lonrai', '61250', 1000, 0.033333, 48.4667),
 ('61034', '61', 'Beaulieu', '61190', 200, 0.741667, 48.6833),
 ('61126', '61', 'Coulonges-sur-Sarthe', '61170', 500, 0.4, 48.5333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('61219', '61', 'La Lande-Saint-Siméon', '61100', 100, -0.433333, 48.8167),
 ('61509', '61', 'Vingt-Hanaps', '61250', 400, 0.133333, 48.5167),
 ('61267', '61', 'Ménil-Hermei', '61210', 200, -0.316667, 48.8333),
@@ -25279,7 +25279,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('62502', '62', 'Lestrem', '62136', 4100, 2.68333, 50.6167),
 ('62309', '62', 'Esquerdes', '62380', 1600, 2.18333, 50.7),
 ('62246', '62', 'Coupelle-Neuve', '62310', 200, 2.11667, 50.5);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('62013', '62', 'Agny', '62217', 1900, 2.76667, 50.2667),
 ('62815', '62', 'Tigny-Noyelle', '62180', 200, 1.7, 50.35),
 ('62038', '62', 'Ardres', '62610', 4200, 1.98333, 50.85),
@@ -26097,7 +26097,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('64509', '64', 'Sauguis-Saint-Étienne', '64470', 200, -0.883333, 43.15),
 ('64279', '64', 'Itxassou', '64250', 2000, -1.4, 43.3167),
 ('64015', '64', 'Alçay-Alçabéhéty-Sunharette', '64470', 200, -0.908889, 43.095);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('64551', '64', 'Verdets', '64400', 300, -0.65, 43.2333),
 ('64188', '64', 'Chéraute', '64130', 1200, -0.85, 43.2333),
 ('64134', '64', 'Bonloc', '64240', 400, -1.26667, 43.3667),
@@ -26934,7 +26934,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('65123', '65', 'Campan', '65710', 1500, 0.166667, 43.0167),
 ('65079', '65', 'Bégole', '65190', 200, 0.333333, 43.15),
 ('65199', '65', 'Germ', '65510', 100, 0.433333, 42.8);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('65077', '65', 'Beaucens', '65400', 400, -0.05, 42.9667),
 ('65272', '65', 'Lhez', '65190', 100, 0.2, 43.2),
 ('65122', '65', 'Camous', '65410', 0, 0.383333, 42.95),
@@ -27764,7 +27764,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('67505', '67', 'La Vancelle', '67730', 400, 7.3, 48.2833),
 ('67292', '67', 'Mietesheim', '67580', 600, 7.65, 48.8833),
 ('67554', '67', 'Wolxheim', '67120', 900, 7.5, 48.5667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('67126', '67', 'Erckartswiller', '67290', 300, 7.36667, 48.8667),
 ('67460', '67', 'Schwindratzheim', '67270', 1600, 7.6, 48.75),
 ('67349', '67', 'Oberrœdern', '67250', 500, 7.96667, 48.9167),
@@ -28580,7 +28580,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('70032', '70', 'Attricourt', '70100', 0, 5.4, 47.4833),
 ('70438', '70', 'Ray-sur-Saône', '70130', 200, 5.83333, 47.5833),
 ('70569', '70', 'Vilory', '70240', 100, 6.23333, 47.7167);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('70104', '70', 'Bucey-lès-Gy', '70700', 700, 5.85, 47.4167),
 ('70106', '70', 'Buffignécourt', '70500', 100, 6.01667, 47.8167),
 ('70541', '70', 'Velorcey', '70300', 200, 6.25, 47.7833),
@@ -29393,7 +29393,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('71291', '71', 'Melay', '71340', 900, 4.01695, 46.2137),
 ('71578', '71', 'La Villeneuve', '71270', 200, 5.16667, 46.95),
 ('71076', '71', 'Chalon-sur-Saône', '71100', 46000, 4.85, 46.7833);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('71506', '71', 'Savigny-en-Revermont', '71580', 1100, 5.41667, 46.6333),
 ('71541', '71', 'Torpes', '71270', 400, 5.33333, 46.8333),
 ('71363', '71', 'Le Puley', '71460', 100, 4.55, 46.6833),
@@ -30191,7 +30191,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('73265', '73', 'Saint-Ours', '73410', 500, 6, 45.75),
 ('73193', '73', 'Ontex', '73310', 100, 5.81667, 45.75),
 ('73234', '73', 'Saint-François-de-Sales', '73340', 100, 6.05, 45.6833);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('73118', '73', 'Francin', '73800', 900, 6.03333, 45.5),
 ('73208', '73', 'Pugny-Chatenod', '73100', 900, 5.95, 45.7),
 ('73128', '73', 'Grésy-sur-Aix', '73100', 3700, 5.95, 45.7167),
@@ -30995,7 +30995,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('76721', '76', 'Varneville-Bretteville', '76890', 300, 1.05, 49.65),
 ('76597', '76', 'Saint-Laurent-en-Caux', '76560', 800, 0.883333, 49.75),
 ('76613', '76', 'Saint-Martin-aux-Buneaux', '76450', 700, 0.55, 49.8333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('76087', '76', 'Berville', '76560', 500, 0.833333, 49.7167),
 ('76045', '76', 'Auzouville-l\'Esneval', '76760', 400, 0.883333, 49.6333),
 ('76440', '76', 'Molagnies', '76220', 200, 1.7225, 49.5203),
@@ -31789,7 +31789,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('77233', '77', 'Iverny', '77165', 600, 2.78333, 49),
 ('77232', '77', 'Isles-lès-Villenoy', '77450', 900, 2.83333, 48.9167),
 ('77511', '77', 'Villeneuve-sous-Dammartin', '77230', 600, 2.63333, 49.0333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('77331', '77', 'Nanteuil-sur-Marne', '77730', 500, 3.21667, 48.9833),
 ('77441', '77', 'Samois-sur-Seine', '77920', 2100, 2.75, 48.45),
 ('77367', '77', 'Le Plessis-Placy', '77440', 300, 3, 49.0667),
@@ -32593,7 +32593,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('80310', '80', 'Fienvillers', '80750', 600, 2.23333, 50.1167),
 ('80686', '80', 'Rubempré', '80260', 800, 2.38333, 50.0167),
 ('80188', '80', 'Chaussoy-Epagny', '80250', 600, 2.33333, 49.7333);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('80615', '80', 'Ovillers-la-Boisselle', '80300', 400, 2.69778, 50.0314),
 ('80008', '80', 'Aigneville', '80210', 900, 1.61667, 50.0333),
 ('80698', '80', 'Saint-Aubin-Montenoy', '80540', 200, 1.98333, 49.85),
@@ -33418,7 +33418,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('81054', '81', 'Cambounet-sur-le-Sor', '81580', 800, 2.11667, 43.5833),
 ('81244', '81', 'Saint-Benoît-de-Carmaux', '81400', 2100, 2.13333, 44.05),
 ('81273', '81', 'Saïx', '81710', 3300, 2.18333, 43.5833);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('81186', '81', 'Moularès', '81190', 300, 2.3, 44.0667),
 ('81320', '81', 'Vindrac-Alayrac', '81170', 100, 1.91667, 44.0667),
 ('81059', '81', 'Carlus', '81990', 700, 2.11667, 43.8833),
@@ -34224,7 +34224,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('85160', '85', 'Nesmy', '85310', 2500, -1.4, 46.5833),
 ('85014', '85', 'Bazoges-en-Pareds', '85390', 1200, -0.9, 46.65),
 ('85109', '85', 'Herbiers', '85500', 14800, -1.01667, 46.8667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('85063', '85', 'Châtelliers-Châteaumur', '85700', 700, -0.819722, 46.8553),
 ('85254', '85', 'Saint-Mesmin', '85700', 1900, -0.733333, 46.8),
 ('85110', '85', 'L\'Hermenault', '85570', 900, -0.916667, 46.5167),
@@ -35034,7 +35034,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('88410', '88', 'Sainte-Barbe', '88700', 300, 6.72251, 48.3964),
 ('88425', '88', 'Saint-Maurice-sur-Mortagne', '88700', 200, 6.58333, 48.3833),
 ('88372', '88', 'Raon-l\'Étape', '88110', 6700, 6.85, 48.4);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('88192', '88', 'Gelvécourt-et-Adompt', '88270', 100, 6.18333, 48.2),
 ('88002', '88', 'Ahéville', '88500', 100, 6.2, 48.2833),
 ('88426', '88', 'Saint-Maurice-sur-Moselle', '88560', 1500, 6.79167, 47.8667),
@@ -35864,7 +35864,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('91222', '91', 'Estouches', '91660', 200, 2.13333, 48.3),
 ('91201', '91', 'Draveil', '91210', 28700, 2.41667, 48.6833),
 ('91374', '91', 'Marolles-en-Beauce', '91150', 200, 2.2, 48.3667);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('91386', '91', 'Mennecy', '91540', 13200, 2.43333, 48.5667),
 ('91286', '91', 'Grigny', '91350', 27200, 2.38333, 48.65),
 ('91649', '91', 'Vert-le-Petit', '91710', 2500, 2.36667, 48.55),
@@ -36674,7 +36674,7 @@ INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `
 ('2B318', '2B', 'Taglio-Isolaccio', '20230', 500, 9.46973, 42.435),
 ('2B286', '2B', 'Sorbo-Ocagnano', '20213', 700, 9.45695, 42.4756),
 ('2B077', '2B', 'Castellare-di-Casinca', '20213', 600, 9.47334, 42.4678);
-INSERT INTO `Ville` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
+INSERT INTO `villes` (`codeINSEEVille`, `idDepartement`, `nomVille`, `cpVille`, `popVille`, `longVille`, `latVille`) VALUES
 ('2B207', '2B', 'Penta-di-Casinca', '20213', 2900, 9.45973, 42.4675),
 ('2B245', '2B', 'Porri', '20215', 100, 9.43362, 42.4528),
 ('2B346', '2B', 'Vescovato', '20215', 2300, 9.44001, 42.4942),

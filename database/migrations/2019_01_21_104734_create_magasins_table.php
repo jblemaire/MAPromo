@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMagasinTable extends Migration
+class CreateMagasinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateMagasinTable extends Migration
      */
     public function up()
     {
-        Schema::create('magasin', function (Blueprint $table) {
+        Schema::create('magasins', function (Blueprint $table) {
             /**Column**/
             $table->integer('idMagasin')->autoIncrement();
             $table->string('nomMagasin');
             $table->string('adresse1Magasin');
             $table->string('adresse2Magasin');
-            $table->float('latMagasin');
-            $table->float('longMagasin');
+            $table->decimal('latMagasin', 10, 8);
+            $table->decimal('longMagasin', 10,8);
             $table->string('mailMagasin')->unique();
             $table->string('telMagasin')->nullable();
             $table->string('siretMagasin');
@@ -30,13 +30,14 @@ class CreateMagasinTable extends Migration
             $table->integer('idResponsable');
             $table->integer('idType');
             $table->integer('idCategorie')->nullable();
+            $table->timestamps();
             $table->softDeletes();
 
             /**Index**/
-            $table->foreign('codeINSEEVille')->references('codeINSEEVille')->on('Ville');
-            $table->foreign('idResponsable')->references('idResponsable')->on('Responsable');
-            $table->foreign('idType')->references('idType')->on('Type');
-            $table->foreign('idCategorie')->references('idCategorie')->on('Categorie');
+            $table->foreign('codeINSEEVille')->references('codeINSEEVille')->on('villes');
+            $table->foreign('idResponsable')->references('idUser')->on('users');
+            $table->foreign('idType')->references('idType')->on('types');
+            $table->foreign('idCategorie')->references('idCategorie')->on('categories');
 
         });
     }
@@ -48,6 +49,6 @@ class CreateMagasinTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('magasin');
+        Schema::dropIfExists('magasins');
     }
 }

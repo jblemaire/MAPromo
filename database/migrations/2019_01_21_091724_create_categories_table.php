@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategorieTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateCategorieTable extends Migration
      */
     public function up()
     {
-        Schema::create('categorie', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             /**Column**/
             $table->integer('idCategorie')->autoIncrement();
             $table->string('libCategorie');
             $table->integer('idType');
 
             /**Index**/
-            $table->foreign('idType')->references('idType')->on('Type'); //clé étrangere
+            $table->foreign('idType')->references('idType')->on('types'); //clé étrangere
 
         });
     }
@@ -32,6 +32,6 @@ class CreateCategorieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorie');
+        Schema::dropIfExists('categories');
     }
 }

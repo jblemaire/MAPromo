@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Promotion extends Model
 {
     public function magasin(){
-        return $this->belongsTo('App\Magasin');
+        return $this->belongsTo(Magasin::class);
     }
 
-    public function internaute(){
-        return $this->belongstoMany('App\Internaute')->using('App\Adhesion');
+    public function internautes(){
+        return $this->belongstoMany(User::class)->using(Adhesion::class);
     }
+
 }
