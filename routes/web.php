@@ -36,14 +36,11 @@ Route::get('/register/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('/register/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
 
 /**Responsable Part**/
-Route::get('magasins/', function (){
-    return view ('magasins',[
-        'title' => 'Mes Magasins',
-        'types' => App\Type::get(),
-        'magasins' => App\Magasin::where('idResponsable', \Illuminate\Support\Facades\Auth::user()->idUser)->get()
-    ]);
-})->name('magasins')->middleware('responsable');
+Route::get('magasins/', 'ResponsableController@returnView')->name('magasins')->middleware('responsable');
 Route::post('magasins/addStore', 'ResponsableController@postStores')->name('add_magasin')->middleware('responsable');
+Route::get('magasins/update/{idMagasin}', 'ResponsableController@getUpdateStores')->name('update_magasin')->middleware('responsable');
+Route::get('magasins/update', 'ResponsableController@postUpdateStores')->name('update_magasin_post')->middleware('responsable');
+
 
 
 /**Admin Part**/

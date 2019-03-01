@@ -23,6 +23,8 @@ class Magasin extends Model
         'mailMagasin',
         'telMagasin',
         'siretMagasin',
+        'photo1Magasin',
+        'photo2Magasin',
         'codeINSEEVille',
         'idResponsable',
         'idType',

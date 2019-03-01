@@ -8,7 +8,7 @@
     </div>
     <div class="collapse" id="formAddMagasin">
         <div class="card card-body">
-            <form class="form-horizontal" method="POST" action="{{route('add_magasin')}}">
+            <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{route('add_magasin')}}">
                 {{ csrf_field() }}
 
                 <div class="form-group">
@@ -113,10 +113,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="photosMag" class="col-md-4 control-label">Photos</label>
+                    <label for="photo1Mag" class="col-md-4 control-label">Photo 1</label>
 
                     <div class="col-md-6">
-                        <input id="photosMag" type="file" class="form-control" name="photosMag" value="{{ old('photosMag') }}" autofocus>
+                        <input id="photo1Mag" type="file" class="form-control" name="photo1Mag" value="{{ old('photo1Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo2Mag" class="col-md-4 control-label">Photo 2</label>
+
+                    <div class="col-md-6">
+                        <input id="photo2Mag" type="file" class="form-control" name="photo2Mag" value="{{ old('photo2Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
                     </div>
                 </div>
 
@@ -130,8 +138,61 @@
             </form>
         </div>
     </div>
-    @foreach($magasins as $magasin)
-        {{$magasin->idMagasin}}
-    @endforeach
 
+    <div id="magasins">
+        <?php $cpt = 0; ?>
+        <div class="row">
+        @foreach($magasins as $magasin)
+            <div class="col-sm-6">
+                <div class="card" >
+                    @if($magasin->photo1Magasin || $magasin->photo2Magasin)
+                    <div id="carouselStores{{$magasin->idMagasin}}" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @if($magasin->photo1Magasin)
+                                <div class="carousel-item active" style="height: 250px">
+                                    <img class="d-block w-100" src="{{'\img\stores\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'\\'.$magasin->photo1Magasin}}" alt="Image 1">
+                                </div>
+                            @endif
+                            @if($magasin->photo2Magasin)
+                                <div class="carousel-item" style="height: 250px">
+                                    <img class="d-block w-100" src="{{'\img\stores\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'\\'.$magasin->photo2Magasin}}" alt="Image 2">
+                                </div>
+                            @endif
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselStores{{$magasin->idMagasin}}" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselStores{{$magasin->idMagasin}}" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    @endif
+                    <div class="card-body">
+                        <h5 class="card-title">{{$magasin->nomMagasin}}</h5>
+                        <h6 class="card-subtitle mb-2">{{$magasin->adresse1Magasin}} {{$magasin->adresse2Magasin}}</h6>
+                        <h6 class="card-subtitle mb-2">{{$magasin->cpVille}} {{$magasin->nomVille}}</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Mail : {{$magasin->mailMagasin}}</li>
+                            @if($magasin->telMagasin)
+                                <li class="list-group-item">Tel : {{$magasin->telMagasin}}</li>
+                            @endif
+                            <li class="list-group-item">Type : {{$magasin->libType}}</li>
+                            @if($magasin->idCategorie)
+                                <li class="list-group-item">Categorie : {{$magasin->libCategorie}}</li>
+                            @endif
+                        </ul>
+                        <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Modifier</a>
+                    </div>
+                </div>
+            </div>
+                <?php $cpt++; ?>
+            @if($cpt%2 === 0)
+        </div>
+        <div class="row">
+            @endif
+        @endforeach
+        </div>
+    </div>
 @endsection
