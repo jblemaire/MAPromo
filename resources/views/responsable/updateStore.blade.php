@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="post" action="{{ route('update_magasin_post') }}">
+    <form method="post" enctype="multipart/form-data" action="{{ route('update_magasin_post') }}">
 
         {{ csrf_field() }}
 
@@ -93,9 +93,9 @@
 
             <div class="col-md-6">
                 <select class="form-control" aria-label="Type" aria-describedby="button-addon2" id="selectType" name="selectType" onchange="searchCategories()">
-                    <option disabled {{$magasin->idCategorie ? '' : 'selected'}}>--Choisir un type--</option>
+                    <option disabled>--Choisir un type--</option>
                     @foreach($types as $type)
-                        <option value="{{$type->idType}}" {{$magasin->idType == $type->idType ? 'selected' : ''}}>{{$type->libType}}</option>
+                        <option value="{{$type->idType}}" {{$magasin->idType == $type->idType ? 'selected' : ''}}>{{$type->libType}} </option>
                     @endforeach
                 </select>
             </div>
@@ -106,7 +106,7 @@
 
             <div class="col-md-6">
                 <select class="form-control" aria-label="Categorie" aria-describedby="button-addon2" name="selectCategorie" id="selectCategorie">
-                    <option {{$magasin->idCategorie ? '' : 'selected'}}>--Choisir une categorie--</option>
+                    <option {{$magasin->idCategorie ? '' : 'selected'}} value="">--Choisir une categorie--</option>
                     @foreach($categories as $categorie)
                         <option value="{{$categorie->idCategorie}}" {{$magasin->idCategorie == $categorie->idCategorie ? 'selected' : ''}}>{{$categorie->libCategorie}}</option>
                     @endforeach

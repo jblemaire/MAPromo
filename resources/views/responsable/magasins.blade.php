@@ -184,6 +184,7 @@
                             @endif
                         </ul>
                         <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Modifier</a>
+                        <a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Supprimer</a>
                     </div>
                 </div>
             </div>

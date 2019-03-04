@@ -39,7 +39,8 @@ Route::get('/register/facebook/callback', 'Auth\RegisterController@handleProvide
 Route::get('magasins/', 'ResponsableController@returnView')->name('magasins')->middleware('responsable');
 Route::post('magasins/addStore', 'ResponsableController@postStores')->name('add_magasin')->middleware('responsable');
 Route::get('magasins/update/{idMagasin}', 'ResponsableController@getUpdateStores')->name('update_magasin')->middleware('responsable');
-Route::get('magasins/update', 'ResponsableController@postUpdateStores')->name('update_magasin_post')->middleware('responsable');
+Route::post('magasins/updateStore', 'ResponsableController@postUpdateStores')->name('update_magasin_post')->middleware('responsable');
+Route::get('magasins/deleteStore/{idMagasin}', 'ResponsableController@getDeleteStores')->name('delete_magasin')->middleware('responsable');
 
 
 
