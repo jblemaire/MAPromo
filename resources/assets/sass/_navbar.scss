@@ -1,0 +1,40 @@
+.navbar-header{
+    display: flex;
+}
+
+.navbar-brand{
+    padding: 0;
+}
+
+.navbar>.container{
+    display: block;
+}
+
+.navbar-default{
+    border: none;
+}
+
+.navbar-default .navbar-toggle:hover{
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle{
+    border-color: #fff;
+}
+
+.navbar-default .navbar-collapse{
+    border-color: #fff;
+}
+
+.button_header{
+    float: right;
+}
+
+.button_nav{
+    display: flex;
+    float: right;
+}
+
+.button_menu{
+    float: left;
+}

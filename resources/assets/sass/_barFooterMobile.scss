@@ -1,7 +1,13 @@
 .bar_mobile{
     display: flex;
+    background-color: $blanc;
 }
 
 .bar_mobile p{
     font-size: 15px;
+}
+
+.bar_mobile div{
+    margin: 10px;
+    text-align: center;
 }
