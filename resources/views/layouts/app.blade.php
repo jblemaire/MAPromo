@@ -15,6 +15,7 @@
 
     <footer>
         @include('includes.footer')
+        @include('layouts.barFooterMobile')
     </footer>
 
 </div>

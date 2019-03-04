@@ -22,7 +22,7 @@
                 <option value="">--Choisir une categorie--</option>
             </select>
         </div>
-        <div id="map" style="width:500px; height:500px;">
+        <div id="map">
             <script>
                 initMap()
             </script>

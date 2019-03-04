@@ -4,10 +4,9 @@
 
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <div>
+                    <a href="#"><svg><use xlink:href="../../assets/svg/sprite.svg#noun_Home_671857"/></svg></a>
+                </div>
             </button>
 
             <!-- Branding Image -->
