@@ -5,7 +5,7 @@
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                 <div>
-                    <a href="#"><svg><use xlink:href="../../assets/svg/sprite.svg#noun_Home_671857"/></svg></a>
+                <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Home_671857') }}"/></svg></a>
                 </div>
             </button>
 
@@ -13,6 +13,16 @@
             <a class="title navbar-brand" href="{{ url('/') }}">
                 {{ $title }}
             </a>
+
+            <div>
+                <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_notification_2184960') }}"/></svg></a>
+            </div>
+            <div>
+                <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_filters_1245150') }}"/></svg></a>
+            </div>
+            <div>
+                <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_notification_2184960') }}"/></svg></a>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
