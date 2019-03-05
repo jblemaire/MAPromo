@@ -1,6 +1,6 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar-default navbar-static-top">
     <div class="container">
-        <div class="navbar-header">
+        <div>
 
             <div class="button_menu">
                 <!-- Collapsed Hamburger -->

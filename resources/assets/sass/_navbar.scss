@@ -12,6 +12,7 @@
 
 .navbar-default{
     border: none;
+    margin-top: 10px;
 }
 
 .navbar-default .navbar-toggle:hover{
@@ -37,4 +38,9 @@
 
 .button_menu{
     float: left;
+}
+
+.navbar-toggle{
+    padding: 0px;
+    margin: 0px;
 }

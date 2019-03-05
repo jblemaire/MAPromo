@@ -8422,7 +8422,7 @@ button.close {
 }
 
 .bar_mobile div {
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
   text-align: center;
 }
 
@@ -8442,6 +8442,7 @@ button.close {
 
 .navbar-default {
   border: none;
+  margin-top: 10px;
 }
 
 .navbar-default .navbar-toggle:hover {
@@ -8469,6 +8470,11 @@ button.close {
 
 .button_menu {
   float: left;
+}
+
+.navbar-toggle {
+  padding: 0px;
+  margin: 0px;
 }
 
 .input-group {
