@@ -8339,7 +8339,11 @@ button.close {
   position: relative;
 }
 
-.search {
+#search {
+  display: none;
+}
+
+#filters {
   display: none;
 }
 
@@ -8426,6 +8430,10 @@ button.close {
   text-align: center;
 }
 
+.nav {
+  float: left;
+}
+
 .navbar-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8475,6 +8483,10 @@ button.close {
 .navbar-toggle {
   padding: 0px;
   margin: 0px;
+}
+
+#monCompte {
+  display: none;
 }
 
 .input-group {

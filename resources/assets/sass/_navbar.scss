@@ -1,3 +1,7 @@
+.nav{
+    float: left;
+}
+
 .navbar-header{
     display: flex;
 }
@@ -43,4 +47,8 @@
 .navbar-toggle{
     padding: 0px;
     margin: 0px;
+}
+
+#monCompte{
+    display: none;
 }

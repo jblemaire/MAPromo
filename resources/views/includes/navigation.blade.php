@@ -1,7 +1,6 @@
 <nav class="navbar-default navbar-static-top">
     <div class="container">
         <div>
-
             <div class="button_menu">
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
@@ -17,10 +16,10 @@
             </div>
 
             <div class="button_nav">
-                <div>
+                <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
                 </div>
-                <div>
+                <div onclick="filters()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_filters_1245150') }}"/></svg></a>
                 </div>
                 <div>
@@ -37,11 +36,12 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right" style="flex-direction: row">
-                <!-- Authentication Links -->
+                <div id="monCompte">
+                    <!-- Authentication Links -->
                 @if(Auth::user() && Auth::user()->idRole === 1)
                     <li><a href="{{route('admin')}}">Gestion des tables</a></li>
                 @endif
-            @guest
+                @guest
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexion">Connexion</button></li>
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscription">Inscription</button></li>
                 @else
@@ -53,7 +53,9 @@
                         </form>
                     </li>
                 @endguest
-
+                </div>
+                <li><a href="#">Mon compte</a></li>
+                <li><a href="#">Réglages</a></li>
                 <li><a href="#">À propos</a></li>
             </ul>
         </div>
