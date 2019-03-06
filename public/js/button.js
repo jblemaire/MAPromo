@@ -9,7 +9,7 @@ function search(){
 }
 
 function filters(){
-    let filters = documnt.getElementById('filters');
+    let filters = document.getElementById('filters');
     if(filters == "flex"){
         filters.style.display = "none";
     }

@@ -17,6 +17,13 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/categorie', function () {
+    return view('categorie',[
+        'title' => 'Categorie',
+        'types' => App\Type::get()
+    ]);
+});
+
 Auth::routes();
 
 Route::post('/city_search', 'HomeController@postCitiesSearch')->name('cities_search_post');
