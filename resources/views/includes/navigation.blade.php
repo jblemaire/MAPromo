@@ -29,16 +29,19 @@
                     <li><a href="{{route('admin')}}">Gestion des tables</a></li>
                 @elseif(Auth::user() && Auth::user()->idRole === 2)
                     <li><a href="">Mon compte</a></li>
+                    <li><a href="">Mes promotions</a></li>
                 @elseif(Auth::user() && Auth::user()->idRole === 3)
                     <li><a href="">Mon compte</a></li>
                     <li><a href="{{route('magasins')}}">Mes magasins</a></li>
+                    <li><a href="{{route('promotions')}}">Mes promotions</a></li>
                 @endif
 
             @guest
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexion">Connexion</button></li>
                     <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscription">Inscription</button></li>
                 @else
-                    <li><a href="{{ route('logout') }}"
+                    <li>
+                        <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Déconnexion</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

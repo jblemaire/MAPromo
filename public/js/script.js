@@ -6,7 +6,6 @@ function error(e){
 
 function searchVilles(){
     let input = document.getElementById('inputVille');
-
     if(input.value.length >= 3)
         axios.post('/city_search', {
             ville: input.value
@@ -51,36 +50,26 @@ function addDatalist(r){
 
 function setVille(latitude, longitude){
     map.setView([latitude, longitude], 13).addLayer(osm);
-    getStores();
 
     map.on('moveend', function(){
         if(latitude !== "" && longitude!=="") {
-            getStores();
+            let infos = map.getBounds();
+            let SW = infos['_southWest']; //Long et lat du Sud Ouest
+            let NE = infos['_northEast'];//Long et lat du Nord Est
+            let SW_send = SW['lat'] + '|' + SW['lng'];
+            let NE_send = NE['lat'] + '|' + NE['lng'];
+            axios.post('/stores_search', {
+                'SW': SW_send,
+                'NE': NE_send,
+            })
+                .then(addMarker)
+                .catch(error);
         }
     });
 }
 
-function getStores(){
-    let infos = map.getBounds();
-    let SW = infos['_southWest']; //Long et lat du Sud Ouest
-    let NE = infos['_northEast'];//Long et lat du Nord Est
-    let SW_send = SW['lat'] + '|' + SW['lng'];
-    let NE_send = NE['lat'] + '|' + NE['lng'];
-    let type = document.getElementById('selectType').value;
-    let cat = document.getElementById('selectCategorie').value;
-    axios.post('/stores_search', {
-        'SW': SW_send,
-        'NE': NE_send,
-        'type': type,
-        'categorie': cat
-    })
-        .then(addMarker)
-        .catch(error);
-}
-
 function addMarker(r){
     let res = r.data;
-    console.log(res);
     markersLayer.clearLayers();
     for (let i = 0; i < res.length; i++) {
         marker= L.marker([ res[i].latMagasin, res[i].longMagasin]);
@@ -92,25 +81,12 @@ function addMarker(r){
 
 function changeTypeInscription(value){
     let title = document.getElementById('titre-form');
-    let btnFb = document.getElementById('btnFb');
-    if(value==="2") {
+    if(value==="2")
         title.innerText = "Inscription Client";
-        btnFb.href = '/login/facebook';
-        btnFb.style.backgroundColor = "#007bff";
-        btnFb.style.borderColor = "#007bff";
-        btnFb.style.cursor = "pointer";
-    }
-    else if (value==="3") {
+    else if (value==="3")
         title.innerText = "Inscription Responsable de Magasin";
-        btnFb.href = 'javascript: void(0)';
-        btnFb.style.backgroundColor= "grey";
-        btnFb.style.borderColor = "grey";
-        btnFb.style.cursor = "not-allowed";
-        console.log(btnFb.disabled);
-    }
     let inputType = document.getElementById('type');
     inputType.value = value;
-
 
 }
 
@@ -130,6 +106,17 @@ window.onclick = function(event) {
         }
     }
 };
+
+
+function searchTypes(){
+    axios.post('/types_search', null)
+        .then(addTypes)
+        .catch(error);
+}
+
+function addTypes(r){
+    console.log(r);
+}
 
 function searchCategories(){
     let type = document.getElementById('selectType').value;
@@ -243,7 +230,81 @@ function addCoordonnes(r){
 
     document.getElementById('longMag').value = longitude;
     document.getElementById('latMag').value = latitude;
+}
 
+function getCodes(){
+    let codePromo = "";
+    let codeAvis = "";
+    let char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+    for (let i = 0; i < 3; i++) {
+        codePromo += char.charAt(Math.floor(Math.random() * char.length));
+        codeAvis += char.charAt(Math.floor(Math.random() * char.length));
+    }
 
+    document.getElementById('codePromo').value = codePromo;
+    document.getElementById('codeAvis').value = codeAvis;
+
+    getToday();
+
+}
+
+function getToday(){
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('dateDebutPromo').min = today;
+}
+
+function getMinMaxFinPromo(dateDebutPromo){
+    let dateDebut = new Date(dateDebutPromo);
+    let dateFin = new Date();
+    let numberOfDaysToAdd = 15;
+    dateFin.setDate(dateDebut.getDate() + numberOfDaysToAdd);
+
+    let dd = dateFin.getDate();
+    let mm = dateFin.getMonth()+1; //January is 0!
+    let yyyy = dateFin.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    dateFin = yyyy + '-' + mm + '-' + dd;
+
+    document.getElementById('dateFinPromo').min = dateDebutPromo;
+    document.getElementById('dateFinPromo').max = dateFin;
+}
+
+function updateEtat(idPromo, etat){
+    if(etat === 0){
+        etat = 1;
+    }
+    else{
+        etat = 0;
+    }
+
+    document.getElementById(`checkboxEtat${idPromo}`).value = etat;
+
+    axios.post('/promotions/update_etat', {
+        'promo': idPromo,
+        'etat': etat
+    })
+        .then()
+        .catch(error);
 }

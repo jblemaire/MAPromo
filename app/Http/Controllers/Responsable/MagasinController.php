@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Responsable;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Ville;
@@ -10,7 +11,7 @@ use App\Type;
 use App\Categorie;
 use Illuminate\Support\Facades\File;
 
-class ResponsableController extends Controller
+class MagasinController extends Controller
 {
     public function __construct(){
         $this->middleware('responsable');
@@ -45,24 +46,6 @@ class ResponsableController extends Controller
             'mailMagasin'=> 'required|string|email|max:255|unique:magasins'
         ]);
 
-        $file1_name = null;
-        $file2_name = null;
-        $directory_path = public_path().'\img\stores\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser;
-
-        if(!file_exists($directory_path))
-            File::makeDirectory($directory_path, $mode = 0777, true, true);
-
-        if( $request->file('photo1Mag')){
-            $file1 = $request->file('photo1Mag');
-            $file1_name = str_replace(' ','',$request->input('nomMag')).'_1_'.rand(1, 10000).'.'.$file1->getClientOriginalExtension();
-            $file1->move($directory_path, $file1_name);
-        }
-        if( $request->file('photo2Mag')){
-            $file2 = $request->file('photo2Mag');
-            $file2_name = str_replace(' ','',$request->input('nomMag')).'_2_'.rand(1, 10000).'.'.$file2->getClientOriginalExtension();
-            $file2->move($directory_path, $file2_name);
-        }
-
         $magasin = new Magasin([
             'nomMagasin' => $request->input('nomMag'),
             'adresse1Magasin' => $request->input('adresse1Mag') ? $request->input('adresse1Mag') : '',
@@ -72,14 +55,33 @@ class ResponsableController extends Controller
             'mailMagasin' => $request->input('mailMagasin'),
             'telMagasin' => $request->input('telMag'),
             'siretMagasin' => $request->input('siretMag'),
-            'photo1Magasin' => $file1_name,
-            'photo2Magasin' => $file2_name,
             'codeINSEEVille' => $request->get('villeMag'),
             'idResponsable' => Auth::user()->idUser,
             'idType' => $request->get('selectType'),
             'idCategorie' => $request->get('selectCategorie'),
             ]
         );
+
+        $file1_name = null;
+        $file2_name = null;
+        $directory_path = public_path().'\img\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'\stores';
+
+        if(!file_exists($directory_path))
+            File::makeDirectory($directory_path, $mode = 0777, true, true);
+
+        if( $request->file('photo1Mag')){
+            $file1 = $request->file('photo1Mag');
+            $file1_name = str_replace(' ','',$request->input('nomMag')).'_1_'.rand(1, 10000).'.'.$file1->getClientOriginalExtension();
+            $file1->move($directory_path, $file1_name);
+            $magasin->photo1Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file1_name;
+        }
+        if( $request->file('photo2Mag')){
+            $file2 = $request->file('photo2Mag');
+            $file2_name = str_replace(' ','',$request->input('nomMag')).'_2_'.rand(1, 10000).'.'.$file2->getClientOriginalExtension();
+            $file2->move($directory_path, $file2_name);
+            $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file1_name;
+
+        }
 
         $magasin->save();
 
@@ -144,7 +146,7 @@ class ResponsableController extends Controller
 
        $file1_name = null;
        $file2_name = null;
-       $directory_path = public_path().'\img\stores\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser;
+       $directory_path = public_path().'\img\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser .'\stores';
 
        if(!file_exists($directory_path))
            File::makeDirectory($directory_path, $mode = 0777, true, true);
@@ -154,14 +156,14 @@ class ResponsableController extends Controller
            $file1 = $request->file('photo1Mag');
            $file1_name = str_replace(' ','',$request->input('nomMag')).'_1_'.rand(1, 10000).'.'.$file1->getClientOriginalExtension();
            $file1->move($directory_path, $file1_name);
-           $magasin->photo1Magasin = $file1_name;
+           $magasin->photo1Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file1_name;
        }
        if($request->file('photo2Mag')){
            File::delete($directory_path.'\\'.$magasin->photo2Magasin);
            $file2 = $request->file('photo2Mag');
            $file2_name = str_replace(' ','',$request->input('nomMag')).'_2_'.rand(1, 10000).'.'.$file2->getClientOriginalExtension();
            $file2->move($directory_path, $file2_name);
-           $magasin->photo2Magasin = $file2_name;
+           $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file2_name;
        }
 
        $magasin->save();

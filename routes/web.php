@@ -26,7 +26,8 @@ Route::post('/categories_search', 'HomeController@postCategoriesSearch')->name('
 Route::post('admin/types_list/addType', 'Admin\AdminController@postTypes')->name('add_type')->middleware('admin');
 Route::post('admin/categories_list/addCategorie', 'Admin\AdminController@postCategories')->name('add_categorie')->middleware('admin');
 Route::post('admin/delete_com', 'Admin\AdminController@postDeleteCom')->name('delete_com')->middleware('admin');
-Route::post('magasins/city_search_by_cp', 'ResponsableController@postCitiesSearchByCP')->name('cities_search_by_cp_post')->middleware('responsable');
+Route::post('magasins/city_search_by_cp', 'Responsable\MagasinController@postCitiesSearchByCP')->name('cities_search_by_cp_post')->middleware('responsable');
+Route::post('promotions/update_etat', 'Responsable\PromotionController@updateEtat')->name('update_etat_promotion')->middleware('responsable');
 
 
 /**Facebook Connect**/
@@ -36,11 +37,16 @@ Route::get('/register/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('/register/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
 
 /**Responsable Part**/
-Route::get('magasins/', 'ResponsableController@returnView')->name('magasins')->middleware('responsable');
-Route::post('magasins/addStore', 'ResponsableController@postStores')->name('add_magasin')->middleware('responsable');
-Route::get('magasins/update/{idMagasin}', 'ResponsableController@getUpdateStores')->name('update_magasin')->middleware('responsable');
-Route::post('magasins/updateStore', 'ResponsableController@postUpdateStores')->name('update_magasin_post')->middleware('responsable');
-Route::get('magasins/deleteStore/{idMagasin}', 'ResponsableController@getDeleteStores')->name('delete_magasin')->middleware('responsable');
+Route::get('magasins/', 'Responsable\MagasinController@returnView')->name('magasins')->middleware('responsable');
+Route::post('magasins/addStore', 'Responsable\MagasinController@postStores')->name('add_magasin')->middleware('responsable');
+Route::get('magasins/update/{idMagasin}', 'Responsable\MagasinController@getUpdateStores')->name('update_magasin')->middleware('responsable');
+Route::post('magasins/updateStore', 'Responsable\MagasinController@postUpdateStores')->name('update_magasin_post')->middleware('responsable');
+Route::get('magasins/deleteStore/{idMagasin}', 'Responsable\MagasinController@getDeleteStores')->name('delete_magasin')->middleware('responsable');
+
+Route::get('promotions/magasins/{idMagasin?}', 'Responsable\PromotionController@returnView')->name('promotions')->middleware('responsable');
+Route::post('promotions/', 'Responsable\PromotionController@getPromosFromStore')->name('promotion_magasins')->middleware('responsable');
+Route::post('promotions/addPromo', 'Responsable\PromotionController@postPromo')->name('add_promo')->middleware('responsable');
+
 
 
 

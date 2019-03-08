@@ -150,12 +150,12 @@
                         <div class="carousel-inner">
                             @if($magasin->photo1Magasin)
                                 <div class="carousel-item active" style="height: 250px">
-                                    <img class="d-block w-100" src="{{'\img\stores\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'\\'.$magasin->photo1Magasin}}" alt="Image 1">
+                                    <img class="d-block w-100" src="{{'\img\\'.$magasin->photo1Magasin}}" alt="Image 1">
                                 </div>
                             @endif
                             @if($magasin->photo2Magasin)
                                 <div class="carousel-item" style="height: 250px">
-                                    <img class="d-block w-100" src="{{'\img\stores\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'\\'.$magasin->photo2Magasin}}" alt="Image 2">
+                                    <img class="d-block w-100" src="{{'\img\\'.$magasin->photo2Magasin}}" alt="Image 2">
                                 </div>
                             @endif
                         </div>
@@ -185,6 +185,8 @@
                         </ul>
                         <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Modifier</a>
                         <a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Supprimer</a>
+                        <a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Voir les promotions</a>
+
                     </div>
                 </div>
             </div>
