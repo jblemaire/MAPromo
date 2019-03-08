@@ -1,21 +1,33 @@
-<nav class="navbar-default navbar-static-top">
-    <div class="container">
+<div class="wrapper">
+<!-- Sidebar Holder -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>MAPromo</h3>
+    </div>
+    <ul class="list-unstyled components">
+        <li>
+            <a href="{{ route('home') }}">Mon compte</a>
+        </li>
+        <li>
+            <a href="{{ route('home') }}">Réglages</a>
+        </li>
+        <li>
+            <a href="{{ route('home') }}">Contact</a>
+        </li>
+    </ul>
+</nav>
+<!-- Page Content Holder -->
+<div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div>
-            <div class="button_menu">
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                    <div>
-                    <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_menu_1166847') }}"/></svg></a>
-                    </div>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="title navbar-brand" href="{{ url('/') }}">
-                    {{ $title }}
-                </a>
-            </div>
-
-            <div class="button_nav">
+            <button type="button" id="sidebarCollapse" class="navbar-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <a class="title navbar-brand" href="{{ url('/') }}">{{ $title }}</a>
+        <div class="button_nav">
                 <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
                 </div>
@@ -25,9 +37,7 @@
                 <div>
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_notification_2184960') }}"/></svg></a>
                 </div>
-            </div>
         </div>
-
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
@@ -55,9 +65,17 @@
                 @endguest
                 </div>
                 <li><a href="#">Mon compte</a></li>
-                <li><a href="#">Réglages</a></li>
-                <li><a href="#">À propos</a></li>
+                <li><a href="{{ route('home') }}">Réglages</a></li>
+                <li><a href="{{ route('apropos') }}">À propos</a></li>
             </ul>
         </div>
-    </div>
-</nav>
+    </nav>
+
+<script>
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+    });
+});
+</script>

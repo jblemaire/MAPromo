@@ -15,14 +15,28 @@ Route::get('/', function () {
         'title' => 'Accueil',
         'types' => App\Type::get()
     ]);
-});
+})->name('home');
 
 Route::get('/categorie', function () {
     return view('categorie',[
         'title' => 'Categorie',
         'types' => App\Type::get()
     ]);
-});
+})->name('categorie');
+
+Route::get('/decouvrir', function () {
+    return view('decouvrir',[
+        'title' => 'decouvrir',
+        'types' => App\Type::get()
+    ]);
+})->name('decouvrir');
+
+Route::get('/apropos', function () {
+    return view('apropos',[
+        'title' => 'apropos',
+        'types' => App\Type::get()
+    ]);
+})->name('apropos');
 
 Auth::routes();
 
