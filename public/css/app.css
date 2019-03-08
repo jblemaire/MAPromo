@@ -8381,8 +8381,6 @@ button.close {
 
 .wrapper {
   display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
@@ -8390,7 +8388,7 @@ button.close {
   -webkit-perspective: 1500px;
           perspective: 1500px;
   position: absolute;
-  z-index: 1000;
+  z-index: 1001;
   height: 100%;
 }
 
@@ -8662,6 +8660,10 @@ button {
 .container {
   padding: 0px !important;
   margin: 0px !important;
+}
+
+.content {
+  margin-top: 64px;
 }
 
 .bar_mobile {

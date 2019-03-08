@@ -29,12 +29,12 @@
 ----------------------------------------------------- */
 
 .wrapper {
-    display: flex;
+    display: -webkit-box;
     width: 100%;
     align-items: stretch;
     perspective: 1500px;
     position: absolute;
-    z-index: 1000;
+    z-index: 1001;
     height: 100%;
 }
 
