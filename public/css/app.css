@@ -8388,7 +8388,7 @@ button.close {
   -webkit-perspective: 1500px;
           perspective: 1500px;
   position: absolute;
-  z-index: 1001;
+  /*z-index: 1001;*/
   height: 100%;
 }
 
@@ -8581,6 +8581,7 @@ a.article:hover {
 
 body {
   background-color: #99cbe4 !important;
+  color: #515052;
 }
 
 a,
@@ -8594,9 +8595,33 @@ a:focus {
 
 button {
   border: none;
-  border-radius: 10px;
+  border-radius: 25px !important;
   background-color: #ffffff;
   color: #bfbfc0;
+  height: 35px;
+  width: 100px;
+  text-align: center;
+}
+
+input {
+  border: none;
+  border-radius: 25px;
+  height: 35px;
+  width: 250px;
+  text-align: center;
+}
+
+select {
+  border: none;
+  border-radius: 25px;
+  height: 35px;
+  width: 50%;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #515052 !important;
 }
 
 .dropbtn {
@@ -8737,10 +8762,6 @@ button {
   margin: 0px;
 }
 
-#monCompte {
-  display: none;
-}
-
 /*.input-group{
     display: none;
 }*/
@@ -8752,6 +8773,18 @@ button {
 
   #map {
     position: absolute;
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  #sidebarCollapse {
+    display: none;
+  }
+
+  .button_nav {
+    display: none;
   }
 }
 

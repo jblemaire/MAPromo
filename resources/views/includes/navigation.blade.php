@@ -26,19 +26,16 @@
                 <span></span>
             </button>
         </div>
-        <a class="title navbar-brand" href="{{ url('/') }}">{{ $title }}</a>
+        <a class="title" href="{{ url('/') }}">{{ $title }}</a>
         <div class="button_nav">
                 <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
                 </div>
                 <div onclick="filters()">
-                    <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_filters_1245150') }}"/></svg></a>
-                </div>
-                <div>
-                    <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_notification_2184960') }}"/></svg></a>
+                    <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_User_875020') }}"/></svg></a>
                 </div>
         </div>
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+        <div class="collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 &nbsp;

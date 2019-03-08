@@ -4,9 +4,11 @@ $rouge : #b60000;
 $blanc : #ffffff;
 $vert : #25db71;
 $gris : #bfbfc0;
+$black : #515052;
 
 body{
     background-color: $bleu !important;
+    color: $black;
 }
 
 a, a:hover, a:focus {
@@ -17,10 +19,33 @@ a, a:hover, a:focus {
 
 button{
     border: none;
-    border-radius: 10px;
+    border-radius: 25px !important;
     background-color: $blanc;
     color: $gris;
+    height: 35px;
+    width: 100px;
+    text-align: center;
+}
 
+input{
+    border: none;
+    border-radius: 25px;
+    height: 35px;
+    width: 250px;
+    text-align: center;
+}
+
+select{
+    border: none;
+    border-radius: 25px;
+    height: 35px;
+    width: 50%;
+    text-align: center;
+}
+
+.title{
+    font-size: 1.5rem;
+    color: $black !important;
 }
 
 .dropbtn {
