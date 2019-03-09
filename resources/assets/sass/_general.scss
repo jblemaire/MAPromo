@@ -7,7 +7,6 @@ $gris : #bfbfc0;
 $black : #515052;
 
 body{
-    background-color: $bleu !important;
     color: $black;
 }
 
@@ -103,6 +102,18 @@ select{
     margin: 0px !important;
 }
 
+#content{
+    min-height: 100vh;
+}
+
 .content{
-    margin-top: 64px;
+    margin-top: -620px;;
+}
+
+.input-group{
+    width: auto !important;
+}
+
+#search_desktop{
+    display: none;
 }

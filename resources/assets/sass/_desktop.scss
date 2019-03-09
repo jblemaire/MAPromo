@@ -4,7 +4,7 @@
     }
 
     #map{
-        position: absolute;
+        //position: absolute;
     }
 
     #sidebar{
@@ -17,6 +17,22 @@
 
     .button_nav{
         display: none;
+    }
+
+    .collapse{
+        display: flex !important;
+    }
+
+    .navbar{
+        justify-content: space-between !important;
+    }
+
+    #content{
+        min-height: 0;
+    }
+
+    .content{
+        margin: 0px;
     }
 
 

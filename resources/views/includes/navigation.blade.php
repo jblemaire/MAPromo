@@ -27,6 +27,15 @@
             </button>
         </div>
         <a class="title" href="{{ url('/') }}">{{ $title }}</a>
+        <div id="search_desktop" class="input-group">
+                <input type="hidden" id="latitude">
+                <input type="hidden" id="longitude">
+                <input type="text" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
+                <datalist id="villes"></datalist>
+                <div class="input-group-append">
+                    <button type="button" id="button-addon2" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>
+                </div>
+            </div>
         <div class="button_nav">
                 <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
@@ -49,8 +58,8 @@
                     <li><a href="{{route('admin')}}">Gestion des tables</a></li>
                 @endif
                 @guest
-                    <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connexion">Connexion</button></li>
-                    <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscription">Inscription</button></li>
+                    <li><button type="button" data-toggle="modal" data-target="#connexion">Connexion</button></li>
+                    <li><button type="button" data-toggle="modal" data-target="#inscription">Inscription</button></li>
                 @else
                     <li><a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -61,13 +70,10 @@
                     </li>
                 @endguest
                 </div>
-                <li><a href="#">Mon compte</a></li>
-                <li><a href="{{ route('home') }}">Réglages</a></li>
-                <li><a href="{{ route('apropos') }}">À propos</a></li>
             </ul>
         </div>
     </nav>
-
+</div>
 <script>
 $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {

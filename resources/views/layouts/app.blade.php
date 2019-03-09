@@ -9,7 +9,7 @@
         @include('includes.navigation')
     </header>
 
-    <div class="container">
+    <div>
         @yield('content')
     </div>
 
