@@ -5,5 +5,4 @@
     @include('layouts.contentHome')
     @include('includes.login')
     @include('includes.register')
-    @include('layouts.footer')
 @endsection

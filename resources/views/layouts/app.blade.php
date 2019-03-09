@@ -13,11 +13,8 @@
         @yield('content')
     </div>
 
-    <footer>
-        @include('layouts.footer')
-        @include('layouts.barFooterMobile')
-    </footer>
-
+    @include('layouts.footer')
+    @include('layouts.barFooterMobile')
 </div>
 </body>
 </html>
