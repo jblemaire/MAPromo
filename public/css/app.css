@@ -8589,7 +8589,9 @@ body {
 }
 
 footer {
-  background-color: #515052;
+  background-color: #bfbfc0;
+  height: 100px;
+  color: #ffffff;
 }
 
 a,
@@ -8711,6 +8713,17 @@ select {
   display: none;
 }
 
+.row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.col {
+  text-align: center;
+  margin-top: 2rem;
+}
+
 .bar_mobile {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8782,6 +8795,12 @@ select {
   margin: 0px;
 }
 
+.blockView {
+  width: 150px;
+  height: 150px;
+  background-color: #FFF0E8;
+}
+
 @media screen and (min-width: 640px) {
   .bar_mobile {
     display: none;
@@ -8824,5 +8843,11 @@ select {
     display: -ms-flexbox;
     display: flex;
   }
+}
+
+.main {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
 }
 

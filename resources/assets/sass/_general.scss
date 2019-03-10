@@ -5,13 +5,16 @@ $blanc : #ffffff;
 $vert : #25db71;
 $gris : #bfbfc0;
 $black : #515052;
+$beige : #FFF0E8;
 
 body{
     color: $black;
 }
 
 footer{
-    background-color: $black;
+    background-color: $gris;
+    height: 100px;
+    color: $blanc;
 }
 
 a, a:hover, a:focus {
@@ -120,4 +123,13 @@ select{
 
 #search_desktop{
     display: none;
+}
+
+.row{
+    align-items: center;
+}
+
+.col{
+    text-align: center;
+    margin-top: 2rem;
 }

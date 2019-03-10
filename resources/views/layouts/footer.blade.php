@@ -14,7 +14,7 @@
           <a href="#"><p>Conditions générales d'utilisation</p></a>
         </div>
         <div class="col">
-          <div class="mb-5 flex-center">
+          <div class="flex-center">
 
             <!-- Facebook -->
             <a class="fb-ic">
@@ -51,9 +51,8 @@
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="https://mapromo.alwaysdata.net/">mapromo.alwaysdata.net/</a>
     </div>
-    <!-- Copyright -->
 
-  </footer>
+</footer>
   <!-- Footer -->
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
