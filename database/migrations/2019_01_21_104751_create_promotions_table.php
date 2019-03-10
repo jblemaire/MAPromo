@@ -16,9 +16,10 @@ class CreatePromotionsTable extends Migration
         Schema::create('promotions', function (Blueprint $table) {
             /**Column**/
             $table->integer('idPromo')->autoIncrement();
-            $table->dateTime('dateDebutPromo');
-            $table->dateTime('dateFinPromo');
             $table->string('libPromo');
+            $table->date('dateDebutPromo');
+            $table->date('dateFinPromo');
+            $table->text('descPromo');
             $table->boolean('etatPromo');
             $table->string('codePromo');
             $table->string('codeAvisPromo');

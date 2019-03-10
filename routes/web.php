@@ -28,6 +28,8 @@ Route::post('admin/categories_list/addCategorie', 'Admin\AdminController@postCat
 Route::post('admin/delete_com', 'Admin\AdminController@postDeleteCom')->name('delete_com')->middleware('admin');
 Route::post('magasins/city_search_by_cp', 'Responsable\MagasinController@postCitiesSearchByCP')->name('cities_search_by_cp_post')->middleware('responsable');
 Route::post('promotions/update_etat', 'Responsable\PromotionController@updateEtat')->name('update_etat_promotion')->middleware('responsable');
+Route::post('/search_promos', 'HomeController@postPromosSearch')->name('promos_search_post');
+Route::post('/add_adhesion', 'Client\ClientController@postAdhesion')->name('post_adhesion')->middleware('client');
 
 
 /**Facebook Connect**/

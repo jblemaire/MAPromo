@@ -45,6 +45,14 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="descPromo" class="col-md-4 control-label">Descrption de la Promotion*</label>
+
+                        <div class="col-md-6">
+                            <textarea id="descPromo" class="form-control" name="descPromo" required autofocus></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="dateDebutPromo" class="col-md-4 control-label">Date de Début*</label>
 
                         <div class="col-md-6">
@@ -133,6 +141,7 @@
                         <div id="collapse{{$promotion->idPromo}}" class="collapse show" aria-labelledby="heading{{$promotion->idPromo}}" data-parent="#promotionsMagasins">
                             <div class="card-body">
                                 <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{$promotion->descPromo}}</li>
                                     <li class="list-group-item"><b>Date de Début : </b>{{$promotion->dateDebutPromo}}</li>
                                     <li class="list-group-item"><b>De de Fin : </b>{{$promotion->dateDebutPromo}}</li>
                                     <li class="list-group-item"><b>Code Promo : </b>{{$promotion->codePromo}}</li>

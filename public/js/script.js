@@ -21,7 +21,7 @@ function initMap(){
     osmAttrib='Map data © OpenStreetMap contributors';
     osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
     map.setView([47.0, 3.0], 6).addLayer(osm);
-    markersLayer = new L.LayerGroup();
+    markersLayer = new L.featureGroup();
 }
 
 function addDatalist(r){
@@ -50,33 +50,42 @@ function addDatalist(r){
 
 function setVille(latitude, longitude){
     map.setView([latitude, longitude], 13).addLayer(osm);
+    getStores();
 
     map.on('moveend', function(){
         if(latitude !== "" && longitude!=="") {
-            let infos = map.getBounds();
-            let SW = infos['_southWest']; //Long et lat du Sud Ouest
-            let NE = infos['_northEast'];//Long et lat du Nord Est
-            let SW_send = SW['lat'] + '|' + SW['lng'];
-            let NE_send = NE['lat'] + '|' + NE['lng'];
-            axios.post('/stores_search', {
-                'SW': SW_send,
-                'NE': NE_send,
-            })
-                .then(addMarker)
-                .catch(error);
+            getStores();
         }
     });
 }
 
-function addMarker(r){
+function getStores(){
+    let infos = map.getBounds();
+    let SW = infos['_southWest']; //Long et lat du Sud Ouest
+    let NE = infos['_northEast'];//Long et lat du Nord Est
+    let SW_send = SW['lat'] + '|' + SW['lng'];
+    let NE_send = NE['lat'] + '|' + NE['lng'];
+    let type = document.getElementById('selectType').value;
+    let cat = document.getElementById('selectCategorie').value;
+    axios.post('/stores_search', {
+        'SW': SW_send,
+        'NE': NE_send,
+        'type': type,
+        'categorie': cat
+    })
+        .then(addMarker)
+        .catch(error);
+}
+
+function addMarker(r) {
     let res = r.data;
     markersLayer.clearLayers();
     for (let i = 0; i < res.length; i++) {
-        marker= L.marker([ res[i].latMagasin, res[i].longMagasin]);
-        marker.bindPopup(`<b>${res[i].nomMagasin}</b> <br />${res[i].adresse1Magasin} ${res[i].adresse2Magasin} <br />${res[i].cpVille} ${res[i].nomVille}`);
+        marker = L.marker([res[i].latMagasin, res[i].longMagasin]);
+        marker.object = res[i];
         markersLayer.addLayer(marker);
     }
-    markersLayer.addTo(map);
+    markersLayer.addTo(map).on('click', afficheMagasin);
 }
 
 function changeTypeInscription(value){
@@ -106,17 +115,6 @@ window.onclick = function(event) {
         }
     }
 };
-
-
-function searchTypes(){
-    axios.post('/types_search', null)
-        .then(addTypes)
-        .catch(error);
-}
-
-function addTypes(r){
-    console.log(r);
-}
 
 function searchCategories(){
     let type = document.getElementById('selectType').value;
@@ -306,5 +304,170 @@ function updateEtat(idPromo, etat){
         'etat': etat
     })
         .then()
+        .catch(error);
+}
+
+function afficheMagasin(e){
+    let magasin = e.layer.object;
+
+    axios.post('/search_promos', {
+        'magasin': magasin.idMagasin
+    })
+        .then(affichePromo)
+        .catch(error);
+
+    let divMagasin = document.getElementById('magasin');
+    let carousel = document.createElement('div');
+    carousel.className = 'carousel-inner';
+
+    if(magasin.photo1Magasin){
+        let div = document.createElement('div');
+        div.className = 'carousel-item active';
+        div.style.height = '125px';
+
+        let img = document.createElement('img');
+        img.className = 'd-block w-100 h-100';
+        img.src = '\\img\\' + magasin.photo1Magasin;
+        img.alt = 'Image 1';
+        img.style.objectFit = 'cover';
+
+        div.appendChild(img);
+        carousel.appendChild(div);
+    }
+    if(magasin.photo2Magasin){
+        let div = document.createElement('div');
+        div.className = 'carousel-item';
+        div.style.height = '125px';
+
+        let img = document.createElement('img');
+        img.className = 'd-block w-100 h-100';
+        img.src = '\\img\\' + magasin.photo2Magasin;
+        img.alt = 'Image 2';
+        img.style.objectFit = 'cover';
+
+        div.appendChild(img);
+        carousel.appendChild(div);
+    }
+
+    let carouselStore = document.getElementById('carouselStore');
+    carouselStore.replaceChild(carousel, document.getElementsByClassName('carousel-inner')[0]);
+
+    let magasinInfos = document.createElement('div');
+    magasinInfos.className = "card-body";
+
+    let title = document.createElement('h4');
+    title.className="card-title";
+    title.appendChild(document.createTextNode(magasin.nomMagasin));
+    magasinInfos.appendChild(title);
+
+    let adresse1 = document.createElement('h5');
+    adresse1.className="card-subtitle";
+    adresse1.appendChild(document.createTextNode(magasin.adresse1Magasin + ' ' + magasin.adresse2Magasin));
+    magasinInfos.appendChild(adresse1);
+
+    let adresse2 = document.createElement('h5');
+    adresse2.className="card-subtitle";
+    adresse2.appendChild(document.createTextNode(magasin.cpVille + ' ' + magasin.nomVille));
+    magasinInfos.appendChild(adresse2);
+
+    let type = document.createElement('h6');
+    type.className="card-subtitle";
+    type.style.marginTop='5px;';
+    let textType;
+    if(magasin.idCategorie)
+        textType = document.createTextNode(magasin.libType + ' | ' + magasin.libCategorie);
+    else
+        textType = document.createTextNode(magasin.libType);
+    type.appendChild(textType);
+    magasinInfos.appendChild(type);
+
+    let coor = document.createElement('p');
+    coor.className="card-text";
+    let textCoor;
+    if(magasin.telMagasin)
+        textCoor = document.createTextNode(magasin.mailMagasin + ' | ' + magasin.telMagasin);
+    else
+        textCoor = document.createTextNode(magasin.mailMagasin);
+    coor.appendChild(textCoor);
+    magasinInfos.appendChild(coor);
+
+    let cardBody = document.getElementById('cardBody');
+    cardBody.replaceChild(magasinInfos, document.getElementsByClassName('card-body')[0]);
+
+    divMagasin.style.display = 'flex';
+
+    $("html, body").animate({
+        scrollTop : $('#magasin').offset().top
+    },'slow');
+
+}
+
+function affichePromo(r){
+    let res = r.data;
+
+    let ul=document.createElement('ul');
+    ul.id = 'listPromo';
+    ul.className = 'list-group';
+
+    for(let i=0; i<res.length ; i++){
+        let li = document.createElement('li');
+        li.className='list-group-item';
+        li.appendChild(document.createTextNode(res[i].libPromo));
+
+        let buttonDetails = document.createElement('button');
+        buttonDetails.className="btn btn-primary";
+        buttonDetails.type="button";
+        buttonDetails.appendChild(document.createTextNode('Voir la promo'));
+        buttonDetails.style.float= "right";
+        li.appendChild(buttonDetails);
+
+        let buttonAdhesion = document.createElement('button');
+        buttonAdhesion.id = 'btnGetCode';
+        buttonAdhesion.className="btn btn-primary";
+        buttonAdhesion.type="button";
+        buttonAdhesion.appendChild(document.createTextNode('Obtenir le code'));
+        buttonAdhesion.style.float= "right";
+        buttonAdhesion.disabled = true;
+        if(document.getElementById('userInfos')) {
+            let userInfos = JSON.parse(document.getElementById('userInfos').value);
+            if (userInfos.idRole === 2) {
+                buttonAdhesion.disabled = false;
+                buttonAdhesion.onclick = function () {
+                    getCodePromo(res[i].idPromo, res[i].codePromo, userInfos.idUser);
+                    $("html, body").animate({
+                        scrollTop: $('#codePromo').offset().top
+                    }, 'slow');
+                };
+            }
+        }
+
+        li.appendChild(buttonAdhesion);
+
+        ul.appendChild(li);
+
+    }
+
+    document.getElementById('promotions').replaceChild(ul, document.getElementById('listPromo'));
+}
+
+function getCodePromo(idPromo, code, idUser){
+    let divCodePromo = document.createElement('div');
+    divCodePromo.id="textCodePromo";
+
+    let codePromo = document.createElement('h1');
+    codePromo.className = 'text-center';
+    codePromo.appendChild(document.createTextNode(code));
+
+    let div = document.getElementById('codePromo');
+    div.replaceChild(codePromo, document.getElementById('textCodePromo'));
+    div.style.display='block';
+
+    axios.post('/add_adhesion', {
+        'promo': idPromo,
+        'user': idUser,
+    })
+        .then((r)=>{
+            console.log(r);
+        })
         .catch(error);
 }

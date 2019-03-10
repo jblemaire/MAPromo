@@ -79,7 +79,7 @@ class MagasinController extends Controller
             $file2 = $request->file('photo2Mag');
             $file2_name = str_replace(' ','',$request->input('nomMag')).'_2_'.rand(1, 10000).'.'.$file2->getClientOriginalExtension();
             $file2->move($directory_path, $file2_name);
-            $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file1_name;
+            $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file2_name;
 
         }
 

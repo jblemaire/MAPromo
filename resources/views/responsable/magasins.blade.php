@@ -143,19 +143,19 @@
         <?php $cpt = 0; ?>
         <div class="row">
         @foreach($magasins as $magasin)
-            <div class="col-sm-6">
-                <div class="card" >
+            <div class="col-sm-6" style="display: flex; align-items: center;">
+                <div class="card" style="width: 100%">
                     @if($magasin->photo1Magasin || $magasin->photo2Magasin)
                     <div id="carouselStores{{$magasin->idMagasin}}" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             @if($magasin->photo1Magasin)
                                 <div class="carousel-item active" style="height: 250px">
-                                    <img class="d-block w-100" src="{{'\img\\'.$magasin->photo1Magasin}}" alt="Image 1">
+                                    <img class="d-block w-100 h-100" style="object-fit: cover" src="{{'\img\\'.$magasin->photo1Magasin}}" alt="Image 1">
                                 </div>
                             @endif
                             @if($magasin->photo2Magasin)
                                 <div class="carousel-item" style="height: 250px">
-                                    <img class="d-block w-100" src="{{'\img\\'.$magasin->photo2Magasin}}" alt="Image 2">
+                                    <img class="d-block w-100 h-100" style="object-fit: cover" src="{{'\img\\'.$magasin->photo2Magasin}}" alt="Image 2">
                                 </div>
                             @endif
                         </div>

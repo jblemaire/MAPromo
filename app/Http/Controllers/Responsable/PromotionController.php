@@ -46,14 +46,15 @@ class PromotionController extends Controller
     public function postPromo(Request $request) {
 
         $dateDebut = new DateTime($request->input('dateDebutPromo'));
-        $dateDebut = $dateDebut->format('Y-m-d H:i:s');
+        $dateDebut = $dateDebut->format('Y-m-d');
         $dateFin = new DateTime($request->input('dateFinPromo'));
-        $dateFin = $dateFin->format('Y-m-d H:i:s');
+        $dateFin = $dateFin->format('Y-m-d');
 
         $promotion = new Promotion([
+                'libPromo' => $request->input('nomPromo'),
                 'dateDebutPromo' => $dateDebut,
                 'dateFinPromo' => $dateFin,
-                'libPromo' => $request->input('nomPromo'),
+                'descPromo' => $request->input('descPromo'),
                 'etatPromo' => 0,
                 'codePromo' => $request->input('codePromo'),
                 'codeAvisPromo' => $request->input('codeAvis'),

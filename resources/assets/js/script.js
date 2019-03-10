@@ -73,7 +73,7 @@ function addMarker(r){
     markersLayer.clearLayers();
     for (let i = 0; i < res.length; i++) {
         marker= L.marker([ res[i].latMagasin, res[i].longMagasin]);
-        marker.bindPopup(`<b>${res[i].nomMagasin}</b> <br />${res[i].adresse1Magasin} ${res[i].adresse2Magasin} <br />${res[i].cpVille} ${res[i].nomVille}`);
+        marker.onclick(afficheMagasin(res[i]));
         markersLayer.addLayer(marker);
     }
     markersLayer.addTo(map);
@@ -307,4 +307,8 @@ function updateEtat(idPromo, etat){
     })
         .then()
         .catch(error);
+}
+
+function afficheMagasin(magasin){
+    console.log(magasin);
 }

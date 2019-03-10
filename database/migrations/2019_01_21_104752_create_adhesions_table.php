@@ -22,12 +22,8 @@ class CreateAdhesionsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             /**Index**/
-            $table->primary(['Promotion_idPromo', 'Internaute_idInternaute']);
             $table->foreign('Promotion_idPromo')->references('idPromo')->on('promotions'); //clé étrangere
             $table->foreign('Internaute_idInternaute')->references('idUser')->on('users'); //clé étrangere
-
-
-
         });
     }
 

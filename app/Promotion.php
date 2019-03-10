@@ -15,9 +15,10 @@ class Promotion extends Model
      * @var array
      */
     protected $fillable = [
+        'libPromo',
         'dateDebutPromo',
         'dateFinPromo',
-        'libPromo',
+        'descPromo',
         'etatPromo',
         'codePromo',
         'codeAvisPromo',
