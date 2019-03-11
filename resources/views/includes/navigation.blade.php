@@ -40,7 +40,7 @@
                 <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
                 </div>
-                <div onclick="filters()">
+                <div>
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_User_875020') }}"/></svg></a>
                 </div>
         </div>

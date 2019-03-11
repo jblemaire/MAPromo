@@ -10,18 +10,66 @@
         </p>
     </div>
 </section>
-<section>
+<section class="blockViewRating">
     <div>
         <h2>Les derniers avis</h2>
-        <div class="blockView">
-            <div class="blockViewTitle">
-                <div><img src="" alt=""></div>
-                <h3>Avis de Jane Doe</h3>
-                <p>sur la promotion de Chez Fred</p>
+        <div class="row">
+            <div class="blockView col">
+                <div class="blockViewTitle">
+                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+                    <div>
+                        <h3>Avis de Jane Doe</h3>
+                        <p>sur la promotion de <a href="#">Chez Fred</a></p>
+                    </div>
+                </div>
+                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
+                <div>
+                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
+                </div>
             </div>
-            <div>stars</div>
-            <div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="blockView col">
+                <div class="blockViewTitle">
+                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+                    <div>
+                        <h3>Avis de Jane Doe</h3>
+                        <p>sur la promotion de <a href="#">Chez Fred</a></p>
+                    </div>
+                </div>
+                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
+                <div>
+                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Les dernières promotions</h2>
+        <div class="row">
+            <div class="blockView col">
+                <div class="blockViewTitle">
+                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+                    <div>
+                        <h3>Domino's Pizza</h3>
+                        <p>14/02/2019 - 28/02/2019</p>
+                    </div>
+                </div>
+                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
+                <div>
+                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
+                </div>
+            </div>
+            <div class="blockView col">
+                <div class="blockViewTitle">
+                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+                    <div>
+                        <h3>Domino's Pizza</h3>
+                        <p>14/02/2019 - 28/02/2019</p>
+                    </div>
+                </div>
+                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
+                <div>
+                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
+                </div>
             </div>
         </div>
     </div>

@@ -18,9 +18,15 @@ footer{
 }
 
 a, a:hover, a:focus {
-    color: $gris !important;
-    text-decoration: none;
     transition: all 0.3s;
+}
+
+b{
+    font-size: 20px;
+}
+
+h2{
+    text-transform: uppercase;
 }
 
 button{
@@ -110,11 +116,11 @@ select{
 }
 
 #content{
-    min-height: 100vh;
+    /*min-height: 100vh;*/
 }
 
 .content{
-    margin-top: -620px;;
+    /*margin-top: -620px;*/
 }
 
 .input-group{
