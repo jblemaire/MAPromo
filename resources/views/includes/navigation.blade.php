@@ -81,4 +81,16 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 });
+
+/*document.ready(function(){
+    let sidebarCollapse = document.getElementById('sidebarCollapse');
+    let sidebar = document.getElementById('sidebar');
+    let active = document.getElementById('active');
+    sidebarCollapse.addEventListener('click', function(){
+        sidebar.toggleClass('active');
+        this.toggleClass('active');
+    });
+});*/
+
 </script>
+

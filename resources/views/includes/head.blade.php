@@ -16,7 +16,6 @@
 
 <!--Script -->
 <script src="{{ asset('js/script.js') }}"></script>
-<script src="{{ asset('js/button.js') }}"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

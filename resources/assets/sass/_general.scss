@@ -17,6 +17,11 @@ footer{
     color: $blanc;
 }
 
+a{
+    color: #515052 !important;
+    text-decoration: none;
+}
+
 a, a:hover, a:focus {
     transition: all 0.3s;
 }
@@ -32,8 +37,8 @@ h2{
 button{
     border: none;
     border-radius: 25px !important;
-    background-color: $blanc;
-    color: $gris;
+    background-color: $bleu;
+    color: $blanc;
     height: 35px;
     width: 100px;
     text-align: center;
@@ -113,14 +118,6 @@ select{
 .container{
     padding: 0px !important;
     margin: 0px !important;
-}
-
-#content{
-    /*min-height: 100vh;*/
-}
-
-.content{
-    /*margin-top: -620px;*/
 }
 
 .input-group{
