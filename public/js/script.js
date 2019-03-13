@@ -433,7 +433,7 @@ function affichePromo(r){
             if (userInfos.idRole === 2) {
                 buttonAdhesion.disabled = false;
                 buttonAdhesion.onclick = function () {
-                    getCodePromo(res[i].idPromo, res[i].codePromo, userInfos.idUser);
+                    getCodePromo(res[i].idPromo, res[i].codePromo);
                     $("html, body").animate({
                         scrollTop: $('#codePromo').offset().top
                     }, 'slow');
@@ -450,7 +450,7 @@ function affichePromo(r){
     document.getElementById('promotions').replaceChild(ul, document.getElementById('listPromo'));
 }
 
-function getCodePromo(idPromo, code, idUser){
+function getCodePromo(idPromo, code){
     let divCodePromo = document.createElement('div');
     divCodePromo.id="textCodePromo";
 
@@ -463,11 +463,8 @@ function getCodePromo(idPromo, code, idUser){
     div.style.display='block';
 
     axios.post('/add_adhesion', {
-        'promo': idPromo,
-        'user': idUser,
+        'promo': idPromo
     })
-        .then((r)=>{
-            console.log(r);
-        })
+        .then()
         .catch(error);
 }

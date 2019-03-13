@@ -60,7 +60,9 @@
             </div>
         </div>
         <div id="codePromo" style="display: none">
-            <div id="textCodePromo"></div>
+            <div id="textCodePromo">
+
+            </div>
         </div>
     </div>
     @guest
