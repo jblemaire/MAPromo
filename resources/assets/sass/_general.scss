@@ -17,6 +17,13 @@ footer{
     color: $blanc;
 }
 
+#blockContent{
+    margin: 0 auto;
+    width: 100px;
+    display: block;
+    list-style: none;
+}
+
 a{
     color: #515052 !important;
     text-decoration: none;

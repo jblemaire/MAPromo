@@ -1,6 +1,11 @@
 .bar_mobile{
     display: flex;
     background-color: $blanc;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .bar_mobile p{

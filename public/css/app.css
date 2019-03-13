@@ -8337,7 +8337,6 @@ button.close {
   height: 500px;
   width: 100%;
   position: relative;
-  margin-top: 15px;
 }
 
 #search {
@@ -8404,7 +8403,7 @@ button.close {
   -webkit-perspective: 1500px;
           perspective: 1500px;
   z-index: 1001;
-  height: 50px;
+  height: 65px;
 }
 
 #sidebar {
@@ -8604,6 +8603,13 @@ footer {
   color: #ffffff;
 }
 
+#blockContent {
+  margin: 0 auto;
+  width: 100px;
+  display: block;
+  list-style: none;
+}
+
 a {
   color: #515052 !important;
   text-decoration: none;
@@ -8752,6 +8758,11 @@ select {
   display: -ms-flexbox;
   display: flex;
   background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
 .bar_mobile p {

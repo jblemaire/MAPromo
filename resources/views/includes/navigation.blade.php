@@ -6,13 +6,13 @@
     </div>
     <ul class="list-unstyled components">
         <li>
-            <a href="{{ route('home') }}">Mon compte</a>
+        <a href="{{ route('compte') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_User_882671') }}"/></svg> Mon compte</a>
         </li>
         <li>
-            <a href="{{ route('home') }}">Réglages</a>
+            <a href="{{ route('home') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_setting_655357') }}"/></svg> Réglages</a>
         </li>
         <li>
-            <a href="{{ route('home') }}">Contact</a>
+            <a href="{{ route('home') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_setting_655357') }}"/></svg> Contact</a>
         </li>
     </ul>
 </nav>
@@ -41,7 +41,7 @@
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
                 </div>
                 <div>
-                    <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_User_875020') }}"/></svg></a>
+                    <a href="{{ route('compte') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_User_875020') }}"/></svg></a>
                 </div>
         </div>
         <div class="collapse" id="app-navbar-collapse">

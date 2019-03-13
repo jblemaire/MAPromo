@@ -38,6 +38,13 @@ Route::get('/apropos', function () {
     ]);
 })->name('apropos');
 
+Route::get('/compte', function () {
+    return view('compte',[
+        'title' => 'compte',
+        'types' => App\Type::get()
+    ]);
+})->name('compte');
+
 Auth::routes();
 
 Route::post('/city_search', 'HomeController@postCitiesSearch')->name('cities_search_post');
