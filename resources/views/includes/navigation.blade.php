@@ -27,15 +27,6 @@
             </button>
         </div>
         <a class="title" href="{{ url('/') }}">{{ $title }}</a>
-        <div id="search_desktop" class="input-group">
-                <input type="hidden" id="latitude">
-                <input type="hidden" id="longitude">
-                <input type="text" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
-                <datalist id="villes"></datalist>
-                <div class="input-group-append">
-                    <button type="button" id="button-addon2" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>
-                </div>
-            </div>
         <div class="button_nav">
                 <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>

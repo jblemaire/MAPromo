@@ -14,7 +14,7 @@
     <div>
         <h2>Les derniers avis</h2>
         <div class="row">
-            <div class="blockView col">
+            <div class="blockView">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
@@ -27,7 +27,7 @@
                     <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
                 </div>
             </div>
-            <div class="blockView col">
+            <div class="blockView">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
@@ -45,7 +45,7 @@
     <div>
         <h2>Les dernières promotions</h2>
         <div class="row">
-            <div class="blockView col">
+            <div class="blockView">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
@@ -58,7 +58,7 @@
                     <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
                 </div>
             </div>
-            <div class="blockView col">
+            <div class="blockView">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>

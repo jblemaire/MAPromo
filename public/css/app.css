@@ -8339,12 +8339,14 @@ button.close {
   position: relative;
 }
 
-#search {
-  display: none;
-}
+@media (max-width: 768px) {
+  #search {
+    display: none;
+  }
 
-#filters {
-  display: none;
+  #filters {
+    display: none;
+  }
 }
 
 .navbar-toggle {
@@ -8740,14 +8742,14 @@ select {
   margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-  .page-footer {
-    display: block;
-  }
+.page-footer {
+  display: block;
 }
 
-.page-footer {
-  display: none;
+@media (max-width: 768px) {
+  .page-footer {
+    display: none;
+  }
 }
 
 .bar_mobile {
@@ -8826,48 +8828,46 @@ select {
   margin: 0px;
 }
 
-@media (max-width: 768px) {
-  .blockView {
-    width: 200px;
-    height: 150px;
-    background-color: #FFF0E8;
-    border-radius: 10px;
-    margin: 30px;
-  }
-
-  .blockViewTitle {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-
-  .blockViewRating {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    text-align: center;
-  }
-
-  .iconView {
-    width: 50px;
-    height: 50px;
-  }
-
-  .main {
-    display: block;
-  }
-
-  .blockViewRating {
-    display: block;
-  }
-}
-
 .main {
-  display: none;
+  display: block;
 }
 
 .blockViewRating {
-  display: none;
+  display: block;
+}
+
+.blockView {
+  width: 200px;
+  height: 150px;
+  background-color: #FFF0E8;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.blockViewTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.blockViewRating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.iconView {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  .blockViewRating {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 640px) {
@@ -8915,9 +8915,18 @@ select {
 }
 
 .main {
-  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1000px;
   margin: 0 auto;
   padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    display: none;
+  }
 }
 
 #monCompte {
@@ -8928,5 +8937,10 @@ select {
 
 .monCompte {
   text-align: center;
+  margin-top: 30px;
+}
+
+.monCompte li {
+  margin: 10px;
 }
 

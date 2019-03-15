@@ -1,41 +1,40 @@
-@media (max-width: 768px){
-    .blockView{
-        width: 200px;
-        height: 150px;
-        background-color: $beige;
-        border-radius: 10px;
-        margin: 30px;
-    }
-    
-    .blockViewTitle{
-        display: flex;
-    }
-    
-    .blockViewRating{
-        display: flex;
-        text-align: center;
-    }
-    
-    .iconView{
-        width: 50px;
-        height: 50px;
-    }
-
-    .main{
-        display: block;
-    }
-    
-    .blockViewRating{
-        display: block;
-    }
-}
-
 .main{
-    display: none;
+    display: block;
 }
 
 .blockViewRating{
-    display: none;
+    display: block;
+}
+
+.blockView{
+    width: 200px;
+    height: 150px;
+    background-color: $beige;
+    border-radius: 10px;
+    margin: 30px;
+}
+
+.blockViewTitle{
+    display: flex;
+}
+
+.blockViewRating{
+    display: flex;
+    text-align: center;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.iconView{
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 768px){
+    
+    .blockViewRating{
+        display: none;
+    }
 }
 
 

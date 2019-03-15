@@ -17,13 +17,6 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('/categorie', function () {
-    return view('categorie',[
-        'title' => 'Categorie',
-        'types' => App\Type::get()
-    ]);
-})->name('categorie');
-
 Route::get('/decouvrir', function () {
     return view('decouvrir',[
         'title' => 'decouvrir',

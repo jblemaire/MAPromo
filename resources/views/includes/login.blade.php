@@ -49,11 +49,11 @@
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit">
                                 Se connecter
                             </button>
                             
-                            <a href="{{url('/login/facebook')}}" class="btn btn-primary">Se connecter avec Facebook</a>
+                            <a href="{{url('/login/facebook')}}">Se connecter avec Facebook</a>
 
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 Mot de passe oublié ?

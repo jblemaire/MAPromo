@@ -4,10 +4,12 @@
     position: relative;
 }
 
-#search{
-    display: none;
-}
-
-#filters{
-    display: none;
+@media (max-width: 768px){
+    #search{
+        display: none;
+    }
+    
+    #filters{
+        display: none;
+    }
 }

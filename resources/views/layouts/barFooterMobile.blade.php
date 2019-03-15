@@ -4,7 +4,7 @@
             <p>Accueil</p>
         </div>
         <div>
-            <a href="{{ route('categorie') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_sale_232236') }}"/></svg></a>
+            <a href="{{ route('decouvrir') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_percentage_1045094') }}"/></svg></a>
             <p>Mes promotions</p>
         </div>
         <div>
