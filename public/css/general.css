@@ -42,3 +42,7 @@
     display: flex;
     flex-direction: column;
 }
+
+.glyphicon { margin-right:5px;}
+.rating .glyphicon {font-size: 16px;}
+.rating-num { margin-top:0px;font-size: 16px; }

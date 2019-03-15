@@ -42,6 +42,9 @@ class HomeController extends Controller
         }
 
         $magasins = $query->get();
+
+
+
         return $magasins;
 
     }

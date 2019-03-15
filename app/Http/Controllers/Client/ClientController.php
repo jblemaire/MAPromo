@@ -35,17 +35,58 @@ class ClientController extends Controller
         $adhesion = DB::table('adhesions')->where('Promotion_idPromo', $request->input('promo'))
             ->where('Internaute_idInternaute', Auth::user()->idUser)
             ->get();
+        $etat = 'exist';
         
         if(count($adhesion) === 0){
 
             DB::table('adhesions')->insert([
                 'Promotion_idPromo' => $request->input('promo'),
-                'Internaute_idInternaute' => Auth::user()->idUser
+                'Internaute_idInternaute' => Auth::user()->idUser,
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
 
-            return redirect()->route('mes_promotions');
+            $etat = 'done';
         }
 
-        return redirect()->route('home');
+        return $etat;
+    }
+
+    public function getPromo($idPromo){
+        $magasin = Promotion::join('magasins', 'promotions.idMagasin', '=', 'magasins.idMagasin')
+            ->join('villes', 'magasins.codeINSEEVille', '=', 'villes.codeINSEEVille')
+            ->join('types', 'magasins.idType', '=', 'types.idType')
+            ->leftjoin('categories', 'magasins.idCategorie', '=', 'categories.idCategorie')
+            ->where('promotions.idPromo', $idPromo)
+            ->get();
+
+        $adhesions = DB::table('adhesions')->select('adhesions.*', 'users.nomUser', 'users.prenomUser')
+            ->join('users', 'adhesions.Internaute_idInternaute', '=', 'users.idUser')
+            ->where('Promotion_idPromo', $idPromo)
+            ->whereNotNull('commentaireAdhesion')
+            ->get();
+
+        return view ('client.detailPromotion',[
+            'title' => 'Détails Promotions',
+            'magasins' => $magasin,
+            'adhesions' => $adhesions
+        ]);
+    }
+
+    public function postComment(Request $request, $idPromo){
+        DB::table('adhesions')->where('Promotion_IdPromo' , $idPromo)
+            ->where('Internaute_IdInternaute', Auth::user()->idUser)
+            ->update([
+                'noteAdhesion' => $request->input('note'),
+                'commentaireAdhesion' => $request->input('comment'),
+                'updated_at' => date("Y-m-d H:i:s")
+                ]);
+
+        return redirect()->route('details_promo', ['idPromo'=>$idPromo]);
+
+
+
     }
 }
+
+

@@ -59,6 +59,8 @@
                 </ul>
             </div>
         </div>
+        <div id="messagePromo" class="alert" role="alert" style="display: none"></div>
+
         <div id="codePromo" style="display: none">
             <div id="textCodePromo">
 
