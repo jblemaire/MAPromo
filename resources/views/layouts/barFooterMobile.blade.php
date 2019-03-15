@@ -1,18 +1,14 @@
     <div class="bar_mobile">
         <div>
             <a href="{{ route('home') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Home_671857') }}"/></svg></a>
-            <p>Sélection</p>
+            <p>Accueil</p>
         </div>
         <div>
-            <a href="{{ route('categorie') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Map_677577') }}"/></svg></a>
-            <p>À proximité</p>
+            <a href="{{ route('categorie') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_sale_232236') }}"/></svg></a>
+            <p>Mes promotions</p>
         </div>
         <div>
             <a href="{{ route('decouvrir') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_discover_1666932') }}"/></svg></a>
             <p>Découvrir</p>
-        </div>
-        <div>
-            <a href="{{ route('categorie') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Folder_561033') }}"/></svg></a>
-            <p>Catégorie</p>
         </div>
     </div>

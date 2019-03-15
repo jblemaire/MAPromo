@@ -2,17 +2,17 @@
 <!-- Sidebar Holder -->
 <nav id="sidebar">
     <div class="sidebar-header">
-        <h3>MAPromo</h3>
+        <img class="logo" src="{{ asset('img/logoFinal.png') }}" alt="logo">
     </div>
     <ul class="list-unstyled components">
         <li>
-        <a href="{{ route('compte') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_User_882671') }}"/></svg> Mon compte</a>
+        <a href="{{ route('compte') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_account_1575186') }}"/></svg> Mon compte</a>
         </li>
         <li>
-            <a href="{{ route('home') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_setting_655357') }}"/></svg> Réglages</a>
+            <a href="{{ route('home') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_contact_643154') }}"/></svg> Contact</a>
         </li>
         <li>
-            <a href="{{ route('home') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_setting_655357') }}"/></svg> Contact</a>
+            <a href="{{ route('apropos') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_about_1982513') }}"/></svg> A propos</a>
         </li>
     </ul>
 </nav>

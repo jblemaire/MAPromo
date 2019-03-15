@@ -11,6 +11,10 @@ body{
     color: $black;
 }
 
+.logo{
+    height: 23px;
+}
+
 footer{
     background-color: $gris;
     height: 100px;
@@ -19,7 +23,6 @@ footer{
 
 #blockContent{
     margin: 0 auto;
-    width: 100px;
     display: block;
     list-style: none;
 }

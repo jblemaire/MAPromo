@@ -45,6 +45,13 @@ Route::get('/compte', function () {
     ]);
 })->name('compte');
 
+Route::get('/contact', function () {
+    return view('contact',[
+        'title' => 'contact',
+        'types' => App\Type::get()
+    ]);
+})->name('contact');
+
 Auth::routes();
 
 Route::post('/city_search', 'HomeController@postCitiesSearch')->name('cities_search_post');

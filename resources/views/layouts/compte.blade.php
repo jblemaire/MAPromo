@@ -1,4 +1,4 @@
-<div id="monCompte">
+<div class="monCompte">
         <!-- Authentication Links -->
     @if(Auth::user() && Auth::user()->idRole === 1)
         <li><a href="{{route('admin')}}">Gestion des tables</a></li>

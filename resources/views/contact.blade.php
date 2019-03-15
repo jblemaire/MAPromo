@@ -3,5 +3,5 @@
 @section('content')
     @include('includes.login')
     @include('includes.register')
-    @include('layouts.apropos')
+    @include('layouts.contact')
 @endsection

@@ -8347,12 +8347,6 @@ button.close {
   display: none;
 }
 
-#monCompte {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 .navbar-toggle {
   float: left;
 }
@@ -8597,6 +8591,10 @@ body {
   color: #515052;
 }
 
+.logo {
+  height: 23px;
+}
+
 footer {
   background-color: #bfbfc0;
   height: 100px;
@@ -8605,7 +8603,6 @@ footer {
 
 #blockContent {
   margin: 0 auto;
-  width: 100px;
   display: block;
   list-style: none;
 }
@@ -8921,5 +8918,15 @@ select {
   width: 600px;
   margin: 0 auto;
   padding: 20px;
+}
+
+#monCompte {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.monCompte {
+  text-align: center;
 }
 
