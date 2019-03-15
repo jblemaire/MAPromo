@@ -73,7 +73,7 @@ function addMarker(r){
     markersLayer.clearLayers();
     for (let i = 0; i < res.length; i++) {
         marker= L.marker([ res[i].latMagasin, res[i].longMagasin]);
-        marker.bindPopup(`<b>${res[i].nomMagasin}</b> <br />${res[i].adresse1Magasin} ${res[i].adresse2Magasin} <br />${res[i].cpVille} ${res[i].nomVille}`);
+        marker.onclick(afficheMagasin(res[i]));
         markersLayer.addLayer(marker);
     }
     markersLayer.addTo(map);
@@ -117,3 +117,199 @@ function searchTypes(){
 function addTypes(r){
     console.log(r);
 }
+
+function searchCategories(){
+    let type = document.getElementById('selectType').value;
+    if(type !== ""){
+        axios.post('/categories_search', {
+            'idType': type
+        })
+            .then(addCategories)
+            .catch(error);
+    }
+    else{
+        document.getElementById('selectCategorie').disabled = true;
+    }
+}
+
+function addCategories(r){
+    let res = r.data;
+    let cat = document.getElementById('selectCategorie');
+    cat.innerHTML="";
+    if(res.length === 0){
+        let option = document.createElement("option");
+        option.setAttribute("value", "");
+        option.appendChild(document.createTextNode('Aucune catégorie pour ce type de magasin'));
+        cat.disabled = true;
+        cat.appendChild(option);
+    }
+    else{
+        let option = document.createElement("option");
+        option.setAttribute("value", "");
+        option.appendChild(document.createTextNode('--Choisir une categorie--'));
+        cat.appendChild(option);
+        for(let i = 0; i < res.length ; i++){
+            let option = document.createElement("option");
+            option.setAttribute("value", res[i].idCategorie);
+            option.appendChild(document.createTextNode(res[i].libCategorie));
+            cat.disabled = false;
+            cat.appendChild(option);
+        }
+    }
+}
+
+function supprComm(idPromo, idUser){
+    axios.post('/admin/delete_com', {
+        'idPromo': idPromo,
+        'idUser': idUser
+    })
+        .then(window.location.reload())
+        .catch(error);
+}
+
+function getVilleByCp(codePostal){
+    if(codePostal.length === 5){
+        axios.post('/magasins/city_search_by_cp', {
+            'cpVille': codePostal
+        })
+            .then(addSelectVille)
+            .catch(error);
+    }
+    else{
+        let selectVille = document.getElementById('villeMag');
+        selectVille.innerHTML="";
+        let option = document.createElement("option");
+        option.appendChild(document.createTextNode('Le code Postal n\'est pas valide'));
+        selectVille.disabled = true;
+        selectVille.appendChild(option);
+        document.getElementById('longMag').value = '';
+        document.getElementById('latMag').value = '';
+    }
+}
+
+function addSelectVille(r){
+    let res = r.data;
+    let selectVille = document.getElementById('villeMag');
+    selectVille.innerHTML="";
+    if(res.length === 0 ){
+        let option = document.createElement("option");
+        option.appendChild(document.createTextNode('Aucune villes trouvée'));
+        selectVille.disabled = true;
+        selectVille.appendChild(option);
+    }
+    else {
+        for (let i = 0 ; i < res.length ; i++){
+            let option = document.createElement("option");
+            option.setAttribute("value", res[i].codeINSEEVille);
+            option.appendChild(document.createTextNode(res[i].nomVille));
+            selectVille.disabled = false;
+            selectVille.appendChild(option);
+            document.getElementById('longMag').value = '';
+            document.getElementById('latMag').value = '';
+        }
+    }
+}
+
+function getCoordonnes(){
+    let codeINSEE = document.getElementById('villeMag').value;
+    let numRue = document.getElementById('adresse1Mag').value;
+    let adresse = document.getElementById('adresse2Mag').value;
+
+    let queryAdresse = numRue + ' ' + adresse;
+    queryAdresse = queryAdresse.split(' ').join('+');
+
+    axios.get('https://api-adresse.data.gouv.fr/search/?q='+queryAdresse+'&citycode='+codeINSEE, null)
+        .then(addCoordonnes)
+        .catch(error);
+}
+
+function addCoordonnes(r){
+    let res = r.data;
+    let longitude = res.features[0].geometry.coordinates[0];
+    let latitude = res.features[0].geometry.coordinates[1];
+
+    document.getElementById('longMag').value = longitude;
+    document.getElementById('latMag').value = latitude;
+}
+
+function getCodes(){
+    let codePromo = "";
+    let codeAvis = "";
+    let char = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (let i = 0; i < 3; i++) {
+        codePromo += char.charAt(Math.floor(Math.random() * char.length));
+        codeAvis += char.charAt(Math.floor(Math.random() * char.length));
+    }
+
+    document.getElementById('codePromo').value = codePromo;
+    document.getElementById('codeAvis').value = codeAvis;
+
+    getToday();
+
+}
+
+function getToday(){
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1; //January is 0!
+    let yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('dateDebutPromo').min = today;
+}
+
+function getMinMaxFinPromo(dateDebutPromo){
+    let dateDebut = new Date(dateDebutPromo);
+    let dateFin = new Date();
+    let numberOfDaysToAdd = 15;
+    dateFin.setDate(dateDebut.getDate() + numberOfDaysToAdd);
+
+    let dd = dateFin.getDate();
+    let mm = dateFin.getMonth()+1; //January is 0!
+    let yyyy = dateFin.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    }
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    dateFin = yyyy + '-' + mm + '-' + dd;
+
+    document.getElementById('dateFinPromo').min = dateDebutPromo;
+    document.getElementById('dateFinPromo').max = dateFin;
+}
+
+function updateEtat(idPromo, etat){
+    if(etat === 0){
+        etat = 1;
+    }
+    else{
+        etat = 0;
+    }
+
+    document.getElementById(`checkboxEtat${idPromo}`).value = etat;
+
+    axios.post('/promotions/update_etat', {
+        'promo': idPromo,
+        'etat': etat
+    })
+        .then()
+        .catch(error);
+}
+
+function afficheMagasin(magasin){
+    console.log(magasin);
+}
+

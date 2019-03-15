@@ -14,7 +14,7 @@ use App\Adhesion;
 class AdminController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth')->except('getUsersList');
+        $this->middleware('admin');
     }
 
     public function getUsersList($idUser = null){
@@ -92,7 +92,9 @@ class AdminController extends Controller
         return view('admin.categories', [
             'title'=> 'Espace Admin',
             'categories' => $categories,
-            'types' => Type::get()]);
+            'types' => Type::get(),
+            'idType' => $idType
+        ]);
     }
 
     public function getPromotionsList(){
@@ -177,6 +179,14 @@ class AdminController extends Controller
         $categorie->save();
 
         return redirect()->route('categories_list');
+    }
+
+    public function postDeleteCom(Request $request){
+        Adhesion::where('Promotion_idPromo' , '=', $request->input('idPromo'))
+            ->where('Internaute_idInternaute', '=', $request->input('idUser'))
+            ->update(['commentaireAdhesion' => 'Votre commentaire a été supprimé par l\'administrateur du site']);
+
+        return redirect()->route('adhesions_list_user');
     }
 
 }

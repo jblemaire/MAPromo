@@ -8333,3 +8333,46 @@ button.close {
   }
 }
 
+.checkboxEtat:focus + label {
+  -webkit-box-shadow: 0 0 6px 3px rgba(0, 0, 255, 0.5);
+          box-shadow: 0 0 6px 3px rgba(0, 0, 255, 0.5);
+}
+
+.labelEtat {
+  position: relative;
+  width: 5rem;
+  height: 3rem;
+  background-color: red;
+  display: inline-block;
+  font-size: 0;
+  border-radius: 2rem;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.labelEtat::before {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: lightgray;
+  border-radius: 50%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+.checkboxEtat:checked + .labelEtat {
+  background-color: green;
+}
+
+.checkboxEtat:checked + .labelEtat::before {
+  -webkit-transform: translate3d(2rem, 0, 0);
+          transform: translate3d(2rem, 0, 0);
+}
+
