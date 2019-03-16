@@ -41,6 +41,7 @@ Route::get('/register/facebook/callback', 'Auth\RegisterController@handleProvide
 Route::get('mes_promotions/', 'Client\ClientController@returnView')->name('mes_promotions')->middleware('client');
 Route::get('details_promotion/{idPromo}', 'Client\ClientController@getPromo')->name('details_promo')->middleware('client');
 Route::post('details_promotion/{idPromo}/add_comment', 'Client\ClientController@postComment')->name('post_comment')->middleware('client');
+Route::get('liste_promo/', 'Client\ClientController@getListPromo')->name('post_liste')->middleware('client');
 
 
 /**Responsable Part**/

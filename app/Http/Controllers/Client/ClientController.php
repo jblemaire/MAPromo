@@ -83,9 +83,16 @@ class ClientController extends Controller
                 ]);
 
         return redirect()->route('details_promo', ['idPromo'=>$idPromo]);
+    }
 
+    public function getListPromo(){
+        $promotions = Promotion::orderBy('created_at', 'DESC)')
+            ->paginate(10);
 
-
+        return view ('client.listePromo',[
+            'title' => 'Liste des Promotions',
+            'promotions' => $promotions
+        ]);
     }
 }
 

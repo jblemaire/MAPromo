@@ -7,6 +7,7 @@ use App\Magasin;
 use App\Promotion;
 use App\Ville;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -43,9 +44,14 @@ class HomeController extends Controller
 
         $magasins = $query->get();
 
+        $nb_promo = Promotion::select(DB::raw("COUNT(idPromo) as count_promo"), 'idMagasin')
+            ->groupBy('idMagasin')
+            ->get();
+
+        $data = [$magasins, $nb_promo];
 
 
-        return $magasins;
+        return $data;
 
     }
 

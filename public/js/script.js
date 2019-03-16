@@ -81,8 +81,8 @@ function getStores(){
 }
 
 function addMarker(r) {
-    let res = r.data;
-    console.log(r);
+    let mag = r.data[0];
+    let nb_magasin = r.data[1];
     markersLayer.clearLayers();
     let myIconRed = L.icon({
         iconUrl: "\\img\\markers\\marker_rouge.png",
@@ -94,10 +94,21 @@ function addMarker(r) {
         iconSize:     [20, 30], // size of the icons
         iconAnchor:   [10, 30]
     });
+    let icon;
 
-    for (let i = 0; i < res.length; i++) {
-        marker = L.marker([res[i].latMagasin, res[i].longMagasin], {icon: myIconRed});
-        marker.object = res[i];
+    for (let i = 0; i < mag.length; i++) {
+        for ( let j=0 ; j < nb_magasin.length ; j++){
+            if(mag[i].idMagasin === nb_magasin[j].idMagasin){
+                icon = {icon: myIconRed};
+                break;
+            }
+            else{
+                icon = {icon: myIconGrey};
+            }
+        }
+
+        marker = L.marker([mag[i].latMagasin, mag[i].longMagasin], icon);
+        marker.object = mag[i];
         markersLayer.addLayer(marker);
     }
     markersLayer.addTo(map).on('click', afficheMagasin);
