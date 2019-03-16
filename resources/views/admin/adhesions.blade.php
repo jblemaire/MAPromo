@@ -8,6 +8,7 @@
             <th scope="col">Internaute</th>
             <th scope="col">Note</th>
             <th scope="col">Commentaire</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                 <td>{{$adhesion->nomUser}} {{$adhesion->prenomUser}}</td>
                 <td>{{$adhesion->noteAdhesion}} / 5</td>
                 <td>{{$adhesion->commentaireAdhesion}}</td>
+                <td><button onclick="supprComm({{$adhesion->idPromo}}, {{$adhesion->idUser}})">Supprimer commentaire</button></td>
             </tr>
         @endforeach
         </tbody>

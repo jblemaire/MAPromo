@@ -34,7 +34,7 @@ class ValueSeeder extends Seeder
             'idRole' => 1
         ]);
 
-        factory(App\User::class, 100)->create();
+        //factory(App\User::class, 100)->create();
 
         /**Type**/
         $type1 = DB::table('types')->insertGetId([
@@ -126,7 +126,7 @@ class ValueSeeder extends Seeder
         ]);
 
         /**Magasin**/
-        factory(App\Magasin::class, 200)->create();
+        //factory(App\Magasin::class, 200)->create();
 
 
 
