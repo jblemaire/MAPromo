@@ -29,7 +29,7 @@
                     <li><a href="{{route('admin')}}">Gestion des tables</a></li>
                 @elseif(Auth::user() && Auth::user()->idRole === 2)
                     <li><a href="">Mon compte</a></li>
-                    <li><a href="">Mes promotions</a></li>
+                    <li><a href="{{route('mes_promotions')}}">Mes promotions</a></li>
                 @elseif(Auth::user() && Auth::user()->idRole === 3)
                     <li><a href="">Mon compte</a></li>
                     <li><a href="{{route('magasins')}}">Mes magasins</a></li>

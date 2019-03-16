@@ -1,5 +1,6 @@
 let map, osmUrl, osmAttrib, osm, marker, markersLayer;
 
+
 function error(e){
     alert(e.statusText);
 }
@@ -16,11 +17,13 @@ function searchVilles(){
 
 
 function initMap(){
+    L.mapbox.accessToken = 'pk.eyJ1IjoibmFuaWUzMyIsImEiOiJjanNvc3ZjZmMwcTdzNDVsanJwbXFxOGF6In0.APE2fly8QeEl8YNvA53CWQ';
     map = L.map('map');
     osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    osmAttrib='Map data © OpenStreetMap contributors';
+    osmAttrib='MAPromo, personnalisé avec MapBox';
     osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
     map.setView([47.0, 3.0], 6).addLayer(osm);
+    L.mapbox.styleLayer('mapbox://styles/nanie33/cjsosw5k31cxf1fl3wdth7qs4').addTo(map);
     markersLayer = new L.featureGroup();
 }
 
@@ -79,9 +82,21 @@ function getStores(){
 
 function addMarker(r) {
     let res = r.data;
+    console.log(r);
     markersLayer.clearLayers();
+    let myIconRed = L.icon({
+        iconUrl: "\\img\\markers\\marker_rouge.png",
+        iconSize:     [20, 30], // size of the icons
+        iconAnchor:   [10, 30]
+    });
+    let myIconGrey = L.icon({
+        iconUrl: "\\img\\markers\\marker_gris.png",
+        iconSize:     [20, 30], // size of the icons
+        iconAnchor:   [10, 30]
+    });
+
     for (let i = 0; i < res.length; i++) {
-        marker = L.marker([res[i].latMagasin, res[i].longMagasin]);
+        marker = L.marker([res[i].latMagasin, res[i].longMagasin], {icon: myIconRed});
         marker.object = res[i];
         markersLayer.addLayer(marker);
     }
@@ -409,14 +424,21 @@ function affichePromo(r){
     ul.id = 'listPromo';
     ul.className = 'list-group';
 
+    if(res.length === 0 ){
+        let li = document.createElement('li');
+        li.className='list-group-item';
+        li.appendChild(document.createTextNode('Aucune Promotion pour ce magasin'));
+        ul.appendChild(li);
+    }
+
     for(let i=0; i<res.length ; i++){
         let li = document.createElement('li');
         li.className='list-group-item';
         li.appendChild(document.createTextNode(res[i].libPromo));
 
-        let buttonDetails = document.createElement('button');
+        let buttonDetails = document.createElement('a');
         buttonDetails.className="btn btn-primary";
-        buttonDetails.type="button";
+        buttonDetails.href = document.location.href + 'details_promotion/'+res[i].idPromo;
         buttonDetails.appendChild(document.createTextNode('Voir la promo'));
         buttonDetails.style.float= "right";
         li.appendChild(buttonDetails);
@@ -433,7 +455,7 @@ function affichePromo(r){
             if (userInfos.idRole === 2) {
                 buttonAdhesion.disabled = false;
                 buttonAdhesion.onclick = function () {
-                    getCodePromo(res[i].idPromo, res[i].codePromo, userInfos.idUser);
+                    getCodePromo(res[i].idPromo, res[i].codePromo);
                     $("html, body").animate({
                         scrollTop: $('#codePromo').offset().top
                     }, 'slow');
@@ -450,24 +472,72 @@ function affichePromo(r){
     document.getElementById('promotions').replaceChild(ul, document.getElementById('listPromo'));
 }
 
-function getCodePromo(idPromo, code, idUser){
-    let divCodePromo = document.createElement('div');
-    divCodePromo.id="textCodePromo";
-
-    let codePromo = document.createElement('h1');
-    codePromo.className = 'text-center';
-    codePromo.appendChild(document.createTextNode(code));
-
-    let div = document.getElementById('codePromo');
-    div.replaceChild(codePromo, document.getElementById('textCodePromo'));
-    div.style.display='block';
-
+function getCodePromo(idPromo, code){
     axios.post('/add_adhesion', {
-        'promo': idPromo,
-        'user': idUser,
+        'promo': idPromo
     })
-        .then((r)=>{
-            console.log(r);
-        })
+        .then((r) => {
+            let divCodePromo = document.createElement('div');
+            divCodePromo.id="textCodePromo";
+
+            if (r.data === 'done'){
+                document.getElementById('messagePromo').className = "alert alert-success";
+                afficheMessage('messagePromo', 'Bravo, vous avez accès à la promotion !');
+
+                let codePromo = document.createElement('h1');
+                codePromo.className = 'text-center';
+                codePromo.appendChild(document.createTextNode('Profitez-en avec le code ' + code));
+
+                divCodePromo.appendChild(codePromo);
+
+            }
+            else
+            {
+                document.getElementById('messagePromo').className = "alert alert-danger";
+                afficheMessage('messagePromo', 'Vous avez déjà accès à la promotion !');
+            }
+
+            let div = document.getElementById('codePromo');
+            div.replaceChild(divCodePromo, document.getElementById('textCodePromo'));
+            div.style.display='block';
+            }
+        )
         .catch(error);
 }
+
+function checkCodeAvis(){
+    let value = document.getElementById('inputCodeAvis').value;
+    let codeAvis = document.getElementById('codeAvisPromo').value;
+
+    if(value === codeAvis){
+        document.getElementById('formAddComment').style.display = "block";
+    }
+    else{
+        afficheMessage('messageCodeAvis', 'Le code Avis n\'est pas correct');
+    }
+}
+
+function afficheMessage(id, msg){
+    // On affiche le message
+    document.getElementById(id).innerHTML = msg;
+    document.getElementById(id).style.display = "block";
+
+
+// On l'efface 8 secondes plus tard
+    setTimeout(function() {
+        document.getElementById(id).innerHTML = "";
+        document.getElementById(id).style.display = "none";
+    },5000);
+}
+
+function ratingStarMouseOver(n){
+    for(let i = 0 ; i <= n ; i++){
+        document.getElementById('formRatingStar'+i).className='glyphicon glyphicon-star';
+        document.getElementById('note').value = n+1;
+    }
+    for (let i = n+1 ; i <= 5 ; i++){
+        document.getElementById('formRatingStar'+i).className='glyphicon glyphicon-star-empty';
+    }
+    document.getElementById('note').value = n;
+}
+

@@ -312,3 +312,4 @@ function updateEtat(idPromo, etat){
 function afficheMagasin(magasin){
     console.log(magasin);
 }
+

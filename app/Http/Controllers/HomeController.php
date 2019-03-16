@@ -35,13 +35,16 @@ class HomeController extends Controller
             ->whereBetween('latMagasin', [$SW[0], $NE[0]]);
 
         if($type){
-            $query->where('idType', $type);
+            $query->where('magasins.idType', $type);
         }
         if($cat){
-            $query->where('idCategorie', $cat);
+            $query->where('magasins.idCategorie', $cat);
         }
 
         $magasins = $query->get();
+
+
+
         return $magasins;
 
     }

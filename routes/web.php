@@ -15,7 +15,7 @@ Route::get('/', function () {
         'title' => 'Accueil',
         'types' => App\Type::get()
     ]);
-});
+})->name('home');
 
 Auth::routes();
 
@@ -31,12 +31,17 @@ Route::post('promotions/update_etat', 'Responsable\PromotionController@updateEta
 Route::post('/search_promos', 'HomeController@postPromosSearch')->name('promos_search_post');
 Route::post('/add_adhesion', 'Client\ClientController@postAdhesion')->name('post_adhesion')->middleware('client');
 
-
 /**Facebook Connect**/
 Route::get('/login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('/login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 Route::get('/register/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('/register/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
+
+/**Client Part**/
+Route::get('mes_promotions/', 'Client\ClientController@returnView')->name('mes_promotions')->middleware('client');
+Route::get('details_promotion/{idPromo}', 'Client\ClientController@getPromo')->name('details_promo')->middleware('client');
+Route::post('details_promotion/{idPromo}/add_comment', 'Client\ClientController@postComment')->name('post_comment')->middleware('client');
+
 
 /**Responsable Part**/
 Route::get('magasins/', 'Responsable\MagasinController@returnView')->name('magasins')->middleware('responsable');
