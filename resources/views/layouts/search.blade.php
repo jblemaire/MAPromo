@@ -10,13 +10,13 @@
                     </div>
                 </div>
                 <div id="filters" class="input-group">
-                    <select aria-label="Type" aria-describedby="button-addon2" id="selectType" onchange="searchCategories()">
+                    <select class="custom-select" id="selectType" onchange="searchCategories()">
                         <option value="">--Choisir un type--</option>
                         @foreach($types as $type)
                             <option value="{{$type->idType}}">{{$type->libType}}</option>
                         @endforeach
                     </select>
-                    <select aria-label="Type" aria-describedby="button-addon2" id="selectCategorie" disabled>
+                    <select class="custom-select"id="selectCategorie" disabled>
                         <option value="">--Choisir une categorie--</option>
                     </select>
                 </div>

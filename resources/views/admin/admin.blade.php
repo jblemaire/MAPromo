@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="content" class="content">
-        <ul class="nav navbar-nav" style="flex-direction: row; width: 100%">
+        <ul class="nav navbar-nav gestionTable">
             <li><a href="{{route('users_list')}}">Utilisateurs</a></li>
             <li><a href="{{route('magasins_list')}}">Magasins</a></li>
             <li><a href="{{route('types_list')}}">Types</a></li>

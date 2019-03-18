@@ -62,21 +62,47 @@ input{
     text-align: center;
 }
 
+#inputVille{
+    border: solid 1px $bleu;
+}
+
+#filters select{
+    margin-left: 10px;
+}
+
 select{
-    border: none;
-    border-radius: 25px;
-    height: 35px;
+    border: none !important;
+    border-radius: 25px !important;
+    background-color: $bleu !important;
+    color: $blanc !important;
+    height: 35px !important;
     text-align: center;
 }
 
-#search{
-    margin: 10px;
+option{
+    border: none !important;
 }
-
 
 .title{
     font-size: 1.5rem;
     color: $black !important;
+}
+
+.buttonNav li:hover{
+    background-color: $vert;
+    color: $blanc !important;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+}
+
+.buttonNav li a{
+    color: $blanc !important;
+}
+
+.buttonNav li a:hover{
+    text-decoration: none
 }
 
 .dropbtn {
@@ -149,6 +175,8 @@ select{
 .col{
     text-align: center;
     margin-top: 2rem;
+}
+
 .checkboxEtat {
   &:focus {
     + label {
@@ -156,6 +184,17 @@ select{
     }
   }
 }
+
+.checkboxEtat:checked {
+    + .labelEtat {
+      background-color: green;
+  
+      &::before {
+        transform: translate3d(2rem, 0, 0);
+      }
+    }
+  }
+
 .labelEtat {
   position: relative;
   width: 5rem;
@@ -177,14 +216,5 @@ select{
     border-radius: 50%;
     transform: translate3d(0, 0, 0);
     transition: transform 0.2s ease-in-out;
-  }
-}
-.checkboxEtat:checked {
-  + .labelEtat {
-    background-color: green;
-
-    &::before {
-      transform: translate3d(2rem, 0, 0);
-    }
   }
 }

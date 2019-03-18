@@ -26,7 +26,7 @@
                 <span></span>
             </button>
         </div>
-        <a class="title" href="{{ url('/') }}">{{ $title }}</a>
+        <a class="title buttonNav" href="{{ url('/') }}">{{ $title }}</a>
         <div class="button_nav">
                 <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
@@ -43,7 +43,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right" style="flex-direction: row">
-                <div id="monCompte">
+                <div id="monCompte" class="buttonNav">
                     <!-- Authentication Links -->
                 @if(Auth::user() && Auth::user()->idRole === 1)
                     <li><a href="{{route('admin')}}">Gestion des tables</a></li>

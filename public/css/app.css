@@ -8349,28 +8349,6 @@ button.close {
   }
 }
 
-.navbar-toggle {
-  float: left;
-}
-
-.navbar {
-  padding: 15px 10px;
-  flex-direction: row !important;
-  background: #fff;
-  border: none;
-  border-radius: 0;
-  margin: 0;
-  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  outline: none !important;
-  border: none;
-}
-
 .line {
   width: 100%;
   height: 1px;
@@ -8648,17 +8626,47 @@ input {
   text-align: center;
 }
 
+#inputVille {
+  border: solid 1px #99cbe4;
+}
+
+#filters select {
+  margin-left: 10px;
+}
+
 select {
-  border: none;
-  border-radius: 25px;
-  height: 35px;
-  width: 50%;
+  border: none !important;
+  border-radius: 25px !important;
+  background-color: #99cbe4 !important;
+  color: #ffffff !important;
+  height: 35px !important;
   text-align: center;
+}
+
+option {
+  border: none !important;
 }
 
 .title {
   font-size: 1.5rem;
   color: #515052 !important;
+}
+
+.buttonNav li:hover {
+  background-color: #25db71;
+  color: #ffffff !important;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
+}
+
+.buttonNav li a {
+  color: #ffffff !important;
+}
+
+.buttonNav li a:hover {
+  text-decoration: none;
 }
 
 .dropbtn {
@@ -8743,6 +8751,49 @@ select {
   margin-top: 2rem;
 }
 
+.checkboxEtat:focus + label {
+  -webkit-box-shadow: 0 0 6px 3px rgba(0, 0, 255, 0.5);
+          box-shadow: 0 0 6px 3px rgba(0, 0, 255, 0.5);
+}
+
+.checkboxEtat:checked + .labelEtat {
+  background-color: green;
+}
+
+.checkboxEtat:checked + .labelEtat::before {
+  -webkit-transform: translate3d(2rem, 0, 0);
+          transform: translate3d(2rem, 0, 0);
+}
+
+.labelEtat {
+  position: relative;
+  width: 5rem;
+  height: 3rem;
+  background-color: red;
+  display: inline-block;
+  font-size: 0;
+  border-radius: 2rem;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.labelEtat::before {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: lightgray;
+  border-radius: 50%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
 .page-footer {
   display: block;
 }
@@ -8792,6 +8843,27 @@ select {
   display: block;
 }
 
+.navbar {
+  padding: 15px 10px;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+}
+
+.navbar-btn {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
 .navbar-default {
   border: none;
   margin-top: 10px;
@@ -8825,6 +8897,7 @@ select {
 }
 
 .navbar-toggle {
+  float: left;
   padding: 0px;
   margin: 0px;
 }
@@ -8941,48 +9014,24 @@ select {
   margin-top: 30px;
 }
 
-.monCompte li {
+#monCompte li {
   margin: 10px;
-.checkboxEtat:focus + label {
-  -webkit-box-shadow: 0 0 6px 3px rgba(0, 0, 255, 0.5);
-          box-shadow: 0 0 6px 3px rgba(0, 0, 255, 0.5);
 }
 
-.labelEtat {
-  position: relative;
-  width: 5rem;
-  height: 3rem;
-  background-color: red;
-  display: inline-block;
-  font-size: 0;
-  border-radius: 2rem;
-  -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out;
+.gestionTable {
+  background-color: #99cbe4;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+  width: 100%;
 }
 
-.labelEtat::before {
-  content: '';
-  position: absolute;
-  top: 0.25rem;
-  left: 0.25rem;
-  height: 2.5rem;
-  width: 2.5rem;
-  background-color: lightgray;
-  border-radius: 50%;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-transition: -webkit-transform 0.2s ease-in-out;
-  transition: -webkit-transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out;
-  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+.gestionTable li a {
+  color: #ffffff !important;
 }
 
-.checkboxEtat:checked + .labelEtat {
-  background-color: green;
-}
-
-.checkboxEtat:checked + .labelEtat::before {
-  -webkit-transform: translate3d(2rem, 0, 0);
-          transform: translate3d(2rem, 0, 0);
+.gestionTable li a:hover {
+  background-color: #25db71 !important;
 }
 
