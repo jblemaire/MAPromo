@@ -8590,7 +8590,7 @@ footer {
 
 a {
   color: #515052 !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a,
@@ -8598,6 +8598,7 @@ a:hover,
 a:focus {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  text-decoration: none !important;
 }
 
 b {
@@ -8616,6 +8617,10 @@ button {
   height: 35px;
   width: 100px;
   text-align: center;
+}
+
+button :hover {
+  background-color: #25db71;
 }
 
 input {
@@ -8650,23 +8655,6 @@ option {
 .title {
   font-size: 1.5rem;
   color: #515052 !important;
-}
-
-.buttonNav li:hover {
-  background-color: #25db71;
-  color: #ffffff !important;
-  text-align: center;
-  width: 100px;
-  height: 40px;
-  border-radius: 25px;
-}
-
-.buttonNav li a {
-  color: #ffffff !important;
-}
-
-.buttonNav li a:hover {
-  text-decoration: none;
 }
 
 .dropbtn {
@@ -8794,8 +8782,51 @@ option {
   transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
+.type {
+  text-align: center;
+}
+
+.ajouterType {
+  margin: 10px;
+}
+
+.titleDesktop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.titleDesktop li {
+  list-style: none;
+  margin-left: 30px;
+}
+
+.titleDesktop li :hover {
+  background-color: #25db71;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.titleMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .titleDesktop {
+    display: none;
+  }
+
+  .titleMobile {
+    display: block;
+  }
+}
+
 .page-footer {
   display: block;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 @media (max-width: 768px) {

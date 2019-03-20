@@ -29,11 +29,13 @@ footer{
 
 a{
     color: #515052 !important;
-    text-decoration: none;
+    text-decoration: none !important;
+
 }
 
 a, a:hover, a:focus {
     transition: all 0.3s;
+    text-decoration: none !important;
 }
 
 b{
@@ -52,6 +54,10 @@ button{
     height: 35px;
     width: 100px;
     text-align: center;
+}
+
+button :hover{
+    background-color: $vert;
 }
 
 input{
@@ -86,23 +92,6 @@ option{
 .title{
     font-size: 1.5rem;
     color: $black !important;
-}
-
-.buttonNav li:hover{
-    background-color: $vert;
-    color: $blanc !important;
-    text-align: center;
-    width: 100px;
-    height: 40px;
-    border-radius: 25px;
-}
-
-.buttonNav li a{
-    color: $blanc !important;
-}
-
-.buttonNav li a:hover{
-    text-decoration: none
 }
 
 .dropbtn {
@@ -217,4 +206,43 @@ option{
     transform: translate3d(0, 0, 0);
     transition: transform 0.2s ease-in-out;
   }
+}
+
+.type{
+    text-align: center;
+}
+
+.ajouterType{
+    margin: 10px;
+}
+
+.titleDesktop{
+    display: flex;
+}
+
+.titleDesktop li{
+    list-style: none;
+    margin-left: 30px;
+}
+
+.titleDesktop li :hover{
+    background-color: $vert;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.titleMobile{
+    display: none;
+}
+
+@media (max-width: 768px){
+    
+    .titleDesktop{
+        display: none;
+    }
+
+    .titleMobile{
+        display: block;
+    }
 }

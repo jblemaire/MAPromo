@@ -1,5 +1,5 @@
 <div id="content" class="content">
-            <div class="main">
+            <div class="main text-center">
                 <div id="search" class="input-group">
                     <input type="hidden" id="latitude">
                     <input type="hidden" id="longitude">

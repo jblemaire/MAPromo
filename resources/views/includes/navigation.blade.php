@@ -26,7 +26,17 @@
                 <span></span>
             </button>
         </div>
-        <a class="title buttonNav" href="{{ url('/') }}">{{ $title }}</a>
+        <div class="titleDesktop">
+            <li>
+                <a class="title buttonNav" href="{{ url('/') }}">Accueil</a>
+            </li>
+            <li>
+                <a class="title buttonNav" href="{{ url('/contact') }}">Contact</a>
+            </li>
+        </div>
+        <div class="titleMobile">
+            <a class="title buttonNav" href="{{ url('/') }}">{{ $title }}</a>
+        </div>
         <div class="button_nav">
                 <div onclick="search()">
                     <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
