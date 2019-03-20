@@ -1,5 +1,6 @@
 // Couleur
 $bleu : #99cbe4;
+$bleuFonce : #007DBC;
 $rouge : #b60000;
 $blanc : #ffffff;
 $vert : #25db71;
@@ -9,16 +10,35 @@ $beige : #FFF0E8;
 
 body{
     color: $black;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+}
+
+h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+h4{
+    font-family: 'Roboto', sans-serif;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
 }
 
 .logo{
     height: 23px;
-}
-
-footer{
-    background-color: $gris;
-    height: 100px;
-    color: $blanc;
 }
 
 #blockContent{
@@ -225,11 +245,14 @@ option{
     margin-left: 30px;
 }
 
-.titleDesktop li :hover{
+.titleDesktop li:hover{
     background-color: $vert;
+    color: $blanc !important;
     width: 100px;
-    height: 30px;
-    border-radius: 10px;
+    height: 35px;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
 }
 
 .titleMobile{

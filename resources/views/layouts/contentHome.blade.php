@@ -12,13 +12,13 @@
 </section>
 <section class="blockViewRating">
     <div>
-        <h2>Les derniers avis</h2>
+        <h3>Les derniers avis</h3>
         <div class="row">
             <div class="blockView">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
-                        <h3>Avis de Jane Doe</h3>
+                        <h4>Avis de Jane Doe</h4>
                         <p>sur la promotion de <a href="#">Chez Fred</a></p>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
-                        <h3>Avis de Jane Doe</h3>
+                        <h4>Avis de Jane Doe</h4>
                         <p>sur la promotion de <a href="#">Chez Fred</a></p>
                     </div>
                 </div>
@@ -43,13 +43,13 @@
         </div>
     </div>
     <div>
-        <h2>Les dernières promotions</h2>
+        <h3>Les dernières promotions</h3>
         <div class="row">
             <div class="blockView">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
-                        <h3>Domino's Pizza</h3>
+                        <h4>Domino's Pizza</h4>
                         <p>14/02/2019 - 28/02/2019</p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
-                        <h3>Domino's Pizza</h3>
+                        <h4>Domino's Pizza</h4>
                         <p>14/02/2019 - 28/02/2019</p>
                     </div>
                 </div>

@@ -4,6 +4,10 @@
     position: relative;
 }
 
+.search{
+    width: 670px !important;
+}
+
 @media (max-width: 768px){
     #search{
         display: none;

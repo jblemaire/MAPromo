@@ -1,12 +1,53 @@
+.footer1{
+    background-color: $beige;
+    height: 100px;
+}
+
+.footer2{
+    background-color: $bleu;
+    height: 100px;
+    text-align: center;
+}
+
+.logo_footer{
+    width: 250px;
+    margin-top: 10px;
+}
+
+.footer3{
+    background-color: $bleuFonce;
+    height: 100px;
+}
+
 .page-footer{
     display: block;
-    position: fixed;
     bottom: 0;
     width: 100%;
+    color: $blanc;
+}
+
+.footer3 p{
+    color: $blanc;
+}
+
+.page-footer a{
+    color: $blanc !important;
 }
 
 @media (max-width: 768px){
+    footer{
+        display: none;
+    }
     .page-footer{
+        display: none;
+    }
+    .footer1{
+        display: none;
+    }
+    .footer2{
+        display: none;
+    }
+    .footer3{
         display: none;
     }
 }

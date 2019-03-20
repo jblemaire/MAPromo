@@ -1,19 +1,8 @@
 <!-- Footer -->
 <footer class="page-footer font-small cyan darken-3">
       <!-- Grid row-->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div class="col">
-          <a href="#"><p>Mentions Légales</p></a>
-        </div>
-        <div class="col">
-          <a href="#"><p>Confidentialité</p></a>
-        </div>
-        <div class="col">
-          <a href="#"><p>Conditions générales d'utilisation</p></a>
-        </div>
-        <div class="col">
+      <div class="footer1">
+      <div class="col">
           <div class="flex-center">
 
             <!-- Facebook -->
@@ -37,8 +26,25 @@
         <!-- Grid column -->
 
       </div>
-      <!-- Grid row-->
+      </div>
+      <div class="footer2">
+      <img class="logo_footer" src="{{ asset('img/logoFinal.png') }}" alt="logo">
+      </div>
+      <div class="row footer3">
 
+        <!-- Grid column -->
+        <div class="col">
+          <a href="#"><p>Mentions Légales</p></a>
+        </div>
+        <div class="col">
+          <a href="#"><p>Confidentialité</p></a>
+        </div>
+        <div class="col">
+          <a href="#"><p>Conditions générales d'utilisation</p></a>
+        </div>
+        
+      <!-- Grid row-->
+      </div>
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="https://mapromo.alwaysdata.net/">mapromo.alwaysdata.net/</a>
