@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     public function getAuthPassword()
     {
-        return $this->mdpUser;
+        return $this->password;
     }
 
     /**
@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nomUser', 'prenomUser', 'mailUser', 'mdpUser', 'telUser', 'idRole', 'provider_id'
+        'nomUser', 'prenomUser', 'email', 'password', 'telUser', 'idRole', 'provider_id'
     ];
 
     /**
@@ -31,7 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'mdpUser', 'remember_token',
+        'password', 'remember_token',
     ];
 
     public function promotions(){

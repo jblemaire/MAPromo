@@ -48,7 +48,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'mailUser';
+        return 'email';
     }
 	
 	/**
@@ -78,7 +78,7 @@ class LoginController extends Controller
 			$user = User::create([
 				'nomUser' => $name[1],
 				'prenomUser' => $name[0],
-				'mailUser' => $facebookUser->getEmail(),
+				'email' => $facebookUser->getEmail(),
 				'provider_id' => $facebookUser->getId(),
 				'idRole' => 2,
 			]);
