@@ -97,7 +97,9 @@
                     <div class="card-body">
                         <h1 class="card-title">{{$magasin->libPromo}}</h1>
                         <h3 class="card-subtitle mb-2">Du {{$magasin->dateDebutPromo}} au {{$magasin->dateFinPromo}}</h3>
-                        <h3 class="card-subtitle mb-2">Profitez-en avec le code <b>{{$magasin->codePromo}}</b></h3>
+                        @if(Auth::user() && Auth::user()->idRole == 2)
+                            <h3 class="card-subtitle mb-2">Profitez-en avec le code <b>{{$magasin->codePromo}}</b></h3>
+                        @endguest
                         <p class="card-text">{{$magasin->descPromo}}</p>
                     </div>
                 </div>
@@ -106,52 +108,54 @@
     </div>
     @endforeach
     <hr />
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Entrez le code Avis" aria-label="Entrez le code Avis" aria-describedby="button-addon2" id="inputCodeAvis">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="checkCodeAvis()">Valider</button>
+    @if(Auth::user() && Auth::user()->idRole == 2)
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Entrez le code Avis" aria-label="Entrez le code Avis" aria-describedby="button-addon2" id="inputCodeAvis">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="checkCodeAvis()">Valider</button>
+            </div>
         </div>
-    </div>
 
-    <div id="messageCodeAvis" class="alert alert-danger" role="alert" style="display: none"></div>
+        <div id="messageCodeAvis" class="alert alert-danger" role="alert" style="display: none"></div>
 
-    <div id="formAddComment" style="display: none">
-        <div class="card card-body">
-            <form class="form-horizontal" method="POST" action="{{route('post_comment', ['idPromo'=>$idPromo])}}">
-                {{ csrf_field() }}
+        <div id="formAddComment" style="display: none">
+            <div class="card card-body">
+                <form class="form-horizontal" method="POST" action="{{route('post_comment', ['idPromo'=>$idPromo])}}">
+                    {{ csrf_field() }}
 
-                <div class="form-group">
-                    <label for="note" class="col-md-4 control-label">Note</label>
+                    <div class="form-group">
+                        <label for="note" class="col-md-4 control-label">Note</label>
 
-                    <div class="col-md-6">
-                        <input id="note" type="hidden" class="form-control" name="note" value="0" autofocus>
-                        <div class="rating">
-                            <span class="glyphicon glyphicon-star" id="formRatingStar0" onmouseover="ratingStarMouseOver(0)"></span>
-                            @for($i = 1; $i <= 5; $i++)
-                                <span class="glyphicon glyphicon-star-empty" id="formRatingStar{{$i}}" onmouseover="ratingStarMouseOver({{$i}})"></span>
-                            @endfor
+                        <div class="col-md-6">
+                            <div class="rating col-md-4">
+                                <span class="glyphicon glyphicon-star" id="formRatingStar0" onmouseover="ratingStarMouseOver(0)"></span>
+                                @for($i = 1; $i <= 5; $i++)
+                                    <span class="glyphicon glyphicon-star-empty" id="formRatingStar{{$i}}" onmouseover="ratingStarMouseOver({{$i}})"></span>
+                                @endfor
+                            </div>
+                            <input id="note" type="number" class="col-md-1 form-control" name="note" value="0" readonly autofocus>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="comment" class="col-md-4 control-label">Commentaire</label>
+                    <div class="form-group">
+                        <label for="comment" class="col-md-4 control-label">Commentaire</label>
 
-                    <div class="col-md-6">
-                        <textarea id="comment" class="form-control" name="comment" autofocus></textarea>
+                        <div class="col-md-6">
+                            <textarea id="comment" class="form-control" name="comment" autofocus></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="col-md-8 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">
-                            Ajouter
-                        </button>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <button type="submit" class="btn btn-primary">
+                                Ajouter
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
+    @endif
     @if(count($adhesions) === 0 )
         <h3 class="card-subtitle mb-12">Aucun commentaire</h3>
     @else

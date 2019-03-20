@@ -9,6 +9,7 @@
             <datalist id="villes"></datalist>
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>
+                <button class="btn btn-outline-secondary" type="button" onclick="getGeolocalisation()">Rechercher via ma position</button>
             </div>
         </div>
         <div class="input-group mb-3">
@@ -67,11 +68,4 @@
             </div>
         </div>
     </div>
-    @guest
-        @include('includes.login')
-        @include('includes.register')
-    @else
-        <input id="userInfos" type="hidden" value="{{Auth::user()}}"/>
-    @endguest
-
 @endsection

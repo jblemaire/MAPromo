@@ -488,29 +488,29 @@ function getCodePromo(idPromo, code){
         'promo': idPromo
     })
         .then((r) => {
-            let divCodePromo = document.createElement('div');
-            divCodePromo.id="textCodePromo";
+                let divCodePromo = document.createElement('div');
+                divCodePromo.id="textCodePromo";
 
-            if (r.data === 'done'){
-                document.getElementById('messagePromo').className = "alert alert-success";
-                afficheMessage('messagePromo', 'Bravo, vous avez accès à la promotion !');
+                if (r.data === 'done'){
+                    document.getElementById('messagePromo').className = "alert alert-success";
+                    afficheMessage('messagePromo', 'Bravo, vous avez accès à la promotion !');
 
-                let codePromo = document.createElement('h1');
-                codePromo.className = 'text-center';
-                codePromo.appendChild(document.createTextNode('Profitez-en avec le code ' + code));
+                    let codePromo = document.createElement('h1');
+                    codePromo.className = 'text-center';
+                    codePromo.appendChild(document.createTextNode('Profitez-en avec le code ' + code));
 
-                divCodePromo.appendChild(codePromo);
+                    divCodePromo.appendChild(codePromo);
 
-            }
-            else
-            {
-                document.getElementById('messagePromo').className = "alert alert-danger";
-                afficheMessage('messagePromo', 'Vous avez déjà accès à la promotion !');
-            }
+                }
+                else
+                {
+                    document.getElementById('messagePromo').className = "alert alert-danger";
+                    afficheMessage('messagePromo', 'Vous avez déjà accès à la promotion !');
+                }
 
-            let div = document.getElementById('codePromo');
-            div.replaceChild(divCodePromo, document.getElementById('textCodePromo'));
-            div.style.display='block';
+                let div = document.getElementById('codePromo');
+                div.replaceChild(divCodePromo, document.getElementById('textCodePromo'));
+                div.style.display='block';
             }
         )
         .catch(error);
@@ -552,3 +552,14 @@ function ratingStarMouseOver(n){
     document.getElementById('note').value = n;
 }
 
+function getGeolocalisation(){
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(maPosition)
+    } else {
+        alert('Impossible de vous géolocaliser');
+    }
+}
+
+function maPosition(position) {
+    setVille(position.coords.latitude, position.coords.longitude);
+}
