@@ -1,0 +1,19 @@
+#map{
+    height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.search{
+    width: 670px !important;
+}
+
+@media (max-width: 768px){
+    #search{
+        display: none;
+    }
+    
+    #filters{
+        display: none;
+    }
+}

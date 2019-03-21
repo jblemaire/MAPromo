@@ -1,0 +1,26 @@
+.bar_mobile{
+    display: flex;
+    background-color: $blanc;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-left: 2px !important;
+}
+
+.bar_mobile p{
+    font-size: 15px;
+}
+
+.bar_mobile div{
+    margin: 10px 10px 0px 10px;
+    text-align: center;
+}
+
+@media (min-width: 768px){
+    
+    .bar_mobile{
+        display: none !important;
+    }
+}

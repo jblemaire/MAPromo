@@ -1,0 +1,39 @@
+@media screen and (min-width: 640px) {
+    .bar_mobile{
+        display: none;
+    }
+
+    #sidebar{
+        display: none;
+    }
+
+    #sidebarCollapse{
+        display: none;
+    }
+
+    .button_nav{
+        display: none;
+    }
+
+    .collapse{
+        display: flex !important;
+    }
+
+    .navbar{
+        justify-content: space-between !important;
+    }
+
+    #content{
+        min-height: 0;
+    }
+
+    .content{
+        margin: 0px;
+    }
+
+    #search_desktop{
+        display: flex;
+    }
+
+
+  }
