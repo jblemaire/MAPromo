@@ -3,7 +3,7 @@
                 <div id="search" class="input-group">
                     <input type="hidden" id="latitude">
                     <input type="hidden" id="longitude">
-                    <input type="text" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
+                    <input class="inputText" type="text" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
                     <datalist id="villes"></datalist>
                     <div class="input-group-append">
                         <button type="button" id="button-addon2" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>

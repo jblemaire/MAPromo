@@ -41,6 +41,25 @@ p{
     height: 23px;
 }
 
+.logo_login{
+    height: 40px;
+}
+
+.modal-header{
+    display: inline-block !important;
+    text-align: center;
+}
+
+.modal-content{
+    border-radius: 10px !important;
+}
+
+.form-horizontal{
+    text-align: center;
+    margin: 0 auto;
+    width: 250px;
+}
+
 #blockContent{
     margin: 0 auto;
     display: block;
@@ -72,8 +91,12 @@ button{
     background-color: $bleu;
     color: $blanc;
     height: 35px;
-    width: 100px;
+    min-width: 100px;
     text-align: center;
+}
+
+button a{
+    color: $blanc !important;
 }
 
 button :hover{
@@ -88,7 +111,7 @@ input{
     text-align: center;
 }
 
-#inputVille{
+.inputText{
     border: solid 1px $bleu;
 }
 

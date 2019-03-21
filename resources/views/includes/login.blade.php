@@ -2,6 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
+                <div><img class="logo_login" src="{{ asset('img/markers/marker_rouge.png') }}" alt="logo"></div>
                 <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
             </div>
 
@@ -13,7 +14,7 @@
                         <label for="mailUser" class="col-md-4 control-label">Adresse Email</label>
 
                         <div class="col-md-6">
-                            <input id="mailUser" type="email" class="form-control" name="mailUser" value="{{ old('mailUser') }}" required autofocus>
+                            <input id="mailUser" class="inputText" type="email" name="mailUser" value="{{ old('mailUser') }}" required autofocus>
 
                             @if ($errors->has('mailUser'))
                                 <span class="help-block">
@@ -27,7 +28,7 @@
                         <label for="password" class="col-md-4 control-label">Mot de passe</label>
 
                         <div class="col-md-6">
-                            <input id="password" type="password" class="form-control" name="password" required>
+                            <input id="password" class="inputText" type="password" name="password" required>
 
                             @if ($errors->has('password'))
                                 <span class="help-block">
@@ -47,13 +48,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-md-8 col-md-offset-4">
+                    <div class="form-group row">
+                        <div class="col">
                             <button type="submit">
                                 Se connecter
                             </button>
                             
-                            <a href="{{url('/login/facebook')}}">Se connecter avec Facebook</a>
+                            <button><a href="{{url('/login/facebook')}}">Se connecter avec Facebook</a></button>
 
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 Mot de passe oublié ?
