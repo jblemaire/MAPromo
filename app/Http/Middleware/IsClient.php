@@ -16,7 +16,7 @@ class IsClient
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->idRole === 2) {
+        if (Auth::user() && Auth::user()->idRole == 2) {
             return $next($request);
         }
 

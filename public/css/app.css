@@ -8375,6 +8375,7 @@ button.close {
 
 .wrapper {
   display: -webkit-box;
+  position: absolute;
   width: 100%;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
@@ -9082,7 +9083,7 @@ footer {
     display: none;
   }
 
-  .collapse {
+  #app-navbar-collapse {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;

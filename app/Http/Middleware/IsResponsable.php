@@ -16,7 +16,7 @@ class IsResponsable
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->idRole === 3) {
+        if (Auth::user() && Auth::user()->idRole == 3) {
             return $next($request);
         }
 

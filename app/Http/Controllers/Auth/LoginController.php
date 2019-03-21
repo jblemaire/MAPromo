@@ -41,15 +41,6 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    /**
-     * Get the login username to be used by the controller.
-     *
-     * @return string
-     */
-    public function username()
-    {
-        return 'mailUser';
-    }
 	
 	/**
      * Redirect the user to the GitHub authentication page.
@@ -78,7 +69,7 @@ class LoginController extends Controller
 			$user = User::create([
 				'nomUser' => $name[1],
 				'prenomUser' => $name[0],
-				'mailUser' => $facebookUser->getEmail(),
+				'email' => $facebookUser->getEmail(),
 				'provider_id' => $facebookUser->getId(),
 				'idRole' => 2,
 			]);

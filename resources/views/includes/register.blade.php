@@ -49,7 +49,7 @@
                         <label for="email" class="">Adresse Email*</label>
 
                         <div>
-                            <input id="email" type="email" class="form-control" name="mailUser" value="{{ old('email') }}" required>
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                             @if ($errors->has('email'))
                                 <span class="help-block">

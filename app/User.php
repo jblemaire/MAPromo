@@ -11,18 +11,13 @@ class User extends Authenticatable
 
     protected $primaryKey = 'idUser';
 
-    public function getAuthPassword()
-    {
-        return $this->mdpUser;
-    }
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'nomUser', 'prenomUser', 'mailUser', 'mdpUser', 'telUser', 'idRole', 'provider_id'
+        'nomUser', 'prenomUser', 'email', 'password', 'telUser', 'idRole', 'provider_id'
     ];
 
     /**
@@ -31,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'mdpUser', 'remember_token',
+        'password', 'remember_token',
     ];
 
     public function promotions(){

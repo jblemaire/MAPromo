@@ -64,7 +64,7 @@ class MagasinController extends Controller
 
         $file1_name = null;
         $file2_name = null;
-        $directory_path = public_path().'\img\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'\stores';
+        $directory_path = public_path().'/img/'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'/stores';
 
         if(!file_exists($directory_path))
             File::makeDirectory($directory_path, $mode = 0777, true, true);
@@ -73,13 +73,13 @@ class MagasinController extends Controller
             $file1 = $request->file('photo1Mag');
             $file1_name = str_replace(' ','',$request->input('nomMag')).'_1_'.rand(1, 10000).'.'.$file1->getClientOriginalExtension();
             $file1->move($directory_path, $file1_name);
-            $magasin->photo1Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file1_name;
+            $magasin->photo1Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '/stores/' . $file1_name;
         }
         if( $request->file('photo2Mag')){
             $file2 = $request->file('photo2Mag');
             $file2_name = str_replace(' ','',$request->input('nomMag')).'_2_'.rand(1, 10000).'.'.$file2->getClientOriginalExtension();
             $file2->move($directory_path, $file2_name);
-            $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file2_name;
+            $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '/stores/' . $file2_name;
 
         }
 
@@ -146,24 +146,24 @@ class MagasinController extends Controller
 
        $file1_name = null;
        $file2_name = null;
-       $directory_path = public_path().'\img\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser .'\stores';
+       $directory_path = public_path().'/img/'.Auth::user()->idUser . '_' . Auth::user()->nomUser .'/stores';
 
        if(!file_exists($directory_path))
            File::makeDirectory($directory_path, $mode = 0777, true, true);
 
        if($request->file('photo1Mag')){
-           File::delete($directory_path.'\\'.$magasin->photo1Magasin);
+           File::delete($directory_path.'/'.$magasin->photo1Magasin);
            $file1 = $request->file('photo1Mag');
            $file1_name = str_replace(' ','',$request->input('nomMag')).'_1_'.rand(1, 10000).'.'.$file1->getClientOriginalExtension();
            $file1->move($directory_path, $file1_name);
-           $magasin->photo1Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file1_name;
+           $magasin->photo1Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '/stores/' . $file1_name;
        }
        if($request->file('photo2Mag')){
-           File::delete($directory_path.'\\'.$magasin->photo2Magasin);
+           File::delete($directory_path.'/'.$magasin->photo2Magasin);
            $file2 = $request->file('photo2Mag');
            $file2_name = str_replace(' ','',$request->input('nomMag')).'_2_'.rand(1, 10000).'.'.$file2->getClientOriginalExtension();
            $file2->move($directory_path, $file2_name);
-           $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\stores\\' . $file2_name;
+           $magasin->photo2Magasin = Auth::user()->idUser . '_' . Auth::user()->nomUser . '/stores/' . $file2_name;
        }
 
        $magasin->save();
