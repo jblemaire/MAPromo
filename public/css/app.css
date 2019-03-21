@@ -8847,17 +8847,16 @@ option {
   margin-left: 30px;
 }
 
-.titleDesktop li:hover {
-  background-color: #25db71;
-  color: #ffffff !important;
-  width: 100px;
-  height: 35px;
-  border-radius: 25px;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
+/*
+.titleDesktop li:hover{
+    background-color: $vert;
+    color: $blanc !important;
+    width: 100px;
+    height: 35px;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+}*/
 
 .titleMobile {
   display: none;

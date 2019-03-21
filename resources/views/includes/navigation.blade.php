@@ -28,6 +28,9 @@
         </div>
         <div class="titleDesktop">
             <li>
+                <img class="logo" src="{{ asset('img/markers/marker_rouge.png') }}" alt="logo">
+            </li>
+            <li>
                 <a class="title" href="{{ url('/') }}">Accueil</a>
             </li>
             <li>
