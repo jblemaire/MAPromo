@@ -28,14 +28,14 @@
         </div>
         <div class="titleDesktop">
             <li>
-                <a class="title buttonNav" href="{{ url('/') }}">Accueil</a>
+                <a class="title" href="{{ url('/') }}">Accueil</a>
             </li>
             <li>
-                <a class="title buttonNav" href="{{ url('/contact') }}">Contact</a>
+                <a class="title" href="{{ url('/contact') }}">Contact</a>
             </li>
         </div>
         <div class="titleMobile">
-            <a class="title buttonNav" href="{{ url('/') }}">{{ $title }}</a>
+            <a class="title" href="{{ url('/') }}">{{ $title }}</a>
         </div>
         <div class="button_nav">
                 <div onclick="search()">

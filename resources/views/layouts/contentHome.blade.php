@@ -10,11 +10,11 @@
         </p>
     </div>
 </section>
-<section class="blockViewRating">
-    <div>
+<section class="blockViewRating row">
+    <div class="col">
         <h3>Les derniers avis</h3>
         <div class="row">
-            <div class="blockView">
+            <div class="blockView col">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
@@ -27,7 +27,7 @@
                     <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
                 </div>
             </div>
-            <div class="blockView">
+            <div class="blockView col">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
@@ -42,10 +42,10 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="col">
         <h3>Les dernières promotions</h3>
         <div class="row">
-            <div class="blockView">
+            <div class="blockView col">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>
@@ -58,7 +58,7 @@
                     <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
                 </div>
             </div>
-            <div class="blockView">
+            <div class="blockView col">
                 <div class="blockViewTitle">
                     <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
                     <div>

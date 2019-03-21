@@ -8759,7 +8759,6 @@ option {
 
 .col {
   text-align: center;
-  margin-top: 2rem;
 }
 
 .checkboxEtat:focus + label {
@@ -8848,6 +8847,10 @@ option {
   .titleMobile {
     display: block;
   }
+}
+
+footer {
+  margin-top: 5rem;
 }
 
 .footer1 {
@@ -9015,8 +9018,8 @@ option {
 }
 
 .blockView {
-  width: 200px;
-  height: 150px;
+  width: 250px !important;
+  height: 200px !important;
   background-color: #FFF0E8;
   border-radius: 10px;
   margin: 30px;
