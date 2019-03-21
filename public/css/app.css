@@ -8915,23 +8915,7 @@ footer {
 
 @media (max-width: 768px) {
   footer {
-    display: none;
-  }
-
-  .page-footer {
-    display: none;
-  }
-
-  .footer1 {
-    display: none;
-  }
-
-  .footer2 {
-    display: none;
-  }
-
-  .footer3 {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -8945,6 +8929,7 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
+  margin-left: 2px !important;
 }
 
 .bar_mobile p {
@@ -8954,6 +8939,12 @@ footer {
 .bar_mobile div {
   margin: 10px 10px 0px 10px;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .bar_mobile {
+    display: none !important;
+  }
 }
 
 .nav {
@@ -9071,7 +9062,7 @@ footer {
 
 @media (max-width: 768px) {
   .blockViewRating {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -9143,9 +9134,10 @@ footer {
 .monCompte {
   text-align: center;
   margin-top: 30px;
+  list-style: none;
 }
 
-#monCompte li {
+.monCompte li {
   margin: 10px;
 }
 
