@@ -1,5 +1,6 @@
 let map, osmUrl, osmAttrib, osm, marker, markersLayer;
 
+
 function error(e){
     alert(e.statusText);
 }
@@ -16,12 +17,14 @@ function searchVilles(){
 
 
 function initMap(){
+    L.mapbox.accessToken = 'pk.eyJ1IjoibmFuaWUzMyIsImEiOiJjanNvc3ZjZmMwcTdzNDVsanJwbXFxOGF6In0.APE2fly8QeEl8YNvA53CWQ';
     map = L.map('map');
     osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    osmAttrib='Map data © OpenStreetMap contributors';
+    osmAttrib='MAPromo, personnalisé avec MapBox';
     osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
     map.setView([47.0, 3.0], 6).addLayer(osm);
-    markersLayer = new L.LayerGroup();
+    L.mapbox.styleLayer('mapbox://styles/nanie33/cjsosw5k31cxf1fl3wdth7qs4').addTo(map);
+    markersLayer = new L.featureGroup();
 }
 
 function addDatalist(r){
@@ -50,41 +53,77 @@ function addDatalist(r){
 
 function setVille(latitude, longitude){
     map.setView([latitude, longitude], 13).addLayer(osm);
+    getStores();
 
     map.on('moveend', function(){
         if(latitude !== "" && longitude!=="") {
-            let infos = map.getBounds();
-            let SW = infos['_southWest']; //Long et lat du Sud Ouest
-            let NE = infos['_northEast'];//Long et lat du Nord Est
-            let SW_send = SW['lat'] + '|' + SW['lng'];
-            let NE_send = NE['lat'] + '|' + NE['lng'];
-            axios.post('/stores_search', {
-                'SW': SW_send,
-                'NE': NE_send,
-            })
-                .then(addMarker)
-                .catch(error);
+            getStores();
         }
     });
 }
 
-function addMarker(r){
-    let res = r.data;
+function getStores(){
+    let infos = map.getBounds();
+    let SW = infos['_southWest']; //Long et lat du Sud Ouest
+    let NE = infos['_northEast'];//Long et lat du Nord Est
+    let SW_send = SW['lat'] + '|' + SW['lng'];
+    let NE_send = NE['lat'] + '|' + NE['lng'];
+    let type = document.getElementById('selectType').value;
+    let cat = document.getElementById('selectCategorie').value;
+    axios.post('/stores_search', {
+        'SW': SW_send,
+        'NE': NE_send,
+        'type': type,
+        'categorie': cat
+    })
+        .then(addMarker)
+        .catch(error);
+}
+
+function addMarker(r) {
+    let mag = r.data[0];
+    let nb_magasin = r.data[1];
     markersLayer.clearLayers();
-    for (let i = 0; i < res.length; i++) {
-        marker= L.marker([ res[i].latMagasin, res[i].longMagasin]);
-        marker.onclick(afficheMagasin(res[i]));
+    let myIconRed = L.icon({
+        iconUrl: "\\img\\markers\\marker_rouge.png",
+        iconSize:     [20, 30], // size of the icons
+        iconAnchor:   [10, 30]
+    });
+    let myIconGrey = L.icon({
+        iconUrl: "\\img\\markers\\marker_gris.png",
+        iconSize:     [20, 30], // size of the icons
+        iconAnchor:   [10, 30]
+    });
+    let icon;
+
+    for (let i = 0; i < mag.length; i++) {
+        for ( let j=0 ; j < nb_magasin.length ; j++){
+            if(mag[i].idMagasin === nb_magasin[j].idMagasin){
+                icon = {icon: myIconRed};
+                break;
+            }
+            else{
+                icon = {icon: myIconGrey};
+            }
+        }
+
+        marker = L.marker([mag[i].latMagasin, mag[i].longMagasin], icon);
+        marker.object = mag[i];
         markersLayer.addLayer(marker);
     }
-    markersLayer.addTo(map);
+    markersLayer.addTo(map).on('click', afficheMagasin);
 }
 
 function changeTypeInscription(value){
     let title = document.getElementById('titre-form');
-    if(value==="2")
+    if(value==="2") {
         title.innerText = "Inscription Client";
-    else if (value==="3")
+        btnFb.style.display = "inline-block";
+    }
+    else if (value==="3"){
         title.innerText = "Inscription Responsable de Magasin";
+        btnFb.style.display = "none";
+    }
     let inputType = document.getElementById('type');
     inputType.value = value;
 
@@ -106,17 +145,6 @@ window.onclick = function(event) {
         }
     }
 };
-
-
-function searchTypes(){
-    axios.post('/types_search', null)
-        .then(addTypes)
-        .catch(error);
-}
-
-function addTypes(r){
-    console.log(r);
-}
 
 function searchCategories(){
     let type = document.getElementById('selectType').value;
@@ -309,7 +337,233 @@ function updateEtat(idPromo, etat){
         .catch(error);
 }
 
-function afficheMagasin(magasin){
-    console.log(magasin);
+function afficheMagasin(e){
+    let magasin = e.layer.object;
+
+    axios.post('/search_promos', {
+        'magasin': magasin.idMagasin
+    })
+        .then(affichePromo)
+        .catch(error);
+
+    let divMagasin = document.getElementById('magasin');
+    let carousel = document.createElement('div');
+    carousel.className = 'carousel-inner';
+
+    if(magasin.photo1Magasin){
+        let div = document.createElement('div');
+        div.className = 'carousel-item active';
+        div.style.height = '125px';
+
+        let img = document.createElement('img');
+        img.className = 'd-block w-100 h-100';
+        img.src = '\\img\\' + magasin.photo1Magasin;
+        img.alt = 'Image 1';
+        img.style.objectFit = 'cover';
+
+        div.appendChild(img);
+        carousel.appendChild(div);
+    }
+    if(magasin.photo2Magasin){
+        let div = document.createElement('div');
+        div.className = 'carousel-item';
+        div.style.height = '125px';
+
+        let img = document.createElement('img');
+        img.className = 'd-block w-100 h-100';
+        img.src = '\\img\\' + magasin.photo2Magasin;
+        img.alt = 'Image 2';
+        img.style.objectFit = 'cover';
+
+        div.appendChild(img);
+        carousel.appendChild(div);
+    }
+
+    let carouselStore = document.getElementById('carouselStore');
+    carouselStore.replaceChild(carousel, document.getElementsByClassName('carousel-inner')[0]);
+
+    let magasinInfos = document.createElement('div');
+    magasinInfos.className = "card-body";
+
+    let title = document.createElement('h4');
+    title.className="card-title";
+    title.appendChild(document.createTextNode(magasin.nomMagasin));
+    magasinInfos.appendChild(title);
+
+    let adresse1 = document.createElement('h5');
+    adresse1.className="card-subtitle";
+    adresse1.appendChild(document.createTextNode(magasin.adresse1Magasin + ' ' + magasin.adresse2Magasin));
+    magasinInfos.appendChild(adresse1);
+
+    let adresse2 = document.createElement('h5');
+    adresse2.className="card-subtitle";
+    adresse2.appendChild(document.createTextNode(magasin.cpVille + ' ' + magasin.nomVille));
+    magasinInfos.appendChild(adresse2);
+
+    let type = document.createElement('h6');
+    type.className="card-subtitle";
+    type.style.marginTop='5px;';
+    let textType;
+    if(magasin.idCategorie)
+        textType = document.createTextNode(magasin.libType + ' | ' + magasin.libCategorie);
+    else
+        textType = document.createTextNode(magasin.libType);
+    type.appendChild(textType);
+    magasinInfos.appendChild(type);
+
+    let coor = document.createElement('p');
+    coor.className="card-text";
+    let textCoor;
+    if(magasin.telMagasin)
+        textCoor = document.createTextNode(magasin.mailMagasin + ' | ' + magasin.telMagasin);
+    else
+        textCoor = document.createTextNode(magasin.mailMagasin);
+    coor.appendChild(textCoor);
+    magasinInfos.appendChild(coor);
+
+    let cardBody = document.getElementById('cardBody');
+    cardBody.replaceChild(magasinInfos, document.getElementsByClassName('card-body')[0]);
+
+    divMagasin.style.display = 'flex';
+
+    $("html, body").animate({
+        scrollTop : $('#magasin').offset().top
+    },'slow');
+
 }
 
+function affichePromo(r){
+    let res = r.data;
+
+    let ul=document.createElement('ul');
+    ul.id = 'listPromo';
+    ul.className = 'list-group';
+
+    if(res.length === 0 ){
+        let li = document.createElement('li');
+        li.className='list-group-item';
+        li.appendChild(document.createTextNode('Aucune Promotion pour ce magasin'));
+        ul.appendChild(li);
+    }
+
+    for(let i=0; i<res.length ; i++){
+        let li = document.createElement('li');
+        li.className='list-group-item';
+        li.appendChild(document.createTextNode(res[i].libPromo));
+
+        let buttonDetails = document.createElement('a');
+        buttonDetails.className="btn btn-primary";
+        buttonDetails.href = document.location.href + 'details_promotion/'+res[i].idPromo;
+        buttonDetails.appendChild(document.createTextNode('Voir la promo'));
+        buttonDetails.style.float= "right";
+        li.appendChild(buttonDetails);
+
+        let buttonAdhesion = document.createElement('button');
+        buttonAdhesion.id = 'btnGetCode';
+        buttonAdhesion.className="btn btn-primary";
+        buttonAdhesion.type="button";
+        buttonAdhesion.appendChild(document.createTextNode('Obtenir le code'));
+        buttonAdhesion.style.float= "right";
+        buttonAdhesion.disabled = true;
+        if(document.getElementById('userInfos')) {
+            let userInfos = JSON.parse(document.getElementById('userInfos').value);
+            if (userInfos.idRole === 2) {
+                buttonAdhesion.disabled = false;
+                buttonAdhesion.onclick = function () {
+                    getCodePromo(res[i].idPromo, res[i].codePromo);
+                    $("html, body").animate({
+                        scrollTop: $('#codePromo').offset().top
+                    }, 'slow');
+                };
+            }
+        }
+
+        li.appendChild(buttonAdhesion);
+
+        ul.appendChild(li);
+
+    }
+
+    document.getElementById('promotions').replaceChild(ul, document.getElementById('listPromo'));
+}
+
+function getCodePromo(idPromo, code){
+    axios.post('/add_adhesion', {
+        'promo': idPromo
+    })
+        .then((r) => {
+                let divCodePromo = document.createElement('div');
+                divCodePromo.id="textCodePromo";
+
+                if (r.data === 'done'){
+                    document.getElementById('messagePromo').className = "alert alert-success";
+                    afficheMessage('messagePromo', 'Bravo, vous avez accès à la promotion !');
+
+                    let codePromo = document.createElement('h1');
+                    codePromo.className = 'text-center';
+                    codePromo.appendChild(document.createTextNode('Profitez-en avec le code ' + code));
+
+                    divCodePromo.appendChild(codePromo);
+
+                }
+                else
+                {
+                    document.getElementById('messagePromo').className = "alert alert-danger";
+                    afficheMessage('messagePromo', 'Vous avez déjà accès à la promotion !');
+                }
+
+                let div = document.getElementById('codePromo');
+                div.replaceChild(divCodePromo, document.getElementById('textCodePromo'));
+                div.style.display='block';
+            }
+        )
+        .catch(error);
+}
+
+function checkCodeAvis(){
+    let value = document.getElementById('inputCodeAvis').value;
+    let codeAvis = document.getElementById('codeAvisPromo').value;
+
+    if(value === codeAvis){
+        document.getElementById('formAddComment').style.display = "block";
+    }
+    else{
+        afficheMessage('messageCodeAvis', 'Le code Avis n\'est pas correct');
+    }
+}
+
+function afficheMessage(id, msg){
+    // On affiche le message
+    document.getElementById(id).innerHTML = msg;
+    document.getElementById(id).style.display = "block";
+
+
+// On l'efface 8 secondes plus tard
+    setTimeout(function() {
+        document.getElementById(id).innerHTML = "";
+        document.getElementById(id).style.display = "none";
+    },5000);
+}
+
+function ratingStarMouseOver(n){
+    for(let i = 0 ; i <= n ; i++){
+        document.getElementById('formRatingStar'+i).className='glyphicon glyphicon-star';
+        document.getElementById('note').value = n+1;
+    }
+    for (let i = n+1 ; i <= 5 ; i++){
+        document.getElementById('formRatingStar'+i).className='glyphicon glyphicon-star-empty';
+    }
+    document.getElementById('note').value = n;
+}
+
+function getGeolocalisation(){
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(maPosition)
+    } else {
+        alert('Impossible de vous géolocaliser');
+    }
+}
+
+function maPosition(position) {
+    setVille(position.coords.latitude, position.coords.longitude);
+}

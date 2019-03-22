@@ -45,6 +45,8 @@ class HomeController extends Controller
         $magasins = $query->get();
 
         $nb_promo = Promotion::select(DB::raw("COUNT(idPromo) as count_promo"), 'idMagasin')
+            ->where('dateDebutPromo', '<=', date('Y-m-d'))
+            ->where('dateFinPromo', '>=', date('Y-m-d'))
             ->groupBy('idMagasin')
             ->get();
 

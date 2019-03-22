@@ -138,15 +138,48 @@
                             </div>
                         </div>
 
-                        <div id="collapse{{$promotion->idPromo}}" class="collapse show" aria-labelledby="heading{{$promotion->idPromo}}" data-parent="#promotionsMagasins">
+                        <div id="collapse{{$promotion->idPromo}}" class="collapse" aria-labelledby="heading{{$promotion->idPromo}}" data-parent="#promotionsMagasins">
                             <div class="card-body">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">{{$promotion->descPromo}}</li>
-                                    <li class="list-group-item"><b>Date de Début : </b>{{$promotion->dateDebutPromo}}</li>
-                                    <li class="list-group-item"><b>De de Fin : </b>{{$promotion->dateDebutPromo}}</li>
-                                    <li class="list-group-item"><b>Code Promo : </b>{{$promotion->codePromo}}</li>
-                                    <li class="list-group-item"><b>Code Avis : </b>{{$promotion->codeAvisPromo}}</li>
-                                </ul>
+                                <div class="col-md-4">
+                                    @if($promotion->photo1Promo || $promotion->photo2Promo || $promotion->photo3Promo)
+                                        <div id="carouselStores{{$promotion->idPromo}}" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner">
+                                                @if($promotion->photo1Promo)
+                                                    <div class="carousel-item active" style="height: 150px">
+                                                        <img class="d-block w-100 h-100" style="object-fit: cover" src="{{'\img\\'.$promotion->photo1Promo}}" alt="Image 1">
+                                                    </div>
+                                                @endif
+                                                @if($promotion->photo2Promo)
+                                                    <div class="carousel-item" style="height: 150px">
+                                                        <img class="d-block w-100 h-100" style="object-fit: cover" src="{{'\img\\'.$promotion->photo2Promo}}" alt="Image 2">
+                                                    </div>
+                                                @endif
+                                                @if($promotion->photo3Promo)
+                                                    <div class="carousel-item" style="height: 150px">
+                                                        <img class="d-block w-100 h-100" style="object-fit: cover" src="{{'\img\\'.$promotion->photo3Promo}}" alt="Image 3">
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <a class="carousel-control-prev" href="#carouselStores{{$promotion->idPromo}}" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#carouselStores{{$promotion->idPromo}}" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="col-md-8">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{$promotion->descPromo}}</li>
+                                        <li class="list-group-item"><b>Date de Début : </b>{{$promotion->dateDebutPromo}}</li>
+                                        <li class="list-group-item"><b>Date de Fin : </b>{{$promotion->dateDebutPromo}}</li>
+                                        <li class="list-group-item"><b>Code Promo : </b>{{$promotion->codePromo}}</li>
+                                        <li class="list-group-item"><b>Code Avis : </b>{{$promotion->codeAvisPromo}}</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

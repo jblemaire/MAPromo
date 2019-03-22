@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class ClientController extends Controller
 {
     public function __construct(){
-        $this->middleware('client');
+        $this->middleware('client')->except(['getPromo', 'getListPromo']);
     }
 
     public function returnView(){

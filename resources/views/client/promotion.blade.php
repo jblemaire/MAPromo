@@ -74,20 +74,33 @@
                                                         <h5 class="card-subtitle mb-2">{{$adhesion->descPromo}}</h5>
                                                         <h5 class="card-subtitle mb-2">La promo est dipsonible entre le {{$adhesion->dateDebutPromo}} et le {{$adhesion->dateFinPromo}}</h5>
                                                         <h5 class="card-subtitle mb-2">Profitez-en avec le code <b>{{$adhesion->codePromo}}</b></h5>
+                                                        @if(date('Y-m-d') >= $adhesion->dateDebutPromo && date('Y-m-d')<=$adhesion->dateFinPromo)
+                                                            <div class="alert alert-success text-center" role="alert">
+                                                                Promotion en cours
+                                                            </div>
+                                                        @elseif(date('Y-m-d') < $adhesion->dateDebutPromo)
+                                                            <div class="alert alert-warning text-center" role="alert">
+                                                                Promotion pas encore débuté
+                                                            </div>
+                                                        @elseif(date('Y-m-d') > $adhesion->dateDebutPromo)
+                                                            <div class="alert alert-danger text-center" role="alert">
+                                                                Promotion terminé
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div id="cardBody" class="col-md-3">
                                                     <div class="card-body">
                                                         <h5 class="card-subtitle mb-2">
-                                                            @if($adhesion->noteAdesion)
-                                                                <h5 class="card-subtitle mb-2">Vous avez mis la note de <b>{{$adhesion->noteAdesion}}/5</b></h5>
+                                                            @if($adhesion->noteAdhesion)
+                                                                <h5 class="card-subtitle mb-2">Vous avez mis la note de <b>{{$adhesion->noteAdhesion}}/5</b></h5>
                                                             @else
                                                                 <h6 class="card-subtitle mb-2">Vous n'avez mis aucune note</h6>
                                                             @endif
                                                         </h5>
                                                         <h5 class="card-subtitle mb-2">
                                                             @if($adhesion->commentaireAdhesion)
-                                                                <h5 class="card-subtitle mb-2">Votre commentaire : <br />{{$adhesion->commentaireAdesion}}</h5>
+                                                                <h5 class="card-subtitle mb-2">Votre commentaire : <br />{{$adhesion->commentaireAdhesion}}</h5>
                                                             @else
                                                                 <h6 class="card-subtitle mb-2">Vous n'avez mis aucun commentaire</h6>
                                                             @endif

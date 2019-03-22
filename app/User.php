@@ -11,11 +11,6 @@ class User extends Authenticatable
 
     protected $primaryKey = 'idUser';
 
-    public function getAuthPassword()
-    {
-        return $this->password;
-    }
-
     /**
      * The attributes that are mass assignable.
      *

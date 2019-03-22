@@ -1,0 +1,13 @@
+.gestionTable{
+    background-color: $bleu;
+    flex-direction: row !important; 
+    width: 100%;
+}
+
+.gestionTable li a{
+    color: $blanc !important;
+}
+
+.gestionTable li a:hover{
+    background-color: $vert !important;
+}

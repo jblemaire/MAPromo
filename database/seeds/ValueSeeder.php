@@ -28,8 +28,8 @@ class ValueSeeder extends Seeder
         DB::table('users')->insertGetId([
             'nomUser' => 'Mapromo',
             'prenomUser' => 'admin',
-            'mailUser' => 'mapromo.site@gmail.com',
-            'mdpUser' => bcrypt('MAPromo2019'), // secret
+            'email' => 'mapromo.site@gmail.com',
+            'password' => bcrypt('MAPromo2019'), //secret
             'telUser' => '',
             'idRole' => 1
         ]);
