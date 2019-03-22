@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Client;
 
+
+use App\User;
 use App\Adhesion;
 use App\Magasin;
 use App\Promotion;
@@ -9,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -87,6 +90,86 @@ class ClientController extends Controller
 
 
     }
+
+    public function myAccount(){
+
+        $User = Auth::user();
+
+        return view('client.compte',[
+            'title'=>'Mon compte',
+            'User'=>$User
+        ]);
+    }
+
+
+    public function editpassword(){
+        $status = "nope";
+
+        return view('client.editpassword',[
+           'title'=>"Modifier mon mot de passe",
+            'status'=>$status
+        ]);
+    }
+
+    public function updatepassword(Request $request){
+        $oldpassword = $request->input('oldpassword');
+        $newpassword = $request->input('newpassword');
+        $newpasswordconfirm = $request->input('newpasswordconfirm');
+
+        $user = Auth::user();
+
+        if(Hash::check($oldpassword, $user->password)) {
+
+            if ( $newpassword != null && $newpasswordconfirm == $newpassword){
+
+
+
+               $query=  DB::table('users')->where('idUser' , $user->idUser)
+                    ->update([
+                        'password' => bcrypt($newpassword),
+                    ]);
+
+
+
+
+                $status = "Le mot de passe a été modifié avec succés";
+            }
+        }
+        else{
+            $status = "le mot de passe inséré ne correspond pas à celui actuel.";
+        }
+
+
+        return view('client.editpassword',[
+            'title'=>"Modifier mon mot de passe",
+            'status'=>$status
+        ]);
+
+
+
+    }
+
+
+    public function postReset(Request $request)
+    {
+        $this->validate($request, [
+            'oldpassword' => 'required|confirmed',
+        ]);
+        $credentials = $request->only(
+            'email', 'password', '$newpasswordconfirm'
+        );
+        $user = Auth::user();
+        $user->password = bcrypt($credentials['password']);
+        $user->save();
+
+
+        return redirect('client.compte',[
+            'title'=>"Modifier mon mot de passe",
+
+        ]);
+    }
+
+
 }
 
 

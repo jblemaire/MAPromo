@@ -17,6 +17,34 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('/decouvrir', function () {
+    return view('decouvrir',[
+        'title' => 'decouvrir',
+        'types' => App\Type::get()
+    ]);
+})->name('decouvrir');
+
+Route::get('/apropos', function () {
+    return view('apropos',[
+        'title' => 'apropos',
+        'types' => App\Type::get()
+    ]);
+})->name('apropos');
+
+Route::get('/compte', function () {
+    return view('compte',[
+        'title' => 'compte',
+        'types' => App\Type::get()
+    ]);
+})->name('compte');
+
+Route::get('/contact', function () {
+    return view('contact',[
+        'title' => 'contact',
+        'types' => App\Type::get()
+    ]);
+})->name('contact');
+
 Auth::routes();
 
 /**Appel Ajax**/
@@ -41,6 +69,11 @@ Route::get('/register/facebook/callback', 'Auth\RegisterController@handleProvide
 Route::get('mes_promotions/', 'Client\ClientController@returnView')->name('mes_promotions')->middleware('client');
 Route::get('details_promotion/{idPromo}', 'Client\ClientController@getPromo')->name('details_promo')->middleware('client');
 Route::post('details_promotion/{idPromo}/add_comment', 'Client\ClientController@postComment')->name('post_comment')->middleware('client');
+Route::get('liste_promo/', 'Client\ClientController@getListPromo')->name('post_liste')->middleware('client');
+Route::get('compte/', 'Client\ClientController@myAccount')->name('compte')->middleware('client');
+Route::get('compte/editpassword', 'Client\ClientController@editpassword')->name('editpassword')->middleware('client');
+Route::post('compte/updatepassword', 'Client\ClientController@updatepassword')->name('updatepassword')->middleware('client');
+
 
 
 /**Responsable Part**/

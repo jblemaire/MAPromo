@@ -81,23 +81,34 @@ function getStores(){
 }
 
 function addMarker(r) {
-    let res = r.data;
-    console.log(r);
+    let mag = r.data[0];
+    let nb_magasin = r.data[1];
     markersLayer.clearLayers();
     let myIconRed = L.icon({
-        iconUrl: "\\img\\markers\\marker_rouge.png",
+        iconUrl: "img/markers/marker_rouge.png",
         iconSize:     [20, 30], // size of the icons
         iconAnchor:   [10, 30]
     });
     let myIconGrey = L.icon({
-        iconUrl: "\\img\\markers\\marker_gris.png",
+        iconUrl: "img/markers/marker_gris.png",
         iconSize:     [20, 30], // size of the icons
         iconAnchor:   [10, 30]
     });
+    let icon;
 
-    for (let i = 0; i < res.length; i++) {
-        marker = L.marker([res[i].latMagasin, res[i].longMagasin], {icon: myIconRed});
-        marker.object = res[i];
+    for (let i = 0; i < mag.length; i++) {
+        for ( let j=0 ; j < nb_magasin.length ; j++){
+            if(mag[i].idMagasin == nb_magasin[j].idMagasin){
+                icon = {icon: myIconRed};
+                break;
+            }
+            else{
+                icon = {icon: myIconGrey};
+            }
+        }
+
+        marker = L.marker([mag[i].latMagasin, mag[i].longMagasin], icon);
+        marker.object = mag[i];
         markersLayer.addLayer(marker);
     }
     markersLayer.addTo(map).on('click', afficheMagasin);
@@ -105,10 +116,15 @@ function addMarker(r) {
 
 function changeTypeInscription(value){
     let title = document.getElementById('titre-form');
-    if(value==="2")
+    if(value==="2"){
         title.innerText = "Inscription Client";
-    else if (value==="3")
+        btnFb.style.display = "inline-block";
+    }
+
+    else if (value==="3") {
         title.innerText = "Inscription Responsable de Magasin";
+        btnFb.style.display = "none";
+    }
     let inputType = document.getElementById('type');
     inputType.value = value;
 
@@ -342,7 +358,7 @@ function afficheMagasin(e){
 
         let img = document.createElement('img');
         img.className = 'd-block w-100 h-100';
-        img.src = '\\img\\' + magasin.photo1Magasin;
+        img.src = 'img/' + magasin.photo1Magasin;
         img.alt = 'Image 1';
         img.style.objectFit = 'cover';
 
@@ -356,7 +372,7 @@ function afficheMagasin(e){
 
         let img = document.createElement('img');
         img.className = 'd-block w-100 h-100';
-        img.src = '\\img\\' + magasin.photo2Magasin;
+        img.src = 'img/' + magasin.photo2Magasin;
         img.alt = 'Image 2';
         img.style.objectFit = 'cover';
 
@@ -452,7 +468,7 @@ function affichePromo(r){
         buttonAdhesion.disabled = true;
         if(document.getElementById('userInfos')) {
             let userInfos = JSON.parse(document.getElementById('userInfos').value);
-            if (userInfos.idRole === 2) {
+            if (userInfos.idRole == 2) {
                 buttonAdhesion.disabled = false;
                 buttonAdhesion.onclick = function () {
                     getCodePromo(res[i].idPromo, res[i].codePromo);
@@ -477,29 +493,29 @@ function getCodePromo(idPromo, code){
         'promo': idPromo
     })
         .then((r) => {
-            let divCodePromo = document.createElement('div');
-            divCodePromo.id="textCodePromo";
+                let divCodePromo = document.createElement('div');
+                divCodePromo.id="textCodePromo";
 
-            if (r.data === 'done'){
-                document.getElementById('messagePromo').className = "alert alert-success";
-                afficheMessage('messagePromo', 'Bravo, vous avez accès à la promotion !');
+                if (r.data === 'done'){
+                    document.getElementById('messagePromo').className = "alert alert-success";
+                    afficheMessage('messagePromo', 'Bravo, vous avez accès à la promotion !');
 
-                let codePromo = document.createElement('h1');
-                codePromo.className = 'text-center';
-                codePromo.appendChild(document.createTextNode('Profitez-en avec le code ' + code));
+                    let codePromo = document.createElement('h1');
+                    codePromo.className = 'text-center';
+                    codePromo.appendChild(document.createTextNode('Profitez-en avec le code ' + code));
 
-                divCodePromo.appendChild(codePromo);
+                    divCodePromo.appendChild(codePromo);
 
-            }
-            else
-            {
-                document.getElementById('messagePromo').className = "alert alert-danger";
-                afficheMessage('messagePromo', 'Vous avez déjà accès à la promotion !');
-            }
+                }
+                else
+                {
+                    document.getElementById('messagePromo').className = "alert alert-danger";
+                    afficheMessage('messagePromo', 'Vous avez déjà accès à la promotion !');
+                }
 
-            let div = document.getElementById('codePromo');
-            div.replaceChild(divCodePromo, document.getElementById('textCodePromo'));
-            div.style.display='block';
+                let div = document.getElementById('codePromo');
+                div.replaceChild(divCodePromo, document.getElementById('textCodePromo'));
+                div.style.display='block';
             }
         )
         .catch(error);
@@ -541,3 +557,14 @@ function ratingStarMouseOver(n){
     document.getElementById('note').value = n;
 }
 
+function getGeolocalisation(){
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(maPosition)
+    } else {
+        alert('Impossible de vous géolocaliser');
+    }
+}
+
+function maPosition(position) {
+    setVille(position.coords.latitude, position.coords.longitude);
+}

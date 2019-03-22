@@ -28,13 +28,13 @@ class ValueSeeder extends Seeder
         DB::table('users')->insertGetId([
             'nomUser' => 'Mapromo',
             'prenomUser' => 'admin',
-            'mailUser' => 'mapromo.site@gmail.com',
-            'mdpUser' => bcrypt('MAPromo2019'), // secret
+            'email' => 'mapromo.site@gmail.com',
+            'password' => bcrypt('MAPromo2019'), // secret
             'telUser' => '',
             'idRole' => 1
         ]);
 
-        //factory(App\User::class, 100)->create();
+        factory(App\User::class, 100)->create();
 
         /**Type**/
         $type1 = DB::table('types')->insertGetId([
@@ -126,7 +126,7 @@ class ValueSeeder extends Seeder
         ]);
 
         /**Magasin**/
-        //factory(App\Magasin::class, 200)->create();
+        factory(App\Magasin::class, 200)->create();
 
 
 

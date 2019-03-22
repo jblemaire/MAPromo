@@ -9,11 +9,11 @@
                 <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
 
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('mailUser') ? ' has-error' : '' }}">
                         <label for="email" class="col-md-4 control-label">Adresse Email</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                            <input id="emailInscription" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                             @if ($errors->has('email'))
                                 <span class="help-block">
@@ -49,11 +49,11 @@
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit">
                                 Se connecter
                             </button>
                             
-                            <a href="{{url('/login/facebook')}}" class="btn btn-primary">Se connecter avec Facebook</a>
+                            <a href="{{url('/login/facebook')}}">Se connecter avec Facebook</a>
 
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 Mot de passe oublié ?
