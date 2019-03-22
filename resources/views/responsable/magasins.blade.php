@@ -1,16 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
-        <div>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#formAddMagasin" aria-expanded="false" aria-controls="formAddMagasin">
+    <div class="main-content">
+        <div class="col">
+            <button type="button" data-toggle="collapse" data-target="#formAddMagasin" aria-expanded="false" aria-controls="formAddMagasin" style="width:100%">
                 Ajouter un magasin
             </button>
         </div>
-<div class="main">
-        <div class="collapse" id="formAddMagasin">
-            <div class="card card-body">
-                <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{route('add_magasin')}}">
+    </div>
+    <div class="main-content">
+        <div class="collapse col" id="formAddMagasin">
+            <div class="card-promotion card mb-12">
+                <form class="form-horizontal form-horizontal-promo" enctype="multipart/form-data" method="POST" action="{{route('add_magasin')}}">
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -131,8 +132,8 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-8 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
+                        <div class="col">
+                            <button type="submit">
                                 Ajouter
                             </button>
                         </div>
@@ -141,24 +142,24 @@
             </div>
         </div>
 </div>
-        <div class="main">
-        <div id="magasins">
+        <div class="main-content">
+        <div id="magasins" style="width:100%">
             <?php $cpt = 0; ?>
             <div class="row">
             @foreach($magasins as $magasin)
                 <div class="col-sm-6" style="display: flex; align-items: center;">
-                    <div class="card" style="width: 100%">
+                    <div class="card-promotion card" style="width: 100%">
                         @if($magasin->photo1Magasin || $magasin->photo2Magasin)
                         <div id="carouselStores{{$magasin->idMagasin}}" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 @if($magasin->photo1Magasin)
                                     <div class="carousel-item active" style="height: 250px">
-                                        <img class="d-block w-100 h-100" style="object-fit: cover" src="{{'\img\\'.$magasin->photo1Magasin}}" alt="Image 1">
+                                        <img class="d-block w-100 h-100" style="border-radius: 10px; object-fit: cover" src="{{'\img\\'.$magasin->photo1Magasin}}" alt="Image 1">
                                     </div>
                                 @endif
                                 @if($magasin->photo2Magasin)
                                     <div class="carousel-item" style="height: 250px">
-                                        <img class="d-block w-100 h-100" style="object-fit: cover" src="{{'\img\\'.$magasin->photo2Magasin}}" alt="Image 2">
+                                        <img class="d-block w-100 h-100" style="border-radius: 10px; object-fit: cover" src="{{'\img\\'.$magasin->photo2Magasin}}" alt="Image 2">
                                     </div>
                                 @endif
                             </div>
@@ -186,9 +187,11 @@
                                     <li class="list-group-item">Categorie : {{$magasin->libCategorie}}</li>
                                 @endif
                             </ul>
-                            <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Modifier</a>
-                            <a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Supprimer</a>
-                            <a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Voir les promotions</a>
+                            <div style="display: flex; justify-content: space-around">
+                                <button><a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" >Modifier</a></button>
+                                <button><a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" >Supprimer</a></button>
+                                <button><a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}">Voir les promotions</a></button>
+                            </div>
                         </div>
                     </div>
                 </div>
