@@ -1,37 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-    <form class="form-horizontal" method="POST" action="{{route('promotion_magasins')}}">
-        {{ csrf_field() }}
+    <div class="main-content">
+        <form class="form-horizontal form-horizontal-promo" method="POST" action="{{route('promotion_magasins')}}">
+            {{ csrf_field() }}
 
-        <div class="form-group">
-            <label for="selectMagasin" class="col-md-4 control-label">Nom du Magasin</label>
+            <div class="form-group">
+                <label for="selectMagasin" class="col-md-4 control-label">Nom du Magasin</label>
 
-            <div class="input-group col-md-6">
-                <select class="form-control" aria-label="Magasin" aria-describedby="button-addon2" id="selectMagasin" name="selectMagasin">
-                    <option value="" selected disabled>--Choisir un magasin--</option>
-                    @foreach($magasins as $magasin)
-                        <option value="{{$magasin->idMagasin}}" {{$idMagasin == $magasin->idMagasin ? 'selected' : ''}}>{{$magasin->nomMagasin}}</option>
-                    @endforeach
-                </select>
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">
-                        Rechercher
-                    </button>
+                <div class="input-group col-md-6">
+                    <select class="form-control" aria-label="Magasin" aria-describedby="button-addon2" id="selectMagasin" name="selectMagasin">
+                        <option value="" selected disabled>--Choisir un magasin--</option>
+                        @foreach($magasins as $magasin)
+                            <option value="{{$magasin->idMagasin}}" {{$idMagasin == $magasin->idMagasin ? 'selected' : ''}}>{{$magasin->nomMagasin}}</option>
+                        @endforeach
+                    </select>
+                    <div class="input-group-append">
+                        <button type="submit">
+                            Rechercher
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-
+        </form>
+    </div>
     @if($promotions)
-        <div>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#formAddPromotion" aria-expanded="false" aria-controls="formAddPromotion" onclick="getCodes()">
-                Ajouter une promotion
-            </button>
+        <div class="main-content">
+            <div class="col">
+                <button class="col" type="button" data-toggle="collapse" data-target="#formAddPromotion" aria-expanded="false" aria-controls="formAddPromotion" onclick="getCodes()">
+                    Ajouter une promotion
+                </button>
+            </div>
         </div>
-        <div class="collapse" id="formAddPromotion">
-            <div class="card card-body">
-                <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{route('add_promo')}}">
+        <div class="collapse col" id="formAddPromotion">
+            <div class="card-promotion card card-body">
+                <form class="form-horizontal form-horizontal-promo" enctype="multipart/form-data" method="POST" action="{{route('add_promo')}}">
                     {{ csrf_field() }}
 
                     <input id="idMag" type="hidden" class="form-control" name="idMag" value="{{ $idMagasin }}" required autofocus>
@@ -118,23 +121,24 @@
                 </form>
             </div>
         </div>
+        <div class="main-content">
         @if(count($promotions)===0)
         <h4>Aucune promotion pour ce magasin</h4>
             @else
-            <div class="accordion" id="promotionsMagasins">
+            <div class="accordion col" id="promotionsMagasins">
                 @foreach($promotions as $promotion)
-                    <div class="card" style="border: 1px solid rgba(0,0,0,0.125);">
-                        <div class="card-header" id="heading{{$promotion->idPromo}}">
-                            <h1 class="col-md-11">
+                    <div class="card card-promotion" style="border: 1px solid rgba(0,0,0,0.125);">
+                        <div class="card-header" id="heading{{$promotion->idPromo}}" style="display: flex; align-items: center;">
+                            <h1 class="col-md-10">
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{$promotion->idPromo}}" aria-expanded="true" aria-controls="collapse{{$promotion->idPromo}}">
                                     {{$promotion->libPromo}}
                                 </button>
                             </h1>
-                            <div class="form-group col-md-1">
-                                <div class="form-check">
-                                    <input class="checkboxEtat" type="checkbox" value="{{$promotion->etatPromo}}" id="checkboxEtat{{$promotion->idPromo}}" {{$promotion->etatPromo == 1 ? 'checked' : ''}} style="display: none">
-                                    <label class="labelEtat" for="checkboxEtat{{$promotion->idPromo}}" onclick="updateEtat({{$promotion->idPromo}},{{$promotion->etatPromo}})">Etat</label>
-                                </div>
+                            <div class="col">
+                                <label class="switch" for="checkboxEtat{{$promotion->idPromo}}" onclick="updateEtat({{$promotion->idPromo}},{{$promotion->etatPromo}})">
+                                    <input type="checkbox" value="{{$promotion->etatPromo}}" id="checkboxEtat{{$promotion->idPromo}}" {{$promotion->etatPromo == 0 ? 'checked' : ''}} style="display: none">
+                                    <span class="slider round"></span>
+                                </label>
                             </div>
                         </div>
 
@@ -174,10 +178,10 @@
                                 <div class="col-md-8">
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">{{$promotion->descPromo}}</li>
-                                        <li class="list-group-item"><b>Date de Début : </b>{{$promotion->dateDebutPromo}}</li>
-                                        <li class="list-group-item"><b>Date de Fin : </b>{{$promotion->dateDebutPromo}}</li>
-                                        <li class="list-group-item"><b>Code Promo : </b>{{$promotion->codePromo}}</li>
-                                        <li class="list-group-item"><b>Code Avis : </b>{{$promotion->codeAvisPromo}}</li>
+                                        <li class="list-group-item">Date de Début : {{$promotion->dateDebutPromo}}</li>
+                                        <li class="list-group-item">Date de Fin : {{$promotion->dateDebutPromo}}</li>
+                                        <li class="list-group-item">Code Promo : {{$promotion->codePromo}}</li>
+                                        <li class="list-group-item">Code Avis :{{$promotion->codeAvisPromo}}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -186,5 +190,7 @@
                 @endforeach
             </div>
             @endif
+
     @endif
+        </div>
 @endsection
