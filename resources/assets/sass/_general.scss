@@ -76,7 +76,10 @@ b{
 }
 
 button{
-    border: none;
+    /* border: none; */
+    border-color: $bleuFonce !important;
+    border-width: 5px;
+    border-bottom-color: $bleuFonce;
     border-radius: 25px !important;
     background-color: $blanc;
     color: $black;

@@ -8370,7 +8370,7 @@ button.close {
   z-index: 500;
   -webkit-box-shadow: 0px 0px 15px #515052;
           box-shadow: 0px 0px 15px #515052;
-  opacity: 0.85;
+  opacity: 0.65;
 }
 
 .search:hover {
@@ -8691,7 +8691,10 @@ b {
 }
 
 button {
-  border: none;
+  /* border: none; */
+  border-color: #007DBC !important;
+  border-width: 5px;
+  border-bottom-color: #007DBC;
   border-radius: 25px !important;
   background-color: #ffffff;
   color: #515052;
