@@ -116,10 +116,14 @@ function addMarker(r) {
 
 function changeTypeInscription(value){
     let title = document.getElementById('titre-form');
-    if(value==="2")
+    if(value==="2") {
         title.innerText = "Inscription Client";
-    else if (value==="3")
+        btnFb.style.display = "inline-block";
+    }
+    else if (value==="3"){
         title.innerText = "Inscription Responsable de Magasin";
+        btnFb.style.display = "none";
+    }
     let inputType = document.getElementById('type');
     inputType.value = value;
 

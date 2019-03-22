@@ -66,7 +66,7 @@ class PromotionController extends Controller
         $file1_name = null;
         $file2_name = null;
         $file3_name = null;
-        $directory_path = public_path().'\img\\'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'\promotion';
+        $directory_path = public_path().'/img/'.Auth::user()->idUser . '_' . Auth::user()->nomUser.'/promotion';
 
         if(!file_exists($directory_path))
             File::makeDirectory($directory_path, $mode = 0777, true, true);
@@ -75,21 +75,21 @@ class PromotionController extends Controller
             $file1 = $request->file('photo1Promo');
             $file1_name = str_replace(' ','',$request->input('codePromo')).'_1_'.rand(1, 10000).'.'.$file1->getClientOriginalExtension();
             $file1->move($directory_path, $file1_name);
-            $promotion->photo1Promo = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\promotion\\' . $file1_name;
+            $promotion->photo1Promo = Auth::user()->idUser . '_' . Auth::user()->nomUser . '/promotion/' . $file1_name;
 
         }
         if( $request->file('photo2Promo')){
             $file2 = $request->file('photo2Promo');
             $file2_name = str_replace(' ','',$request->input('codePromo')).'_2_'.rand(1, 10000).'.'.$file2->getClientOriginalExtension();
             $file2->move($directory_path, $file2_name);
-            $promotion->photo2Promo = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\promotion\\' . $file2_name;
+            $promotion->photo2Promo = Auth::user()->idUser . '_' . Auth::user()->nomUser . '/promotion/' . $file2_name;
 
         }
         if( $request->file('photo3Promo')){
             $file3 = $request->file('photo3Promo');
             $file3_name = str_replace(' ','',$request->input('codePromo')).'_3_'.rand(1, 10000).'.'.$file3->getClientOriginalExtension();
             $file3->move($directory_path, $file3_name);
-            $promotion->photo3Promo = Auth::user()->idUser . '_' . Auth::user()->nomUser . '\promotion\\' . $file3_name;
+            $promotion->photo3Promo = Auth::user()->idUser . '_' . Auth::user()->nomUser . '/promotion/' . $file3_name;
 
         }
 

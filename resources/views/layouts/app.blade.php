@@ -9,14 +9,12 @@
         @include('includes.navigation')
     </header>
 
-    <div class="container">
+    <div id='blockContent'>
         @yield('content')
     </div>
 
-    <footer>
-        @include('includes.footer')
-    </footer>
-
+    @include('layouts.footer')
+    @include('layouts.barFooterMobile')
 </div>
 </body>
 </html>
