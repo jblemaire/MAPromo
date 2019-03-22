@@ -1,8 +1,8 @@
 @extends('admin.admin')
 
 @section('admin_table')
-    <div>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#formAddCat" aria-expanded="false" aria-controls="formAddCat">
+    <div class="type">
+        <button class="ajouterType" type="button" data-toggle="collapse" data-target="#formAddCat" aria-expanded="false" aria-controls="formAddCat">
             Ajouter une catégorie
         </button>
     </div>
@@ -11,33 +11,25 @@
             <form class="form-horizontal" method="POST" action="{{route('add_categorie')}}">
                 {{ csrf_field() }}
 
-                <div class="form-group">
-                    <label for="libCategorie" class="col-md-4 control-label">Catégorie</label>
-
-                    <div class="col-md-6">
-                        <input id="libCategorie" type="text" class="form-control" name="libCategorie" value="{{ old('libCategorie') }}" required autofocus>
-                    </div>
+                <div class="col">
+                    <label for="libCategorie" class="control-label">Catégorie</label>
+                    <input id="libCategorie" type="text" class="inputText" name="libCategorie" value="{{ old('libCategorie') }}" required autofocus>
                 </div>
 
-                <div class="form-group">
-                    <label for="selectType" class="col-md-4 control-label">Type</label>
-
-                    <div class="col-md-6">
-                        <select class="form-control" aria-label="Type" aria-describedby="button-addon2" name="selectType" id="selectType">
+                <div class="col">
+                    <label for="selectType" class="control-label">Type</label>
+                        <select class="custom-select" aria-label="Type" aria-describedby="button-addon2" name="selectType" id="selectType">
                             <option disabled {{$idType ? '' : 'selected'}}>--Choisir un type--</option>
                             @foreach($types as $type)
                                 <option value="{{$type->idType}}" {{$idType == $type->idType ? 'selected' : ''}}>{{$type->libType}}</option>
                             @endforeach
                         </select>
-                    </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-8 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">
+                <div class="col">
+                        <button type="submit">
                             Ajouter
                         </button>
-                    </div>
                 </div>
             </form>
         </div>

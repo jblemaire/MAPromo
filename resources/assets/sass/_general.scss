@@ -8,9 +8,20 @@ $gris : #bfbfc0;
 $black : #515052;
 $beige : #FFF0E8;
 
+html{
+    height: 100%;
+}
+
 body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
     color: $black;
     font-family: 'Roboto', sans-serif;
+}
+
+.row{
+    margin: 0 auto !important;
 }
 
 h1{
@@ -97,11 +108,7 @@ button{
     height: 35px;
     min-width: 100px;
     text-align: center;
-    //margin: 10px !important;
-}
-
-button:hover{
-  background-color: darken($bleu, 50%);
+    margin: 10px !important;
 }
 
 button a{
@@ -112,7 +119,7 @@ input{
     border: none;
     border-radius: 25px;
     height: 35px;
-    width: 250px;
+    width: 100%;
     text-align: center;
 }
 
@@ -125,16 +132,16 @@ input{
 }
 
 select{
-    border: none !important;
+    border: solid 1px $bleu !important;
     border-radius: 25px !important;
-    background-color: $bleu !important;
     color: $blanc !important;
     height: 35px !important;
     text-align: center;
 }
 
 option{
-    border: none !important;
+    border: solid 1px $bleu !important;
+    border-radius: 25px !important;
 }
 
 .title{
@@ -272,19 +279,12 @@ option{
     margin-left: 30px;
 }
 
-/*
-.titleDesktop li:hover{
-    background-color: $vert;
-    color: $blanc !important;
-    width: 100px;
-    height: 35px;
-    border-radius: 25px;
-    text-align: center;
-    align-items: center;
-}*/
-
 .titleMobile{
     display: none;
+}
+
+.custom-select{
+    color: $gris !important;
 }
 
 .switch {

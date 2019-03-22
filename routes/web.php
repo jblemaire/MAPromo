@@ -21,28 +21,28 @@ Route::get('/', function () {
 
 Route::get('/decouvrir', function () {
     return view('decouvrir',[
-        'title' => 'decouvrir',
+        'title' => 'Découvrir',
         'types' => App\Type::get()
     ]);
 })->name('decouvrir');
 
 Route::get('/apropos', function () {
     return view('apropos',[
-        'title' => 'apropos',
+        'title' => 'À propos',
         'types' => App\Type::get()
     ]);
 })->name('apropos');
 
 Route::get('/compte', function () {
     return view('compte',[
-        'title' => 'compte',
+        'title' => 'Compte',
         'types' => App\Type::get()
     ]);
 })->name('compte');
 
 Route::get('/contact', function () {
     return view('contact',[
-        'title' => 'contact',
+        'title' => 'Contact',
         'types' => App\Type::get()
     ]);
 })->name('contact');

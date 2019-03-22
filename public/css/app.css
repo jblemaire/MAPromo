@@ -8334,7 +8334,7 @@ button.close {
 }
 
 #map {
-  height: 500px;
+  min-height: 100vh;
   width: 100%;
   position: relative;
 }
@@ -8345,10 +8345,6 @@ button.close {
 
 @media (max-width: 768px) {
   #search {
-    display: none;
-  }
-
-  #filters {
     display: none;
   }
 }
@@ -8362,7 +8358,7 @@ button.close {
 
 .list-unstyled {
   background-color: #fff;
-  height: 550px;
+  min-height: 100vh;
 }
 
 .list-unstyled li a {
@@ -8375,6 +8371,7 @@ button.close {
 
 .wrapper {
   display: -webkit-box;
+  position: relative;
   width: 100%;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
@@ -8573,9 +8570,20 @@ a.article:hover {
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
   color: #515052;
   font-family: 'Roboto', sans-serif;
+}
+
+.row {
+  margin: 0 auto !important;
 }
 
 h1 {
@@ -8664,10 +8672,7 @@ button {
   height: 35px;
   min-width: 100px;
   text-align: center;
-}
-
-button:hover {
-  background-color: #1a4b64;
+  margin: 10px !important;
 }
 
 button a {
@@ -8678,7 +8683,7 @@ input {
   border: none;
   border-radius: 25px;
   height: 35px;
-  width: 250px;
+  width: 100%;
   text-align: center;
 }
 
@@ -8691,16 +8696,16 @@ input {
 }
 
 select {
-  border: none !important;
+  border: solid 1px #99cbe4 !important;
   border-radius: 25px !important;
-  background-color: #99cbe4 !important;
   color: #ffffff !important;
   height: 35px !important;
   text-align: center;
 }
 
 option {
-  border: none !important;
+  border: solid 1px #99cbe4 !important;
+  border-radius: 25px !important;
 }
 
 .title {
@@ -8851,19 +8856,12 @@ option {
   margin-left: 30px;
 }
 
-/*
-.titleDesktop li:hover{
-    background-color: $vert;
-    color: $blanc !important;
-    width: 100px;
-    height: 35px;
-    border-radius: 25px;
-    text-align: center;
-    align-items: center;
-}*/
-
 .titleMobile {
   display: none;
+}
+
+.custom-select {
+  color: #bfbfc0 !important;
 }
 
 .switch {
@@ -8997,8 +8995,7 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  margin-left: 2px !important;
-  z-index: 3;
+  z-index: 1002;
 }
 
 .bar_mobile p {
@@ -9103,7 +9100,7 @@ footer {
 
 .blockView {
   width: 250px !important;
-  height: 100% !important;
+  height: 200px !important;
   background-color: #FFF0E8;
   border-radius: 10px;
   margin: 30px;
@@ -9121,7 +9118,6 @@ footer {
   display: flex;
   text-align: center;
   margin: auto !important;
-  width: 1000px;
 }
 
 .iconView {
@@ -9202,7 +9198,6 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -9211,7 +9206,6 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -9288,6 +9282,10 @@ footer {
 }
 
 .gestionTable li a:hover {
+  background-color: #25db71 !important;
+}
+
+tbody tr:hover {
   background-color: #25db71 !important;
 }
 

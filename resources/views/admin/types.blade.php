@@ -1,32 +1,27 @@
 @extends('admin.admin')
 
 @section('admin_table')
-    <div>
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#formAddType" aria-expanded="false" aria-controls="formAddType">
-            Ajouter un type
-        </button>
-    </div>
-    <div class="collapse" id="formAddType">
-        <div class="card card-body">
-            <form class="form-horizontal" method="POST" action="{{route('add_type')}}">
-                {{ csrf_field() }}
-
-                <div class="form-group">
-                    <label for="libType" class="col-md-4 control-label">Type</label>
-
-                    <div class="col-md-6">
-                        <input id="libType" type="text" class="form-control" name="libType" value="{{ old('libType') }}" required autofocus>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-8 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">
-                            Ajouter
-                        </button>
-                    </div>
-                </div>
-            </form>
+    <div class="type">
+            <button class="ajouterType" type="button" data-toggle="collapse" data-target="#formAddType" aria-expanded="false" aria-controls="formAddType">
+                Ajouter un type
+            </button>
+        <div id="formAddType">
+            <div class="card card-body">
+                <form class="form-horizontal" method="POST" action="{{route('add_type')}}">
+                    {{ csrf_field() }}
+                        <div>
+                            <label for="libType" class="control-label">Type</label>
+                        </div>                    
+                        <div class="col-lg">
+                            <input id="libType" class="custom-select" type="text" name="libType" value="{{ old('libType') }}" required autofocus>
+                        </div>
+                        <div class="col-md">
+                            <button type="submit">
+                                Ajouter
+                            </button>
+                        </div>
+                </form>
+            </div>
         </div>
     </div>
     <table class="table table-striped">

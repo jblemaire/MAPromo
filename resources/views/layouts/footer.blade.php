@@ -24,11 +24,11 @@
             <!--Instagram-->
             <a class="ins-ic" href="#">
                 <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-            </a>
+              </a>
+            </div>
         </div>
-    </div>
-    <!-- Grid column -->
-    <div class="footer2">
+          <!-- Grid column -->
+      <div class="footer2">
         <img class="logo_footer" src="{{ asset('img/logoFinal.png') }}" alt="logo">
     </div>
     <div class="row footer3">

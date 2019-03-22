@@ -7,7 +7,7 @@
 
 .list-unstyled{
     background-color: #fff;
-    height: 550px;
+    min-height: 100vh;
 }
 
 .list-unstyled li a{
@@ -20,6 +20,7 @@
 
 .wrapper {
     display: -webkit-box;
+    position: relative;
     width: 100%;
     align-items: stretch;
     perspective: 1500px;
@@ -163,6 +164,7 @@ a.article, a.article:hover {
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (max-width: 768px) {
+
     #sidebar {
         margin-left: -250px;
         transform: rotateY(90deg);

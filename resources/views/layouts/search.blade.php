@@ -10,7 +10,7 @@
                 <button type="button" id="buttonGeolocalisation" onclick="getGeolocalisation()">Rechercher via ma position</button>
             </div>
         </div>
-        <div id="filters" class="input-group">
+        <div class="input-group">
             <select class="custom-select" id="selectType" onchange="searchCategories()">
                 <option value="">--Choisir un type--</option>
                 @foreach($types as $type)
