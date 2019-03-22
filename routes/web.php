@@ -73,6 +73,8 @@ Route::get('liste_promo/', 'Client\ClientController@getListPromo')->name('post_l
 Route::get('compte/', 'Client\ClientController@myAccount')->name('compte')->middleware('client');
 Route::get('compte/editpassword', 'Client\ClientController@editpassword')->name('editpassword')->middleware('client');
 Route::post('compte/updatepassword', 'Client\ClientController@updatepassword')->name('updatepassword')->middleware('client');
+Route::get('compte/editinfos', 'Client\ClientController@editinfos')->name('editinfos')->middleware('client');
+Route::post('compte/updateinfos', 'Client\ClientController@updateinfos')->name('updateinfos')->middleware('client');
 
 
 

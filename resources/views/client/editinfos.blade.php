@@ -5,16 +5,16 @@
 
 
     {{--$User--}}
-    <form method="POST" action="{{route('updatepassword')}}">
+    <form method="POST" action="{{route('updateinfos')}}">
         {{ csrf_field() }}
-    Ancien mot de passe
-    <input name='oldpassword' type="password"><br>
-    Nouveau mot de passe
-    <input name='newpassword' type="password"><br>
-    Confirmer nouveau mot de passe
-    <input name='newpasswordconfirm' type="password"><br>
+        Nom
+        <input name='nomUser' type="text" value="{{$User->nomUser}}"><br>
+        Prénom
+        <input name='prenomUser' type="text" value="{{$User->prenomUser}}"><br>
+        Téléphone
+        <input name='telUser' type="text" value="{{$User->telUser}}"><br>
         <button type="submit">
-            Modifier le mot de passe
+            Enregistrer vos informations
         </button>
     </form>
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
@@ -120,33 +121,44 @@ class ClientController extends Controller
 
         if(Hash::check($oldpassword, $user->password)) {
 
-            if ( $newpassword != null && $newpasswordconfirm == $newpassword){
-
-
-
+            if ( $newpassword != '' && $newpasswordconfirm == $newpassword){
                $query=  DB::table('users')->where('idUser' , $user->idUser)
                     ->update([
                         'password' => bcrypt($newpassword),
                     ]);
 
-
-
-
-                $status = "Le mot de passe a été modifié avec succés";
+                Session::flash('success','Le mot de passe a été modifié avec succès');
+               // $status = "Le mot de passe a été modifié avec succés";
+            }
+            else{
+                Session::flash('error','Les champs du nouveau mot de passe ne correspondent pas.');
             }
         }
         else{
-            $status = "le mot de passe inséré ne correspond pas à celui actuel.";
+           // $status = "le mot de passe inséré ne correspond pas à celui actuel.";
+            Session::flash('error','Le mot de passe actuel ne correspond pas à celui de nos enregistrements ');
         }
 
 
         return view('client.editpassword',[
             'title'=>"Modifier mon mot de passe",
-            'status'=>$status
+
         ]);
 
 
 
+    }
+
+
+    public function editinfos(){
+        $status = "hey";
+        $user = Auth::user();
+
+        return view('client.editinfos',[
+            'title'=>"Modifier mes informations",
+            'status'=>$status,
+            'User'=>$user
+        ]);
     }
 
 
