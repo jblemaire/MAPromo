@@ -3,7 +3,7 @@
 @section('content')
 
     @foreach($promotions as $promotion)
-        <div class="card" style="width: 100%">
+        <div class="card-promotion card">
             <div class="card-body">
                 <div class="col-md-4">
                     @if($promotion->photo1Promo || $promotion->photo2Promo || $promotion->photo3Promo)
@@ -43,7 +43,9 @@
                     </div>
                 </div>
                 <div id="cardButton" class="col-md-4">
-                    <a href="{{route('details_promo', ['idPromo'=>$promotion->idPromo])}}"><button>Voir la promotion</button></a>
+                    <button style="width: 100%">
+                        <a href="{{route('details_promo', ['idPromo'=>$promotion->idPromo])}}" >Voir la promotion</a>
+                    </button>
                 </div>
             </div>
         </div>

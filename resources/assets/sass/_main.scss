@@ -4,8 +4,41 @@
     padding: 20px;
 }
 
+.main-content{
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card-promotion{
+    background-color: $blanc !important;
+    border: 1px solid $bleu !important;
+}
+
+.form-horizontal-promo{
+  width:75% !important;
+}
+
+.glyphicon {
+  font-size: 15px !important;
+}
+
+.commentaire{
+  display: flex !important;
+  flex-direction: row !important;
+}
+
 @media (max-width: 768px){
     .main{
         display: none;
     }
+
+    .main-content{
+        width: 95%;
+    }
+
+  .commentaire{
+    display: block !important;
+    flex-direction: column !important;
+  }
 }
