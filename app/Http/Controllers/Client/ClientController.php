@@ -140,9 +140,15 @@ class ClientController extends Controller
         }
 
 
-        return view('client.editpassword',[
+       /* return view('client.editpassword',[
             'title'=>"Modifier mon mot de passe",
 
+        ]);
+       */
+
+        return redirect()->route('editpassword', [
+            'title'=>"Modifier mon mot de passe",
+            'User'=>$user,
         ]);
 
 
@@ -159,6 +165,49 @@ class ClientController extends Controller
             'status'=>$status,
             'User'=>$user
         ]);
+    }
+
+    public function updateinfos(Request $request){
+        $name = $request->input('nomUser');
+        $prenom = $request->input('prenomUser');
+        $tel = $request->input('telUser');
+
+        $user = Auth::user();
+
+
+                $query=  DB::table('users')->where('idUser' , $user->idUser)
+                    ->update([
+                        'nomUser' => $name,
+                        'prenomUser' => $prenom,
+                        'telUser' => $tel,
+                    ]);
+
+
+
+        if($query){
+            Session::flash('success','Les informations ont été enregistré avec succès');
+            // $status = "Le mot de passe a été modifié avec succés";
+
+
+        }
+        else{
+            // $status = "le mot de passe inséré ne correspond pas à celui actuel.";
+            Session::flash('error',"vous n'avez pas apporté de modifications");
+        }
+
+
+       /* return view('client.editinfos',[
+
+            'title'=>"Modifier mon mot de passe",
+            'User'=>$user,
+        ]);
+       */
+        return redirect()->route('editinfos', [
+            'title'=>"Modifier mes informations",
+            'User'=>$user,
+        ]);
+
+
     }
 
 
