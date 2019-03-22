@@ -14,63 +14,48 @@
     <div class="col">
         <h3>Les derniers avis</h3>
         <div class="row">
-            <div class="blockView col">
-                <div class="blockViewTitle">
-                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+            @foreach($lastComms as $lastComm)
+                <div class="blockView col">
+                    <div class="blockViewTitle">
+                        <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+                        <div>
+                            <h4>Avis de {{$lastComm->prenomUser}} {{$lastComm->nomUser}}</h4>
+                            <p>sur la promotion <a href="#">{{$lastComm->libPromo}}</a></p>
+                        </div>
+                    </div>
                     <div>
-                        <h4>Avis de Jane Doe</h4>
-                        <p>sur la promotion de <a href="#">Chez Fred</a></p>
+                        @for($i = 0; $i < 5; $i++)
+                            @if($lastComm->noteAdhesion>$i)
+                                <span class="glyphicon glyphicon-star"></span>
+                            @else
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            @endif
+                        @endfor
+                    </div>
+                    <div>
+                        <p><b>"</b>{{$lastComm->commentaireAdhesion}}<b>"</b></p>
                     </div>
                 </div>
-                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
-                <div>
-                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
-                </div>
-            </div>
-            <div class="blockView col">
-                <div class="blockViewTitle">
-                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
-                    <div>
-                        <h4>Avis de Jane Doe</h4>
-                        <p>sur la promotion de <a href="#">Chez Fred</a></p>
-                    </div>
-                </div>
-                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
-                <div>
-                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="col">
         <h3>Les dernières promotions</h3>
         <div class="row">
-            <div class="blockView col">
-                <div class="blockViewTitle">
-                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+            @foreach($lastPromos as $lastPromo)
+                <div class="blockView col">
+                    <div class="blockViewTitle">
+                        <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
+                        <div>
+                            <h4>{{$lastPromo->libPromo}}</h4>
+                            <p>{{$lastPromo->dateDebutPromo}} - {{$lastPromo->dateFinPromo}}</p>
+                        </div>
+                    </div>
                     <div>
-                        <h4>Domino's Pizza</h4>
-                        <p>14/02/2019 - 28/02/2019</p>
+                        <p><b>"</b>{{$lastPromo->descPromo}}<b>"</b></p>
                     </div>
                 </div>
-                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
-                <div>
-                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
-                </div>
-            </div>
-            <div class="blockView col">
-                <div class="blockViewTitle">
-                    <div><svg class="iconView"><use xlink:href="{{ asset('svg/sprite.svg#noun_Image_2073706') }}"/></svg></div>
-                    <div>
-                        <h4>Domino's Pizza</h4>
-                        <p>14/02/2019 - 28/02/2019</p>
-                    </div>
-                </div>
-                <div><svg class="svg rating"><use xlink:href="{{ asset('svg/sprite.svg#noun_rating_73996') }}"/></svg></div>
-                <div>
-                    <p><b>"</b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<b>"</b></p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

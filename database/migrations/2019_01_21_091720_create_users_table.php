@@ -18,8 +18,8 @@ class CreateUsersTable extends Migration
             $table->integer('idUser')->autoIncrement();
             $table->string('nomUser');
             $table->string('prenomUser');
-            $table->string('mailUser')->unique();
-            $table->string('mdpUser')->nullable();
+            $table->string('email')->unique();
+            $table->string('password')->nullable();
             $table->string('telUser')->nullable();
             $table->integer('idRole');
             $table->string('provider_id')->unique()->nullable();

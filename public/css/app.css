@@ -8375,7 +8375,7 @@ button.close {
 
 .wrapper {
   display: -webkit-box;
-  position: absolute;
+  position: relative;
   width: 100%;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
@@ -8574,7 +8574,14 @@ a.article:hover {
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
   color: #515052;
   font-family: 'Roboto', sans-serif;
 }
@@ -8661,6 +8668,7 @@ button {
   height: 35px;
   min-width: 100px;
   text-align: center;
+  margin: 10px !important;
 }
 
 button a {
@@ -8875,6 +8883,10 @@ option {
 
 footer {
   margin-top: 5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
 }
 
 .footer1 {
@@ -9051,7 +9063,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   text-align: center;
-  margin: 0 auto;
+  margin: auto !important;
   width: 1000px;
 }
 
@@ -9155,6 +9167,10 @@ footer {
 }
 
 .gestionTable li a:hover {
+  background-color: #25db71 !important;
+}
+
+tbody tr:hover {
   background-color: #25db71 !important;
 }
 

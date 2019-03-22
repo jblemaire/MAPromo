@@ -8,7 +8,14 @@ $gris : #bfbfc0;
 $black : #515052;
 $beige : #FFF0E8;
 
+html{
+    height: 100%;
+}
+
 body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
     color: $black;
     font-family: 'Roboto', sans-serif;
 }
@@ -93,7 +100,7 @@ button{
     height: 35px;
     min-width: 100px;
     text-align: center;
-    //margin: 10px !important;
+    margin: 10px !important;
 }
 
 button a{

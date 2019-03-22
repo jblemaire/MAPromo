@@ -20,7 +20,7 @@
 
 .wrapper {
     display: -webkit-box;
-    position: absolute;
+    position: relative;
     width: 100%;
     align-items: stretch;
     perspective: 1500px;
@@ -164,6 +164,7 @@ a.article, a.article:hover {
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (max-width: 768px) {
+
     #sidebar {
         margin-left: -250px;
         transform: rotateY(90deg);

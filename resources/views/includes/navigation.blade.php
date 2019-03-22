@@ -59,14 +59,14 @@
                     <div id="monCompte" class="buttonNav">
                         <!-- Authentication Links -->
                     @if(Auth::user() && Auth::user()->idRole === 1)
-                        <li><a href="{{route('admin')}}">Gestion des tables</a></li>
+                        <li><a href="{{route('admin')}}"><button>Gestion des tables</button></a></li>
                     @elseif(Auth::user() && Auth::user()->idRole === 2)
-                        <li><a href="">Mon compte</a></li>
-                        <li><a href="{{route('mes_promotions')}}">Mes promotions</a></li>
+                        <li><a href=""><button>Mon compte</button></a></li>
+                        <li><a href="{{route('mes_promotions')}}"><button>Mes promotions</button></a></li>
                     @elseif(Auth::user() && Auth::user()->idRole === 3)
-                        <li><a href="">Mon compte</a></li>
-                        <li><a href="{{route('magasins')}}">Mes magasins</a></li>
-                        <li><a href="{{route('promotions')}}">Mes promotions</a></li>
+                        <li><a href=""><button>Mon compte</button></a></li>
+                        <li><a href="{{route('magasins')}}"><button>Mes magasins</button></a></li>
+                        <li><a href="{{route('promotions')}}"><button>Mes promotions</button></a></li>
                     @endif
                     @guest
                         <li><button type="button" data-toggle="modal" data-target="#connexion">Connexion</button></li>
@@ -75,7 +75,7 @@
                         <li>
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">Déconnexion</a>
+                                        document.getElementById('logout-form').submit();"><button>Déconnexion</button></a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
@@ -94,16 +94,6 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 });
-
-/*document.ready(function(){
-    let sidebarCollapse = document.getElementById('sidebarCollapse');
-    let sidebar = document.getElementById('sidebar');
-    let active = document.getElementById('active');
-    sidebarCollapse.addEventListener('click', function(){
-        sidebar.toggleClass('active');
-        this.toggleClass('active');
-    });
-});*/
 
 </script>
 

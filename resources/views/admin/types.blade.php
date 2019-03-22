@@ -7,12 +7,12 @@
             </button>
         <div id="formAddType">
             <div class="card card-body">
-                <form class="form-horizontal row" method="POST" action="{{route('add_type')}}">
+                <form class="form-horizontal" method="POST" action="{{route('add_type')}}">
                     {{ csrf_field() }}
                         <div>
-                            <label for="libType" class="col-lg control-label">Type</label>
+                            <label for="libType" class="control-label">Type</label>
                         </div>                    
-                        <div class="col-md">
+                        <div class="col-lg">
                             <input id="libType" class="custom-select" type="text" name="libType" value="{{ old('libType') }}" required autofocus>
                         </div>
                         <div class="col-md">

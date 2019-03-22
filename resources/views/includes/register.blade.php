@@ -13,7 +13,7 @@
 
                     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                         <div>
-                            <input id="type" type="hidden" class="form-control" name="type" value="{{ old('type') | 2 }}" required>
+                            <input id="type" type="hidden" class="inputText" name="type" value="{{ old('type') | 2 }}" required>
                         </div>
                     </div>
 
@@ -21,7 +21,7 @@
                         <label for="lastname" class="">Nom*</label>
 
                         <div>
-                            <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
+                            <input id="lastname" type="text" class="inputText" name="lastname" value="{{ old('lastname') }}" required autofocus>
 
                             @if ($errors->has('name'))
                                 <span class="help-block">
@@ -35,7 +35,7 @@
                         <label for="name" class="">Prénom*</label>
 
                         <div>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                            <input id="name" type="text" class="inputText" name="name" value="{{ old('name') }}" required autofocus>
 
                             @if ($errors->has('name'))
                                 <span class="help-block">
@@ -49,7 +49,7 @@
                         <label for="email" class="">Adresse Email*</label>
 
                         <div>
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                            <input id="email" type="email" class="inputText" name="email" value="{{ old('email') }}" required>
 
                             @if ($errors->has('email'))
                                 <span class="help-block">
@@ -63,7 +63,7 @@
                         <label for="passwordInscription" class="">Mot de passe*</label>
 
                         <div>
-                            <input id="passwordInscription" type="password" class="form-control" name="password" required>
+                            <input id="passwordInscription" type="password" class="inputText" name="password" required>
 
                             @if ($errors->has('password'))
                                 <span class="help-block">
@@ -77,7 +77,7 @@
                         <label for="password-confirm" class="">Confirmation du mot de passe</label>
 
                         <div>
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <input id="password-confirm" type="password" class="inputText" name="password_confirmation" required>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                         <label for="phone" class="">Téléphone</label>
 
                         <div>
-                            <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}">
+                            <input id="phone" type="text" class="inputText" name="phone" value="{{ old('phone') }}">
 
                             @if ($errors->has('phone'))
                                 <span class="help-block">
@@ -98,7 +98,7 @@
                     <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                         <label class="">Captcha</label>
 
-                        <divpull-center>
+                        <div pull-center>
                             {!! NoCaptcha::display() !!}
 
                             @if ($errors->has('g-recaptcha-response'))
@@ -115,7 +115,7 @@
                                 S'inscrire
                             </button>
 							
-							<button><a href="{{url('/login/facebook')}}" id="btnFb">S'inscrire avec Facebook</a></button>
+							<button id="btnFb"><a href="{{url('/login/facebook')}}" >S'inscrire avec Facebook</a></button>
                         </div>
                     </div>
                 </form>
