@@ -189,7 +189,6 @@
                             <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Modifier</a>
                             <a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Supprimer</a>
                             <a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Voir les promotions</a>
-
                         </div>
                     </div>
                 </div>

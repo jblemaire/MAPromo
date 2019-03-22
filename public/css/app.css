@@ -8631,6 +8631,10 @@ p {
   list-style: none;
 }
 
+.card-subtitle {
+  margin-bottom: 5px !important;
+}
+
 a {
   color: #515052 !important;
   text-decoration: none !important;
@@ -8668,10 +8672,6 @@ button:hover {
 
 button a {
   color: #ffffff !important;
-}
-
-button :hover {
-  background-color: #25db71;
 }
 
 input {
@@ -9061,6 +9061,25 @@ footer {
 .iconView {
   width: 50px;
   height: 50px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  display: none !important;
+}
+
+.card {
+  background-color: #FFF0E8 !important;
+  border-radius: 10px !important;
+  margin: 30px;
+  border: none !important;
+}
+
+.listPromo {
+  background-color: #FFF0E8 !important;
+  border-radius: 10px !important;
+  margin: 5px;
+  border: none !important;
 }
 
 @media (max-width: 768px) {
