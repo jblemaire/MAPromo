@@ -109,6 +109,9 @@ button{
     min-width: 100px;
     text-align: center;
     margin: 10px !important;
+  &:hover{
+    background-color: darken($bleu, 50%);
+  }
 }
 
 button a{

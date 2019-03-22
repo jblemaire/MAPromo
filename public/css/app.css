@@ -8675,6 +8675,10 @@ button {
   margin: 10px !important;
 }
 
+button:hover {
+  background-color: #1a4b64;
+}
+
 button a {
   color: #ffffff !important;
 }
@@ -9199,6 +9203,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
+  width: 1300px;
   padding: 20px;
 }
 
@@ -9207,6 +9212,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
+  width: 1300px;
   padding: 20px;
 }
 
@@ -9234,13 +9240,53 @@ footer {
           flex-direction: row !important;
 }
 
+.groupButtonMagasins {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.magasin-promo-show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 @media (max-width: 768px) {
   .main {
     display: none;
+    width: 100% !important;
   }
 
   .main-content {
     width: 95%;
+  }
+
+  .listPromo {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+
+  .magasin-promo-show {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .commentaire {
@@ -9249,6 +9295,13 @@ footer {
     -webkit-box-direction: normal !important;
         -ms-flex-direction: column !important;
             flex-direction: column !important;
+  }
+
+  .groupButtonMagasins {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 

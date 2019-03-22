@@ -452,6 +452,7 @@ function affichePromo(r){
         let li = document.createElement('li');
         li.className='list-group-item listPromo';
         li.style.justifyContent = "space-around";
+        li.style.flexDirection = "row";
         let titrePromo = document.createElement('h4');
         titrePromo.appendChild(document.createTextNode(res[i].libPromo));
         li.appendChild(titrePromo);
@@ -461,7 +462,6 @@ function affichePromo(r){
         let aDetails = document.createElement('a');
         aDetails.href = document.location.href + 'details_promotion/'+res[i].idPromo;
         aDetails.appendChild(document.createTextNode('Voir la promo'));
-        buttonDetails.style.float= "right";
         buttonDetails.appendChild(aDetails);
         li.appendChild(buttonDetails);
 
@@ -470,7 +470,6 @@ function affichePromo(r){
         buttonAdhesion.id = 'btnGetCode';
         buttonAdhesion.type="button";
         buttonAdhesion.appendChild(document.createTextNode('Obtenir le code'));
-        buttonAdhesion.style.float= "right";
         buttonAdhesion.disabled = true;
         if(document.getElementById('userInfos')) {
             let userInfos = JSON.parse(document.getElementById('userInfos').value);

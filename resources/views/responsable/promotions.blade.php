@@ -5,11 +5,11 @@
         <form class="form-horizontal form-horizontal-promo" method="POST" action="{{route('promotion_magasins')}}">
             {{ csrf_field() }}
 
-            <div class="form-group">
+            <div class="form-group" style="align-items: center">
                 <label for="selectMagasin" class="col-md-4 control-label">Nom du Magasin</label>
 
-                <div class="input-group col-md-6">
-                    <select class="form-control" aria-label="Magasin" aria-describedby="button-addon2" id="selectMagasin" name="selectMagasin">
+                <div class="input-group col-md-6" style="align-items: center">
+                    <select class="custom-select" aria-label="Magasin" aria-describedby="button-addon2" id="selectMagasin" name="selectMagasin">
                         <option value="" selected disabled>--Choisir un magasin--</option>
                         @foreach($magasins as $magasin)
                             <option value="{{$magasin->idMagasin}}" {{$idMagasin == $magasin->idMagasin ? 'selected' : ''}}>{{$magasin->nomMagasin}}</option>
@@ -43,7 +43,7 @@
                         <label for="nomPromo" class="col-md-4 control-label">Nom de la Promotion*</label>
 
                         <div class="col-md-6">
-                            <input id="nomPromo" type="text" class="form-control" name="nomPromo" value="{{ old('nomPromo') }}" required autofocus>
+                            <input id="nomPromo" type="text" class="inputText" name="nomPromo" value="{{ old('nomPromo') }}" required autofocus>
                         </div>
                     </div>
 
@@ -59,7 +59,7 @@
                         <label for="dateDebutPromo" class="col-md-4 control-label">Date de Début*</label>
 
                         <div class="col-md-6">
-                            <input id="dateDebutPromo" type="date" class="form-control" name="dateDebutPromo" value="{{ old('dateDebutPromo') }}" onchange="getMinMaxFinPromo(this.value)" required autofocus>
+                            <input id="dateDebutPromo" type="date" class="inputText" name="dateDebutPromo" value="{{ old('dateDebutPromo') }}" onchange="getMinMaxFinPromo(this.value)" required autofocus>
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                         <label for="dateFinPromo" class="col-md-4 control-label">Date de Fin*</label>
 
                         <div class="col-md-6">
-                            <input id="dateFinPromo" type="date" class="form-control" name="dateFinPromo" value="{{ old('dateFinPromo') }}" required autofocus>
+                            <input id="dateFinPromo" type="date" class="inputText" name="dateFinPromo" value="{{ old('dateFinPromo') }}" required autofocus>
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
                         <label for="photo1Promo" class="col-md-4 control-label">Photo 1</label>
 
                         <div class="col-md-6">
-                            <input id="photo1Promo" type="file" class="form-control" name="photo1Promo" value="{{ old('photo1Promo') }}" accept=".jpg, .jpeg, .png" autofocus>
+                            <input id="photo1Promo" type="file" class="inputText" name="photo1Promo" value="{{ old('photo1Promo') }}" accept=".jpg, .jpeg, .png" autofocus>
                         </div>
                     </div>
 
@@ -83,7 +83,7 @@
                         <label for="photo2Promo" class="col-md-4 control-label">Photo 2</label>
 
                         <div class="col-md-6">
-                            <input id="photo2Promo" type="file" class="form-control" name="photo2Promo" value="{{ old('photo2Promo') }}" accept=".jpg, .jpeg, .png" autofocus>
+                            <input id="photo2Promo" type="file" class="inputText" name="photo2Promo" value="{{ old('photo2Promo') }}" accept=".jpg, .jpeg, .png" autofocus>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@
                         <label for="photo3Promo" class="col-md-4 control-label">Photo 3</label>
 
                         <div class="col-md-6">
-                            <input id="photo3Promo" type="file" class="form-control" name="photo3Promo" value="{{ old('photo3Promo') }}" accept=".jpg, .jpeg, .png" autofocus>
+                            <input id="photo3Promo" type="file" class="inputText" name="photo3Promo" value="{{ old('photo3Promo') }}" accept=".jpg, .jpeg, .png" autofocus>
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@
                         <label for="codePromo" class="col-md-4 control-label">Code Promo*</label>
 
                         <div class="col-md-6">
-                            <input id="codePromo" type="text" class="form-control" name="codePromo" value="{{ old('codePromo') }}" readonly required autofocus>
+                            <input id="codePromo" type="text" class="inputText" name="codePromo" value="{{ old('codePromo') }}" readonly required autofocus>
                         </div>
                     </div>
 
@@ -107,7 +107,7 @@
                         <label for="codeAvis" class="col-md-4 control-label">Code Avis*</label>
 
                         <div class="col-md-6">
-                            <input id="codeAvis" type="text" class="form-control" name="codeAvis" value="{{ old('codeAvis') }}" readonly required autofocus>
+                            <input id="codeAvis" type="text" class="inputText" name="codeAvis" value="{{ old('codeAvis') }}" readonly required autofocus>
                         </div>
                     </div>
 
@@ -129,14 +129,14 @@
                 @foreach($promotions as $promotion)
                     <div class="card card-promotion" style="border: 1px solid rgba(0,0,0,0.125);">
                         <div class="card-header" id="heading{{$promotion->idPromo}}" style="display: flex; align-items: center;">
-                            <h1 class="col-md-10">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{$promotion->idPromo}}" aria-expanded="true" aria-controls="collapse{{$promotion->idPromo}}">
+                            <h4 class="col-md-10">
+                                <a data-toggle="collapse" data-target="#collapse{{$promotion->idPromo}}" aria-expanded="true" aria-controls="collapse{{$promotion->idPromo}}">
                                     {{$promotion->libPromo}}
-                                </button>
-                            </h1>
+                                </a>
+                            </h4>
                             <div class="col">
                                 <label class="switch" for="checkboxEtat{{$promotion->idPromo}}" onclick="updateEtat({{$promotion->idPromo}},{{$promotion->etatPromo}})">
-                                    <input type="checkbox" value="{{$promotion->etatPromo}}" id="checkboxEtat{{$promotion->idPromo}}" {{$promotion->etatPromo == 0 ? 'checked' : ''}} style="display: none">
+                                    <input type="checkbox" value="{{$promotion->etatPromo}}" id="checkboxEtat{{$promotion->idPromo}}" {{$promotion->etatPromo == 1 ? 'checked' : ''}} style="display: none">
                                     <span class="slider round"></span>
                                 </label>
                             </div>

@@ -18,7 +18,7 @@
                         <label for="nomMag" class="col-md-4 control-label">Nom du Magasin*</label>
 
                         <div class="col-md-6">
-                            <input id="nomMag" type="text" class="form-control" name="nomMag" value="{{ old('nomMag') }}" required autofocus>
+                            <input id="nomMag" type="text" class="inputText" name="nomMag" value="{{ old('nomMag') }}" required autofocus>
                         </div>
                     </div>
 
@@ -26,7 +26,7 @@
                         <label for="siretMag" class="col-md-4 control-label">SIRET*</label>
 
                         <div class="col-md-6">
-                            <input id="siretMag" type="text" class="form-control" name="siretMag" value="{{ old('siretMag') }}" required autofocus>
+                            <input id="siretMag" type="text" class="inputText" name="siretMag" value="{{ old('siretMag') }}" required autofocus>
                         </div>
                     </div>
 
@@ -34,13 +34,13 @@
                         <label for="adresse1Mag" class="col-md-4 control-label">N° Rue</label>
 
                         <div class="col-md-1">
-                            <input id="adresse1Mag" type="text" class="form-control" name="adresse1Mag" value="{{ old('adresse1Mag') }}" autofocus>
+                            <input id="adresse1Mag" type="text" class="inputText" name="adresse1Mag" value="{{ old('adresse1Mag') }}" autofocus>
                         </div>
 
                         <label for="adresse2Mag" class="col-md-1 control-label">Adresse*</label>
 
                         <div class="col-md-4">
-                            <input id="adresse2Mag" type="text" class="form-control" name="adresse2Mag" value="{{ old('adresse2Mag') }}" required autofocus>
+                            <input id="adresse2Mag" type="text" class="inputText" name="adresse2Mag" value="{{ old('adresse2Mag') }}" required autofocus>
                         </div>
 
                     </div>
@@ -49,13 +49,13 @@
                         <label for="cpMag" class="col-md-4 control-label">CP*</label>
 
                         <div class="col-md-1">
-                            <input id="cpMag" type="text" class="form-control" name="cpMag" value="{{ old('cpMag') }}" onkeyup="getVilleByCp(this.value)" required autofocus>
+                            <input id="cpMag" type="text" class="inputText" name="cpMag" value="{{ old('cpMag') }}" onkeyup="getVilleByCp(this.value)" required autofocus>
                         </div>
 
                         <label for="villeMag" class="col-md-1 control-label">Ville*</label>
 
                         <div class="col-md-4">
-                            <select class="form-control" aria-label="Ville" aria-describedby="button-addon2" name="villeMag" id="villeMag" onchange="getCoordonnes()" required disabled>
+                            <select class="form-control custom-select" aria-label="Ville" aria-describedby="button-addon2" name="villeMag" id="villeMag" onchange="getCoordonnes()" required disabled>
                             </select>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         <label for="latMag" class="col-md-4 control-label">Latitude*</label>
 
                         <div class="col-md-6">
-                            <input id="latMag" type="text" class="form-control" name="latMag" value="{{ old('latMag') }}" required readonly autofocus>
+                            <input id="latMag" type="text" class="inputText" name="latMag" value="{{ old('latMag') }}" required readonly autofocus>
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                         <label for="longMag" class="col-md-4 control-label">Longitude*</label>
 
                         <div class="col-md-6">
-                            <input id="longMag" type="text" class="form-control" name="longMag" value="{{ old('longMag') }}" required readonly autofocus>
+                            <input id="longMag" type="text" class="inputText" name="longMag" value="{{ old('longMag') }}" required readonly autofocus>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
                         <label for="mailMagasin" class="col-md-4 control-label">Email*</label>
 
                         <div class="col-md-6">
-                            <input id="mailMagasin" type="email" class="form-control" name="mailMagasin" value="{{ old('mailMagasin') }}" required autofocus>
+                            <input id="mailMagasin" type="email" class="inputText" name="mailMagasin" value="{{ old('mailMagasin') }}" required autofocus>
                         </div>
                     </div>
 
@@ -88,7 +88,7 @@
                         <label for="telMag" class="col-md-4 control-label">Téléphone</label>
 
                         <div class="col-md-6">
-                            <input id="telMag" type="text" class="form-control" name="telMag" value="{{ old('telMag') }}" autofocus>
+                            <input id="telMag" type="text" class="inputText" name="telMag" value="{{ old('telMag') }}" autofocus>
                         </div>
                     </div>
 
@@ -96,7 +96,7 @@
                         <label for="selectType" class="col-md-4 control-label">Type*</label>
 
                         <div class="col-md-6">
-                            <select class="form-control" aria-label="Type" aria-describedby="button-addon2" id="selectType" name="selectType" onchange="searchCategories()">
+                            <select class="form-control custom-select" aria-label="Type" aria-describedby="button-addon2" id="selectType" name="selectType" onchange="searchCategories()">
                                 <option value="">--Choisir un type--</option>
                                 @foreach($types as $type)
                                     <option value="{{$type->idType}}">{{$type->libType}}</option>
@@ -109,7 +109,7 @@
                         <label for="selectCategorie" class="col-md-4 control-label">Categorie</label>
 
                         <div class="col-md-6">
-                            <select class="form-control" aria-label="Categorie" aria-describedby="button-addon2" name="selectCategorie" id="selectCategorie" disabled>
+                            <select class="form-control custom-select" aria-label="Categorie" aria-describedby="button-addon2" name="selectCategorie" id="selectCategorie" disabled>
                                 <option value="">--Choisir une categorie--</option>
                             </select>
                         </div>
@@ -119,7 +119,7 @@
                         <label for="photo1Mag" class="col-md-4 control-label">Photo 1</label>
 
                         <div class="col-md-6">
-                            <input id="photo1Mag" type="file" class="form-control" name="photo1Mag" value="{{ old('photo1Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
+                            <input id="photo1Mag" type="file" class="inputText" name="photo1Mag" value="{{ old('photo1Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
                         </div>
                     </div>
 
@@ -127,7 +127,7 @@
                         <label for="photo2Mag" class="col-md-4 control-label">Photo 2</label>
 
                         <div class="col-md-6">
-                            <input id="photo2Mag" type="file" class="form-control" name="photo2Mag" value="{{ old('photo2Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
+                            <input id="photo2Mag" type="file" class="inputText" name="photo2Mag" value="{{ old('photo2Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
                         </div>
                     </div>
 
@@ -187,10 +187,10 @@
                                     <li class="list-group-item">Categorie : {{$magasin->libCategorie}}</li>
                                 @endif
                             </ul>
-                            <div style="display: flex; justify-content: space-around">
-                                <button><a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" >Modifier</a></button>
-                                <button><a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" >Supprimer</a></button>
-                                <button><a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}">Voir les promotions</a></button>
+                            <div class="groupButtonMagasins" style="display: flex; justify-content: space-around">
+                                <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" ><button>Modifier</button></a>
+                                <a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" ><button>Supprimer</button></a>
+                                <a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}"><button>Voir les promotions</button></a>
                             </div>
                         </div>
                     </div>

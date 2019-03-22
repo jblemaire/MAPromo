@@ -9,7 +9,7 @@
         </p>
     </div>
 </section>
-<section class="blockViewRating row">
+<section class="main blockViewRating row">
     <div class="col">
         <h3>Les derniers avis</h3>
         <div class="row">

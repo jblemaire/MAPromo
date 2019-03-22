@@ -116,7 +116,7 @@
             @if(Auth::user() && Auth::user()->idRole == 2)
                 @if(date('Y-m-d') >= $magasin->dateDebutPromo && date('Y-m-d')<=$magasin->dateFinPromo)
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Entrez le code Avis" aria-label="Entrez le code Avis" aria-describedby="button-addon2" id="inputCodeAvis">
+                        <input type="text" class="inputText" placeholder="Entrez le code Avis" aria-label="Entrez le code Avis" aria-describedby="button-addon2" id="inputCodeAvis">
                         <button class="col" type="button" id="button-addon2" onclick="checkCodeAvis()">Valider</button>
                     </div>
         </div>
@@ -138,7 +138,7 @@
                                     @for($i = 1; $i <= 5; $i++)
                                         <span class="glyphicon glyphicon-star-empty" id="formRatingStar{{$i}}" onmouseover="ratingStarMouseOver({{$i}})"></span>
                                     @endfor
-                                <input id="note" type="number" class="form-control" name="note" value="0" readonly autofocus>
+                                <input id="note" type="number" class="inputText" name="note" value="0" readonly autofocus>
                                 </div>
                             </div>
                         </div>

@@ -27,10 +27,10 @@
             initMap()
         </script>
     </div>
-    <div id="magasin" class="main" style="display: none; align-items: center;">
-        <div id="magasinDétail" style="width: 50%;">
+    <div id="magasin" class="main magasin-promo-show" style="display: none; align-items: center;">
+        <div id="magasinDétail" style="width: 100%;">
             <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
+                <div class="no-gutters">
                     <div class="col-md-4">
                         <div id="carouselStore" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div id="promotions" style="width: 50%">
+        <div id="promotions" style="width: 100%">
             <h4>Promotions en cours</h4>
             <ul id="listPromo" class="list-group">
 

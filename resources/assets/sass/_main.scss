@@ -1,12 +1,14 @@
 .main{
     display: flex;
     margin: 0 auto;
+  width:1300px;
     padding: 20px;
 }
 
 .main-content{
   display: flex;
   margin: 0 auto;
+  width:1300px;
   padding: 20px;
 }
 
@@ -29,17 +31,39 @@
   flex-direction: row !important;
 }
 
+.groupButtonMagasins{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.magasin-promo-show{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
 @media (max-width: 768px){
     .main{
         display: none;
+      width: 100% !important;
     }
 
     .main-content{
         width: 95%;
     }
 
+  .listPromo{
+    flex-direction: column !important;
+  }
+
+  .magasin-promo-show{
+    flex-direction: column;
+  }
   .commentaire{
     display: block !important;
     flex-direction: column !important;
+  }
+  .groupButtonMagasins{
+    flex-direction: column;
   }
 }

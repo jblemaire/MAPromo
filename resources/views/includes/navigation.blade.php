@@ -58,12 +58,12 @@
                 <ul class="nav navbar-nav navbar-right" style="flex-direction: row">
                     <div id="monCompte" class="buttonNav">
                         <!-- Authentication Links -->
-                    @if(Auth::user() && Auth::user()->idRole === 1)
+                    @if(Auth::user() && Auth::user()->idRole == 1)
                         <li><a href="{{route('admin')}}"><button>Gestion des tables</button></a></li>
-                    @elseif(Auth::user() && Auth::user()->idRole === 2)
+                    @elseif(Auth::user() && Auth::user()->idRole == 2)
                         <li><a href=""><button>Mon compte</button></a></li>
                         <li><a href="{{route('mes_promotions')}}"><button>Mes promotions</button></a></li>
-                    @elseif(Auth::user() && Auth::user()->idRole === 3)
+                    @elseif(Auth::user() && Auth::user()->idRole == 3)
                         <li><a href=""><button>Mon compte</button></a></li>
                         <li><a href="{{route('magasins')}}"><button>Mes magasins</button></a></li>
                         <li><a href="{{route('promotions')}}"><button>Mes promotions</button></a></li>
@@ -104,15 +104,6 @@ $(document).ready(function(){
     $("#search").show();
   });
 });
-
-/*function search(){
-    let search = document.getElementById('search');
-    if(search.style.display = "none"){
-        search.style.display = "block";
-    }
-    else{
-        search.style.display = "none";
-    }
-}*/
+    
 </script>
 
