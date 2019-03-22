@@ -30,6 +30,25 @@
     height: 50px;
 }
 
+.carousel-control-prev, .carousel-control-next {
+  display: none !important;
+}
+
+.card{
+  background-color: $beige !important;
+  border-radius: 10px !important;
+  margin: 30px;
+  border: none !important;
+}
+
+.listPromo{
+    background-color: $beige !important;
+    border-radius: 10px !important;
+    margin: 5px;
+    border: none !important;
+}
+
+
 @media (max-width: 768px){
     
     .blockViewRating{

@@ -360,6 +360,7 @@ function afficheMagasin(e){
         img.src = '\\img\\' + magasin.photo1Magasin;
         img.alt = 'Image 1';
         img.style.objectFit = 'cover';
+        img.style.borderRadius = '10px';
 
         div.appendChild(img);
         carousel.appendChild(div);
@@ -374,6 +375,7 @@ function afficheMagasin(e){
         img.src = '\\img\\' + magasin.photo2Magasin;
         img.alt = 'Image 2';
         img.style.objectFit = 'cover';
+        img.style.borderRadius = '10px';
 
         div.appendChild(img);
         carousel.appendChild(div);
@@ -448,19 +450,24 @@ function affichePromo(r){
 
     for(let i=0; i<res.length ; i++){
         let li = document.createElement('li');
-        li.className='list-group-item';
-        li.appendChild(document.createTextNode(res[i].libPromo));
+        li.className='list-group-item listPromo';
+        li.style.justifyContent = "space-around";
+        let titrePromo = document.createElement('h4');
+        titrePromo.appendChild(document.createTextNode(res[i].libPromo));
+        li.appendChild(titrePromo);
 
-        let buttonDetails = document.createElement('a');
-        buttonDetails.className="btn btn-primary";
-        buttonDetails.href = document.location.href + 'details_promotion/'+res[i].idPromo;
-        buttonDetails.appendChild(document.createTextNode('Voir la promo'));
+        let buttonDetails = document.createElement('button');
+
+        let aDetails = document.createElement('a');
+        aDetails.href = document.location.href + 'details_promotion/'+res[i].idPromo;
+        aDetails.appendChild(document.createTextNode('Voir la promo'));
         buttonDetails.style.float= "right";
+        buttonDetails.appendChild(aDetails);
         li.appendChild(buttonDetails);
 
         let buttonAdhesion = document.createElement('button');
-        buttonAdhesion.id = 'btnGetCode';
         buttonAdhesion.className="btn btn-primary";
+        buttonAdhesion.id = 'btnGetCode';
         buttonAdhesion.type="button";
         buttonAdhesion.appendChild(document.createTextNode('Obtenir le code'));
         buttonAdhesion.style.float= "right";
@@ -496,11 +503,11 @@ function getCodePromo(idPromo, code){
                 divCodePromo.id="textCodePromo";
 
                 if (r.data === 'done'){
-                    document.getElementById('messagePromo').className = "alert alert-success";
+                    document.getElementById('messagePromo').className = "alert alert-success col";
                     afficheMessage('messagePromo', 'Bravo, vous avez accès à la promotion !');
 
                     let codePromo = document.createElement('h1');
-                    codePromo.className = 'text-center';
+                    codePromo.className = 'text-center col';
                     codePromo.appendChild(document.createTextNode('Profitez-en avec le code ' + code));
 
                     divCodePromo.appendChild(codePromo);
@@ -508,7 +515,7 @@ function getCodePromo(idPromo, code){
                 }
                 else
                 {
-                    document.getElementById('messagePromo').className = "alert alert-danger";
+                    document.getElementById('messagePromo').className = "alert alert-danger col";
                     afficheMessage('messagePromo', 'Vous avez déjà accès à la promotion !');
                 }
 

@@ -73,6 +73,10 @@ p{
     list-style: none;
 }
 
+.card-subtitle{
+  margin-bottom: 5px !important;
+}
+
 a{
     color: #515052 !important;
     text-decoration: none !important;
@@ -105,10 +109,6 @@ button{
 
 button a{
     color: $blanc !important;
-}
-
-button :hover{
-    background-color: $vert;
 }
 
 input{

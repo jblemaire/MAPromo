@@ -15,34 +15,34 @@ Route::get('/', function () {
         'title' => 'Accueil',
         'types' => App\Type::get(),
         'lastPromos' => App\Promotion::join('magasins', 'magasins.idMagasin', '=', 'promotions.idMagasin')->orderBY('promotions.created_at', 'DESC')->limit(10)->get(),
-        'lastComms' => \Illuminate\Support\Facades\DB::table('adhesions')->join('promotions', 'adhesions.Promotion_idPromo', '=', 'promotions.idPromo')->join('users', 'adhesions.Internaute_idInternaute', '=', 'users.idUser')->where('commentaireAdhesion',"<>", "NULL")->orderBY('adhesions.updated_at', 'DESC')->limit(2)->get()
+        'lastComms' => \Illuminate\Support\Facades\DB::table('adhesions')->join('promotions', 'adhesions.Promotion_idPromo', '=', 'promotions.idPromo')->join('users', 'adhesions.Internaute_idInternaute', '=', 'users.idUser')->where('commentaireAdhesion',"<>", "NULL")->orderBY('adhesions.updated_at', 'DESC')->limit(10)->get()
     ]);
 })->name('home');
 
 Route::get('/decouvrir', function () {
     return view('decouvrir',[
-        'title' => 'decouvrir',
+        'title' => 'Découvrir',
         'types' => App\Type::get()
     ]);
 })->name('decouvrir');
 
 Route::get('/apropos', function () {
     return view('apropos',[
-        'title' => 'apropos',
+        'title' => 'À propos',
         'types' => App\Type::get()
     ]);
 })->name('apropos');
 
 Route::get('/compte', function () {
     return view('compte',[
-        'title' => 'compte',
+        'title' => 'Compte',
         'types' => App\Type::get()
     ]);
 })->name('compte');
 
 Route::get('/contact', function () {
     return view('contact',[
-        'title' => 'contact',
+        'title' => 'Contact',
         'types' => App\Type::get()
     ]);
 })->name('contact');
