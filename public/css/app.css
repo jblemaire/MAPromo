@@ -8683,7 +8683,7 @@ input {
   border: none;
   border-radius: 25px;
   height: 35px;
-  width: 250px;
+  width: 100%;
   text-align: center;
 }
 
@@ -8696,16 +8696,16 @@ input {
 }
 
 select {
-  border: none !important;
+  border: solid 1px #99cbe4 !important;
   border-radius: 25px !important;
-  background-color: #99cbe4 !important;
   color: #ffffff !important;
   height: 35px !important;
   text-align: center;
 }
 
 option {
-  border: none !important;
+  border: solid 1px #99cbe4 !important;
+  border-radius: 25px !important;
 }
 
 .title {
@@ -8856,19 +8856,12 @@ option {
   margin-left: 30px;
 }
 
-/*
-.titleDesktop li:hover{
-    background-color: $vert;
-    color: $blanc !important;
-    width: 100px;
-    height: 35px;
-    border-radius: 25px;
-    text-align: center;
-    align-items: center;
-}*/
-
 .titleMobile {
   display: none;
+}
+
+.custom-select {
+  color: #bfbfc0 !important;
 }
 
 @media (max-width: 768px) {

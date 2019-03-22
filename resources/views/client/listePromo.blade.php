@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div id="cardButton" class="col-md-4">
-                    <a href="{{route('details_promo', ['idPromo'=>$promotion->idPromo])}}" class="btn btn-primary">Voir la promotion</a>
+                    <button><a href="{{route('details_promo', ['idPromo'=>$promotion->idPromo])}}">Voir la promotion</a></button>
                 </div>
             </div>
         </div>

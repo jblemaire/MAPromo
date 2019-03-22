@@ -25,11 +25,11 @@
                 <th scope="row">{{$promotion->idPromo}}</th>
                 <td>{{$promotion->dateDebutPromo}}</td>
                 <td>{{$promotion->dateFinPromo}}</td>
-                <td><a href="{{route('adhesions_list_promo', ['idPromo' => $promotion->idPromo])}}">{{$promotion->libPromo}}</a></td>
+                <td><button><a href="{{route('adhesions_list_promo', ['idPromo' => $promotion->idPromo])}}">{{$promotion->libPromo}}</a></button></td>
                 <td>{{$promotion->etatPromo}}</td>
                 <td>{{$promotion->codePromo}}</td>
                 <td>{{$promotion->codeAvisPromo}}</td>
-                <td><a href="{{route('magasins_list', ['idMagasin' => $promotion->idMagasin])}}">{{$promotion->nomMagasin}}</a></td>
+                <td><button><a href="{{route('magasins_list', ['idMagasin' => $promotion->idMagasin])}}">{{$promotion->nomMagasin}}</a></button></td>
             </tr>
         @endforeach
         </tbody>

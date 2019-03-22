@@ -15,7 +15,7 @@
                     @endforeach
                 </select>
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit">
                         Rechercher
                     </button>
                 </div>
@@ -25,7 +25,7 @@
 
     @if($promotions)
         <div>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#formAddPromotion" aria-expanded="false" aria-controls="formAddPromotion" onclick="getCodes()">
+            <button type="button" data-toggle="collapse" data-target="#formAddPromotion" aria-expanded="false" aria-controls="formAddPromotion" onclick="getCodes()">
                 Ajouter une promotion
             </button>
         </div>
@@ -110,7 +110,7 @@
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit">
                                 Ajouter
                             </button>
                         </div>

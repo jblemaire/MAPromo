@@ -3,7 +3,7 @@
 @section('content')
 
         <div>
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#formAddMagasin" aria-expanded="false" aria-controls="formAddMagasin">
+            <button type="button" data-toggle="collapse" data-target="#formAddMagasin" aria-expanded="false" aria-controls="formAddMagasin">
                 Ajouter un magasin
             </button>
         </div>
@@ -132,7 +132,7 @@
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit">
                                 Ajouter
                             </button>
                         </div>
@@ -186,9 +186,9 @@
                                     <li class="list-group-item">Categorie : {{$magasin->libCategorie}}</li>
                                 @endif
                             </ul>
-                            <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Modifier</a>
-                            <a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Supprimer</a>
-                            <a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}" class="btn btn-primary">Voir les promotions</a>
+                            <a href="{{route('update_magasin', ['idMagasin' => $magasin->idMagasin])}}"><button>Modifier</button></a>
+                            <a href="{{route('delete_magasin', ['idMagasin' => $magasin->idMagasin])}}"><button>Supprimer</button></a>
+                            <a href="{{route('promotions', ['idMagasin' => $magasin->idMagasin])}}"><button>Voir les promotions</button></a>
 
                         </div>
                     </div>
