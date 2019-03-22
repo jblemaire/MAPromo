@@ -478,9 +478,6 @@ function affichePromo(r){
                 buttonAdhesion.disabled = false;
                 buttonAdhesion.onclick = function () {
                     getCodePromo(res[i].idPromo, res[i].codePromo);
-                    $("html, body").animate({
-                        scrollTop: $('#codePromo').offset().top
-                    }, 'slow');
                 };
             }
         }
