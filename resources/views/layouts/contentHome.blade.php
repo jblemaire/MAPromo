@@ -23,7 +23,7 @@
                                     <div class="blockViewTitle">
                                         <div style="margin: 0 auto">
                                             <h4>Avis de {{$lastComm->prenomUser}} {{$lastComm->nomUser}}</h4>
-                                            <p>sur la promotion <a href="#">{{$lastComm->libPromo}}</a></p>
+                                            <p>sur la promotion <a href="{{route('details_promo', ['idPromo' => $lastComm->idPromo])}}">{{$lastComm->libPromo}}</a></p>
                                         </div>
                                     </div>
                                     <div>
