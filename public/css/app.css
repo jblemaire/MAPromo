@@ -8370,11 +8370,22 @@ button.close {
   z-index: 500;
   -webkit-box-shadow: 0px 0px 15px #515052;
           box-shadow: 0px 0px 15px #515052;
-  opacity: 0.65;
+  opacity: 0.70;
 }
 
 .search:hover {
   opacity: 1;
+}
+
+.titleSearch {
+  width: 100%;
+  font-family: UnicaOne !important;
+  color: #ffffff;
+}
+
+.rechercher {
+  text-align: center;
+  font-size: 25px !important;
 }
 
 #button-addon2 {
@@ -8693,7 +8704,7 @@ b {
 button {
   /* border: none; */
   border-color: #007DBC !important;
-  border-width: 5px;
+  border-width: 1px;
   border-bottom-color: #007DBC;
   border-radius: 25px !important;
   background-color: #ffffff;
@@ -8815,6 +8826,8 @@ option {
 }
 
 .input-group {
+  border-width: 1px !important;
+  border-color: #007DBC !important;
   margin-top: 30px;
   width: 660px;
   height: 50px;

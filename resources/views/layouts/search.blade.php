@@ -1,6 +1,9 @@
 <div id="content" class="content">
     <div id="map">
         <div class="main search">
+            <div class="titleSearch">
+                <h3 class="rechercher">Recherchez une ville</h3>
+            </div>
             <div id="search" class="input-group">
                 <input type="hidden" id="latitude">
                 <input type="hidden" id="longitude">

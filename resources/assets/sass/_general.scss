@@ -78,7 +78,7 @@ b{
 button{
     /* border: none; */
     border-color: $bleuFonce !important;
-    border-width: 5px;
+    border-width: 1px;
     border-bottom-color: $bleuFonce;
     border-radius: 25px !important;
     background-color: $blanc;
@@ -193,6 +193,8 @@ option{
 }
 
 .input-group{
+    border-width: 1px !important;
+    border-color: $bleuFonce !important;
     margin-top: 30px;
     width: 660px;
     height: 50px;
