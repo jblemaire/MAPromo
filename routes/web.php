@@ -15,7 +15,7 @@ Route::get('/', function () {
         'title' => 'Accueil',
         'types' => App\Type::get(),
         'lastPromos' => App\Promotion::join('magasins', 'magasins.idMagasin', '=', 'promotions.idMagasin')->orderBY('promotions.created_at', 'DESC')->limit(10)->get(),
-        'lastComms' => \Illuminate\Support\Facades\DB::table('adhesions')->join('promotions', 'adhesions.Promotion_idPromo', '=', 'promotions.idPromo')->join('users', 'adhesions.Internaute_idInternaute', '=', 'users.idUser')->where('commentaireAdhesion',"<>", "NULL")->orderBY('adhesions.updated_at', 'DESC')->limit(2)->get()
+        'lastComms' => \Illuminate\Support\Facades\DB::table('adhesions')->join('promotions', 'adhesions.Promotion_idPromo', '=', 'promotions.idPromo')->join('users', 'adhesions.Internaute_idInternaute', '=', 'users.idUser')->where('commentaireAdhesion',"<>", "NULL")->orderBY('adhesions.updated_at', 'DESC')->limit(10)->get()
     ]);
 })->name('home');
 

@@ -36,9 +36,9 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '318981825391151',
-        'client_secret' => 'cfaeda17b84a1864c75f429332557911',
-        'redirect' => 'http://mapromo.tk/login/facebook/callback',
+        'client_id' => env('FACEBOOK_APPID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT'),
     ],
 
 ];
