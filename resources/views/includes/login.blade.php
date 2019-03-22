@@ -14,11 +14,7 @@
                         <label for="email" class="col-md-4 control-label">Adresse Email</label>
 
                         <div class="col-md-6">
-<<<<<<< HEAD
                             <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-=======
-                            <input id="email" class="inputText" type="email" name="email" value="{{ old('email') }}" required autofocus>
->>>>>>> front-end
 
                             @if ($errors->has('email'))
                                 <span class="help-block">

@@ -1,25 +1,17 @@
-// Couleur
-$bleu : #99cbe4;
-$bleuFonce : #007DBC;
-$rouge : #b60000;
-$blanc : #ffffff;
-$vert : #25db71;
-$gris : #bfbfc0;
-$black : #515052;
-$beige : #FFF0E8;
-
 body{
-    color: $black;
-    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: $black !important;
+    font-family: 'Roboto' !important;
 }
 
 h1{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 h2{
-    font-family: 'Roboto', sans-serif;
-    font-size: 2em;
+    font-family: UnicaOne !important;
+    text-transform: uppercase;
+    font-size: 35px !important;
 }
 
 h3{
@@ -38,7 +30,7 @@ p{
 }
 
 .logo{
-    height: 23px;
+    height: 143px;
 }
 
 .logo_login{
@@ -69,6 +61,8 @@ p{
 a{
     color: #515052 !important;
     text-decoration: none !important;
+    font-family: UnicaOne;
+    text-transform: uppercase;
 
 }
 
@@ -81,18 +75,18 @@ b{
     font-size: 20px;
 }
 
-h2{
-    text-transform: uppercase;
-}
-
 button{
     border: none;
     border-radius: 25px !important;
-    background-color: $bleu;
-    color: $blanc;
+    background-color: $blanc;
+    color: $black;
+    border-color: $bleuFonce !important;
+    font-size: 15px !important;
     height: 35px;
     min-width: 100px;
     text-align: center;
+    font-family: UnicaOne !important;
+    text-transform: uppercase !important;
     //margin: 10px !important;
 }
 
@@ -113,7 +107,9 @@ input{
 }
 
 .inputText{
-    border: solid 1px $bleu;
+    border: solid 1px $bleuFonce;
+    width: 100%;
+    margin-left: 10px;
 }
 
 #filters select{
@@ -194,7 +190,15 @@ option{
 }
 
 .input-group{
-    width: auto !important;
+    margin-top: 30px;
+    width: 660px;
+    height: 50px;
+}
+
+.custom-select{
+    width: 150px !important;
+    background-color: $blanc !important;
+    color: $black !important;
 }
 
 #search_desktop{

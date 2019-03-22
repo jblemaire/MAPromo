@@ -1,5 +1,26 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
 
+@font-face {
+  font-family: 'UnicaOne';
+  src: url(/fonts/unicaone-regular-webfont.woff2?b3d3b88e15aa70c0ed10049aa8293236) format("woff2"), url(/fonts/unicaone-regular-webfont.woff?231d57b2691348ebfd7990214cc22d5c) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoMedium';
+  src: url(/fonts/roboto-medium-webfont.woff2?63d66369453edaed47bcac6329ba3058) format("woff2"), url(/fonts/roboto-medium-webfont.woff?26691fb6cacfc3f97f74def10089f511) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(/fonts/roboto-regular-webfont.woff2?0023068abc4e71cfc357409f6a7de6d4) format("woff2"), url(/fonts/roboto-regular-webfont.woff?e808942ce888273ebc51a64db47c8a5f) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*!
  * Bootstrap v3.4.0 (https://getbootstrap.com/)
  * Copyright 2011-2018 Twitter, Inc.
@@ -8334,13 +8355,30 @@ button.close {
 }
 
 #map {
-  height: 500px;
+  height: 683px;
   width: 100%;
   position: relative;
 }
 
 .search {
-  width: 670px !important;
+  background-color: #99cbe4;
+  position: absolute;
+  width: 660px;
+  height: 369px;
+  left: 1163px;
+  top: 150px;
+  z-index: 500;
+  -webkit-box-shadow: 0px 0px 15px #515052;
+          box-shadow: 0px 0px 15px #515052;
+  opacity: 0.85;
+}
+
+.search:hover {
+  opacity: 1;
+}
+
+#button-addon2 {
+  margin-left: 10px !important;
 }
 
 @media (max-width: 768px) {
@@ -8574,17 +8612,19 @@ a.article:hover {
 }
 
 body {
-  color: #515052;
-  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  color: #515052 !important;
+  font-family: 'Roboto' !important;
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
 }
 
 h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2em;
+  font-family: UnicaOne !important;
+  text-transform: uppercase;
+  font-size: 35px !important;
 }
 
 h3 {
@@ -8603,7 +8643,7 @@ p {
 }
 
 .logo {
-  height: 23px;
+  height: 143px;
 }
 
 .logo_login {
@@ -8634,6 +8674,8 @@ p {
 a {
   color: #515052 !important;
   text-decoration: none !important;
+  font-family: UnicaOne;
+  text-transform: uppercase;
 }
 
 a,
@@ -8648,18 +8690,18 @@ b {
   font-size: 20px;
 }
 
-h2 {
-  text-transform: uppercase;
-}
-
 button {
   border: none;
   border-radius: 25px !important;
-  background-color: #99cbe4;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #515052;
+  border-color: #007DBC !important;
+  font-size: 15px !important;
   height: 35px;
   min-width: 100px;
   text-align: center;
+  font-family: UnicaOne !important;
+  text-transform: uppercase !important;
 }
 
 button a {
@@ -8679,7 +8721,9 @@ input {
 }
 
 .inputText {
-  border: solid 1px #99cbe4;
+  border: solid 1px #007DBC;
+  width: 100%;
+  margin-left: 10px;
 }
 
 #filters select {
@@ -8768,7 +8812,15 @@ option {
 }
 
 .input-group {
-  width: auto !important;
+  margin-top: 30px;
+  width: 660px;
+  height: 50px;
+}
+
+.custom-select {
+  width: 150px !important;
+  background-color: #ffffff !important;
+  color: #515052 !important;
 }
 
 #search_desktop {
@@ -9113,9 +9165,16 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 1000px;
+  width: 700px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 0 auto;
   padding: 20px;
+}
+
+.media h2 {
+  font-family: UnicaOne;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {

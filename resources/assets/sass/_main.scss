@@ -1,8 +1,14 @@
 .main{
     display: flex;
-    width: 1000px;
+    width: 700px;
+    flex-wrap: wrap;
     margin: 0 auto;
     padding: 20px;
+}
+
+.media h2{
+    font-family: UnicaOne;
+    text-transform: uppercase;
 }
 
 @media (max-width: 768px){

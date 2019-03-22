@@ -1,6 +1,6 @@
 <section class="main">
     <div>
-        <h2>A Propos</h2>
+        <h2 class="titleAPropos">A Propos</h2>
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc massa tortor, viverra vel nisl in, tempor tempus purus. 
         Nam sagittis placerat porttitor. Cras nisl ex, mattis interdum dui at, tristique blandit ligula. 
