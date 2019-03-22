@@ -1,5 +1,5 @@
 <div id="content" class="content">
-    <div class="main search">
+    <div class="main-content search">
         <div id="search" class="input-group">
             <input type="hidden" id="latitude">
             <input type="hidden" id="longitude">
@@ -60,10 +60,10 @@
         </div>
     </div>
 
-    <div class="main">
+    <div class="main-content">
         <div id="messagePromo" class="alert" role="alert" style="display: none"></div>
     </div>
-    <div class="main">
+    <div class="main-content">
         <div id="codePromo" class="col" style="display: none">
             <div id="textCodePromo">
 
