@@ -41,7 +41,7 @@
                 <a class="title" href="{{ url('/') }}">{{ $title }}</a>
             </div>
             <div class="button_nav">
-                    <div onclick="search()">
+                    <div id="showSearch" onclick="search()">
                         <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
                     </div>
                     <div>
@@ -87,6 +87,7 @@
         </nav>
     </div>
 </div>
+
 <script>
 $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
@@ -95,5 +96,23 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function(){
+  $("#showSearch").click(function(){
+    $("#search").hide();
+  });
+  $("#showSearch").click(function(){
+    $("#search").show();
+  });
+});
+
+/*function search(){
+    let search = document.getElementById('search');
+    if(search.style.display = "none"){
+        search.style.display = "block";
+    }
+    else{
+        search.style.display = "none";
+    }
+}*/
 </script>
 

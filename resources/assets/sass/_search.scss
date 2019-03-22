@@ -1,5 +1,5 @@
 #map{
-    height: 500px;
+    min-height: 100vh;
     width: 100%;
     position: relative;
 }
@@ -10,10 +10,6 @@
 
 @media (max-width: 768px){
     #search{
-        display: none;
-    }
-    
-    #filters{
         display: none;
     }
 }

@@ -8334,7 +8334,7 @@ button.close {
 }
 
 #map {
-  height: 500px;
+  min-height: 100vh;
   width: 100%;
   position: relative;
 }
@@ -8345,10 +8345,6 @@ button.close {
 
 @media (max-width: 768px) {
   #search {
-    display: none;
-  }
-
-  #filters {
     display: none;
   }
 }
@@ -8362,7 +8358,7 @@ button.close {
 
 .list-unstyled {
   background-color: #fff;
-  height: 550px;
+  min-height: 100vh;
 }
 
 .list-unstyled li a {
@@ -8584,6 +8580,10 @@ body {
   padding: 0;
   color: #515052;
   font-family: 'Roboto', sans-serif;
+}
+
+.row {
+  margin: 0 auto !important;
 }
 
 h1 {
@@ -8934,7 +8934,7 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  margin-left: 2px !important;
+  z-index: 1002;
 }
 
 .bar_mobile p {
@@ -9057,7 +9057,6 @@ footer {
   display: flex;
   text-align: center;
   margin: auto !important;
-  width: 1000px;
 }
 
 .iconView {
@@ -9138,7 +9137,6 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
