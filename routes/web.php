@@ -31,6 +31,7 @@ Route::get('/apropos', function () {
     ]);
 })->name('apropos');
 
+
 Route::get('/compte', function () {
     return view('compte',[
         'title' => 'compte',
@@ -47,6 +48,18 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
+
+/*
+
+Route::group(['middleware' => ['client','responsable']], function () {
+    Route::get('compte/', 'Client\ClientController@myAccount')->name('compte');
+    Route::get('compte/editpassword', 'Client\ClientController@editpassword');
+    Route::post('compte/updatepassword', 'Client\ClientController@updatepassword');
+    Route::get('compte/editinfos', 'Client\ClientController@editinfos')->name('editinfos');
+    Route::post('compte/updateinfos', 'Client\ClientController@updateinfos')->name('updateinfos');
+
+});
+*/
 /**Appel Ajax**/
 Route::post('/city_search', 'HomeController@postCitiesSearch')->name('cities_search_post');
 Route::post('/stores_search', 'HomeController@postStoresSearch')->name('stores_search_post');
@@ -65,16 +78,19 @@ Route::get('/login/facebook/callback', 'Auth\LoginController@handleProviderCallb
 Route::get('/register/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('/register/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
 
+
 /**Client Part**/
 Route::get('mes_promotions/', 'Client\ClientController@returnView')->name('mes_promotions')->middleware('client');
 Route::get('details_promotion/{idPromo}', 'Client\ClientController@getPromo')->name('details_promo')->middleware('client');
 Route::post('details_promotion/{idPromo}/add_comment', 'Client\ClientController@postComment')->name('post_comment')->middleware('client');
 Route::get('liste_promo/', 'Client\ClientController@getListPromo')->name('post_liste')->middleware('client');
-Route::get('compte/', 'Client\ClientController@myAccount')->name('compte')->middleware('client');
-Route::get('compte/editpassword', 'Client\ClientController@editpassword')->name('editpassword')->middleware('client');
-Route::post('compte/updatepassword', 'Client\ClientController@updatepassword')->name('updatepassword')->middleware('client');
-Route::get('compte/editinfos', 'Client\ClientController@editinfos')->name('editinfos')->middleware('client');
-Route::post('compte/updateinfos', 'Client\ClientController@updateinfos')->name('updateinfos')->middleware('client');
+
+
+ Route::get('compte/', 'Client\ClientController@myAccount')->name('compte')->middleware('auth');
+Route::get('compte/editpassword', 'Client\ClientController@editpassword')->name('editpassword')->middleware('auth');
+Route::post('compte/updatepassword', 'Client\ClientController@updatepassword')->name('updatepassword')->middleware('auth');
+Route::get('compte/editinfos', 'Client\ClientController@editinfos')->name('editinfos')->middleware('auth');
+Route::post('compte/updateinfos', 'Client\ClientController@updateinfos')->name('updateinfos')->middleware('auth');
 
 
 

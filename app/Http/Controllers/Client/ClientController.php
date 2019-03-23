@@ -121,7 +121,9 @@ class ClientController extends Controller
 
         if(Hash::check($oldpassword, $user->password)) {
 
-            if ( $newpassword != '' && $newpasswordconfirm == $newpassword){
+            if ( $newpassword != '' && $newpasswordconfirm == $newpassword && strlen($newpassword) >= 8){
+
+
                $query=  DB::table('users')->where('idUser' , $user->idUser)
                     ->update([
                         'password' => bcrypt($newpassword),
@@ -129,14 +131,35 @@ class ClientController extends Controller
 
                 Session::flash('success','Le mot de passe a été modifié avec succès');
                // $status = "Le mot de passe a été modifié avec succés";
+
+                return redirect()->route('compte', [
+                    'title'=>"Modifier mes informations",
+                    'User'=>$user,
+                ]);
             }
             else{
-                Session::flash('error','Les champs du nouveau mot de passe ne correspondent pas.');
+                if (strlen($newpassword) < 8){
+                    Session::flash('error','Le nouveau mot de passe doit faire au minimum 8 caractères.');
+
+                }
+                elseif($newpasswordconfirm == $newpassword){
+                    Session::flash('error','Les champs du nouveau mot de passe ne correspondent pas.');
+                }
+
+
+                return redirect()->route('editpassword', [
+                    'title'=>"Modifier mes informations",
+                    'User'=>$user,
+                ]);
             }
         }
         else{
            // $status = "le mot de passe inséré ne correspond pas à celui actuel.";
             Session::flash('error','Le mot de passe actuel ne correspond pas à celui de nos enregistrements ');
+            return redirect()->route('editpassword', [
+                'title'=>"Modifier mes informations",
+                'User'=>$user,
+            ]);
         }
 
 
@@ -146,10 +169,10 @@ class ClientController extends Controller
         ]);
        */
 
-        return redirect()->route('editpassword', [
-            'title'=>"Modifier mon mot de passe",
-            'User'=>$user,
-        ]);
+
+
+
+
 
 
 
@@ -185,27 +208,26 @@ class ClientController extends Controller
 
 
         if($query){
-            Session::flash('success','Les informations ont été enregistré avec succès');
-            // $status = "Le mot de passe a été modifié avec succés";
+            Session::flash('success','Les informations ont été enregistrés avec succès.');
 
+            return redirect()->route('compte', [
+                'title'=>"Modifier mes informations",
+                'User'=>$user,
+            ]);
 
         }
         else{
-            // $status = "le mot de passe inséré ne correspond pas à celui actuel.";
-            Session::flash('error',"vous n'avez pas apporté de modifications");
+
+            Session::flash('error',"vous n'avez pas apporté de modifications.");
+            return redirect()->route('editinfos', [
+                'title'=>"Modifier mes informations",
+                'User'=>$user,
+            ]);
         }
 
 
-       /* return view('client.editinfos',[
 
-            'title'=>"Modifier mon mot de passe",
-            'User'=>$user,
-        ]);
-       */
-        return redirect()->route('editinfos', [
-            'title'=>"Modifier mes informations",
-            'User'=>$user,
-        ]);
+
 
 
     }
