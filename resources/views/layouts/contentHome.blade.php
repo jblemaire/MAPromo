@@ -18,8 +18,8 @@
                     <?php $count = 0 ; ?>
                         <div class="carousel-item active" style="align-items: center">
                         @foreach($lastComms as $lastComm)
-                            <div class="blockView col">
-                                <div class="d-block w-40 h-100">
+                            <div class="blockView col" style="display: flex; align-items: center; justify-content: center;">
+                                <div class="d-block w-40">
                                     <div class="blockViewTitle">
                                         <div style="margin: 0 auto">
                                             <h4>Avis de {{$lastComm->prenomUser}} {{$lastComm->nomUser}}</h4>
@@ -68,7 +68,7 @@
                     <?php $count = 0 ; ?>
                     <div class="carousel-item active" style="align-items: center">
                         @foreach($lastPromos as $lastPromo)
-                            <div class="blockView col">
+                            <div class="blockView col" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
                                 <div class="blockViewTitle">
                                     <div style="margin: 0 auto">
                                         <h4>{{$lastPromo->libPromo}}</h4>

@@ -98,7 +98,7 @@ function addMarker(r) {
 
     for (let i = 0; i < mag.length; i++) {
         for ( let j=0 ; j < nb_magasin.length ; j++){
-            if(mag[i].idMagasin === nb_magasin[j].idMagasin){
+            if(mag[i].idMagasin == nb_magasin[j].idMagasin){
                 icon = {icon: myIconRed};
                 break;
             }

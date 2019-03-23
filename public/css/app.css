@@ -8347,6 +8347,9 @@ button.close {
   #search {
     display: none;
   }
+  .search{
+    max-width: 100%;
+  }
 }
 
 .line {
@@ -9272,7 +9275,12 @@ footer {
   }
 
   .main-content {
-    width: 95%;
+    width: 100% !important;
+  }
+
+  .card-promotion{
+	width: 100% !important;
+	margin: 30px 0 !important;
   }
 
   .listPromo {
