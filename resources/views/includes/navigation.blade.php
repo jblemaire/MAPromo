@@ -61,10 +61,10 @@
                     @if(Auth::user() && Auth::user()->idRole == 1)
                         <li><a href="{{route('admin')}}"><button>Gestion des tables</button></a></li>
                     @elseif(Auth::user() && Auth::user()->idRole == 2)
-                        <li><a href=""><button>Mon compte</button></a></li>
+                        <li><a href="{{route('compte')}}"><button>Mon compte</button></a></li>
                         <li><a href="{{route('mes_promotions')}}"><button>Mes promotions</button></a></li>
                     @elseif(Auth::user() && Auth::user()->idRole == 3)
-                        <li><a href=""><button>Mon compte</button></a></li>
+                        <li><a href="{{route('compte')}}"><button>Mon compte</button></a></li>
                         <li><a href="{{route('magasins')}}"><button>Mes magasins</button></a></li>
                         <li><a href="{{route('promotions')}}"><button>Mes promotions</button></a></li>
                     @endif

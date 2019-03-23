@@ -19,13 +19,6 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('/decouvrir', function () {
-    return view('decouvrir',[
-        'title' => 'Découvrir',
-        'types' => App\Type::get()
-    ]);
-})->name('decouvrir');
-
 Route::get('/apropos', function () {
     return view('apropos',[
         'title' => 'À propos',
@@ -72,6 +65,12 @@ Route::get('mes_promotions/', 'Client\ClientController@returnView')->name('mes_p
 Route::get('details_promotion/{idPromo}', 'Client\ClientController@getPromo')->name('details_promo');
 Route::post('details_promotion/{idPromo}/add_comment', 'Client\ClientController@postComment')->name('post_comment')->middleware('client');
 Route::get('liste_promo/', 'Client\ClientController@getListPromo')->name('post_liste');
+
+Route::get('compte/', 'Client\ClientController@myAccount')->name('compte')->middleware('auth');
+Route::get('compte/editpassword', 'Client\ClientController@editpassword')->name('editpassword')->middleware('auth');
+Route::post('compte/updatepassword', 'Client\ClientController@updatepassword')->name('updatepassword')->middleware('auth');
+Route::get('compte/editinfos', 'Client\ClientController@editinfos')->name('editinfos')->middleware('auth');
+Route::post('compte/updateinfos', 'Client\ClientController@updateinfos')->name('updateinfos')->middleware('auth');
 
 
 /**Responsable Part**/
