@@ -36,7 +36,6 @@ h2{
 h3{
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
-    text-transform: uppercase;
 }
 
 h4{
@@ -237,6 +236,7 @@ option{
 
 .row{
     align-items: center;
+    justify-content: center;
 }
 
 .col{

@@ -18,9 +18,9 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('mailUser') ? ' has-error' : '' }}">
-                            <label for="mailUser" class="col-md-4 control-label">Adresse Email</label>
+                            <label for="mailUser" class=" control-label">Adresse Email</label>
 
-                            <div class="col-md-6">
+                            <div>
                                 <input id="mailUser" type="email" class="form-control" name="mailUser" value="{{ old('mailUser') }}" required autofocus>
 
                                 @if ($errors->has('mailUser'))
@@ -32,9 +32,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Mot de passe</label>
+                            <label for="password" class=" control-label">Mot de passe</label>
 
-                            <div class="col-md-6">
+                            <div>
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -47,7 +47,7 @@
                         
                         <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
 
-                            <label class="col-md-4 control-label">Captcha</label>
+                            <label class=" control-label">Captcha</label>
 
 
 

@@ -11,9 +11,9 @@
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="emailLogin" class="col-md-4 control-label">Adresse Email</label>
+                        <label for="emailLogin" class="control-label">Adresse Email</label>
 
-                        <div class="col-md-6">
+                        <div>
                             <input id="emailLogin" class="inputText" type="email" name="email" value="{{ old('email') }}" required autofocus>
 
                             @if ($errors->has('email'))
@@ -25,9 +25,9 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                        <label for="password" class="col-md-4 control-label">Mot de passe</label>
+                        <label for="password" class="control-label">Mot de passe</label>
 
-                        <div class="col-md-6">
+                        <div>
                             <input id="password" class="inputText" type="password" name="password" required>
 
                             @if ($errors->has('password'))
@@ -39,11 +39,10 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
+                        <div class="row">
                             <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Se souvenir de moi
-                                </label>
+                            <label class="control-label">Se souvenir de moi</label>
+                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                             </div>
                         </div>
                     </div>
