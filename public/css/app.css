@@ -1,5 +1,26 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
 
+@font-face {
+  font-family: 'UnicaOne';
+  src: url(/fonts/unicaone-regular-webfont.woff2?b3d3b88e15aa70c0ed10049aa8293236) format("woff2"), url(/fonts/unicaone-regular-webfont.woff?231d57b2691348ebfd7990214cc22d5c) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoMedium';
+  src: url(/fonts/roboto-medium-webfont.woff2?63d66369453edaed47bcac6329ba3058) format("woff2"), url(/fonts/roboto-medium-webfont.woff?26691fb6cacfc3f97f74def10089f511) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(/fonts/roboto-regular-webfont.woff2?0023068abc4e71cfc357409f6a7de6d4) format("woff2"), url(/fonts/roboto-regular-webfont.woff?e808942ce888273ebc51a64db47c8a5f) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*!
  * Bootstrap v3.4.0 (https://getbootstrap.com/)
  * Copyright 2011-2018 Twitter, Inc.
@@ -8340,14 +8361,43 @@ button.close {
 }
 
 .search {
-  width: 670px !important;
+  background-color: #99cbe4;
+  position: absolute;
+  width: 660px !important;
+  height: 369px;
+  right: 0;
+  top: 150px;
+  z-index: 500;
+  -webkit-box-shadow: 0px 0px 15px #515052;
+          box-shadow: 0px 0px 15px #515052;
+  opacity: 0.70;
+}
+
+.search:hover {
+  opacity: 1;
+}
+
+.titleSearch {
+  width: 100%;
+  font-family: UnicaOne !important;
+  color: #ffffff;
+}
+
+.rechercher {
+  text-align: center;
+  font-size: 25px !important;
+}
+
+#button-addon2 {
+  margin-left: 10px !important;
 }
 
 @media (max-width: 768px) {
   #search {
     display: none;
   }
-  .search{
+
+  .search {
     max-width: 100%;
   }
 }
@@ -8590,12 +8640,12 @@ body {
 }
 
 h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
 }
 
 h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 2em;
+  text-transform: uppercase;
+  font-size: 35px !important;
 }
 
 h3 {
@@ -8663,10 +8713,6 @@ b {
   font-size: 20px;
 }
 
-h2 {
-  text-transform: uppercase;
-}
-
 button {
   border: none;
   border-radius: 25px !important;
@@ -8695,7 +8741,9 @@ input {
 }
 
 .inputText {
-  border: solid 1px #99cbe4;
+  border: solid 1px #007DBC;
+  width: 100%;
+  margin-left: 10px;
 }
 
 #filters select {
@@ -8784,7 +8832,17 @@ option {
 }
 
 .input-group {
-  width: auto !important;
+  border-width: 1px !important;
+  border-color: #007DBC !important;
+  margin-top: 30px;
+  width: 660px;
+  height: 50px;
+}
+
+.custom-select {
+  width: 150px !important;
+  background-color: #ffffff !important;
+  color: #515052 !important;
 }
 
 #search_desktop {
@@ -9206,7 +9264,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
-  width: 1300px;
+  max-width: 1300px;
   padding: 20px;
 }
 
@@ -9215,7 +9273,7 @@ footer {
   display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
-  width: 1300px;
+  max-width: 1300px;
   padding: 20px;
 }
 
@@ -9275,12 +9333,12 @@ footer {
   }
 
   .main-content {
-    width: 100% !important;
+    width: 95%;
   }
 
-  .card-promotion{
-	width: 100% !important;
-	margin: 30px 0 !important;
+  .card-promotion {
+    width: 100% !important;
+    margin: 30px 0 !important;
   }
 
   .listPromo {

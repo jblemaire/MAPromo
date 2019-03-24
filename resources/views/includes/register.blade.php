@@ -48,8 +48,18 @@
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <label for="email" class="">Adresse Email*</label>
 
+<<<<<<< HEAD
                         <div>
                             <input id="email" type="email" class="inputText" name="email" value="{{ old('email') }}" required>
+=======
+<<<<<<< HEAD
+                        <div class="col-md-6">
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+=======
+                        <div>
+                            <input id="email" type="email" class="form-control" name="mailUser" value="{{ old('email') }}" required>
+>>>>>>> front-end
+>>>>>>> melanie
 
                             @if ($errors->has('email'))
                                 <span class="help-block">

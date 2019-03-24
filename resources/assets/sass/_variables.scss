@@ -1,3 +1,13 @@
+// Couleur
+$bleu : #99cbe4;
+$bleuFonce : #007DBC;
+$rouge : #b60000;
+$blanc : #ffffff;
+$vert : #25db71;
+$gris : #bfbfc0;
+$black : #515052;
+$beige : #FFF0E8;
+
 
 // Body
 $body-bg: #f5f8fa;
@@ -36,3 +46,29 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+@font-face {
+    font-family: 'UnicaOne';
+    src: url('../../../public/fonts/UnicaOne/unicaone-regular-webfont.woff2') format('woff2'),
+         url('../../../public/fonts/UnicaOne/unicaone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RobotoMedium';
+    src: url('../../../public/fonts/RobotoMedium/roboto-medium-webfont.woff2') format('woff2'),
+         url('../../../public/fonts/RobotoMedium/roboto-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../../public/fonts/RobotoRegular/roboto-regular-webfont.woff2') format('woff2'),
+         url('../../../public/fonts/RobotoRegular/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

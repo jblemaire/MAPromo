@@ -25,12 +25,12 @@ body{
 }
 
 h1{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 h2{
-    font-family: 'Roboto', sans-serif;
-    font-size: 2em;
+    text-transform: uppercase;
+    font-size: 35px !important;
 }
 
 h3{
@@ -96,10 +96,6 @@ b{
     font-size: 20px;
 }
 
-h2{
-    text-transform: uppercase;
-}
-
 button{
     border: none;
     border-radius: 25px !important;
@@ -108,7 +104,7 @@ button{
     height: 35px;
     min-width: 100px;
     text-align: center;
-    margin: 10px !important;
+margin: 10px !important;
   &:hover{
     background-color: darken($bleu, 50%);
   }
@@ -127,7 +123,9 @@ input{
 }
 
 .inputText{
-    border: solid 1px $bleu;
+    border: solid 1px $bleuFonce;
+    width: 100%;
+    margin-left: 10px;
 }
 
 #filters select{
@@ -208,7 +206,17 @@ option{
 }
 
 .input-group{
-    width: auto !important;
+    border-width: 1px !important;
+    border-color: $bleuFonce !important;
+    margin-top: 30px;
+    width: 660px;
+    height: 50px;
+}
+
+.custom-select{
+    width: 150px !important;
+    background-color: $blanc !important;
+    color: $black !important;
 }
 
 #search_desktop{
