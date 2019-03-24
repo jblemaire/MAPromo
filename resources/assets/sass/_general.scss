@@ -77,6 +77,11 @@ p{
     list-style: none;
 }
 
+.card{
+    max-width: 500px;
+    margin: 0 auto !important;
+}
+
 .card-subtitle{
   margin-bottom: 5px !important;
 }
@@ -103,8 +108,9 @@ button{
     color: $blanc;
     height: 35px;
     min-width: 100px;
+    max-width: 250px;
     text-align: center;
-margin: 10px !important;
+    margin: 10px !important;
   &:hover{
     background-color: darken($bleu, 50%);
   }
@@ -122,10 +128,16 @@ input{
     text-align: center;
 }
 
+.input-group-append{
+    justify-content: center;
+}
+
 .inputText{
     border: solid 1px $bleuFonce;
     width: 100%;
     margin-left: 10px;
+    max-width: 250px;
+    margin: 0 auto;
 }
 
 #filters select{
@@ -208,7 +220,7 @@ option{
 .input-group{
     border-width: 1px !important;
     border-color: $bleuFonce !important;
-    margin-top: 30px;
+    margin-top: 40px;
     width: 660px;
     height: 50px;
 }

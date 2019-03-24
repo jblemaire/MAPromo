@@ -1,4 +1,4 @@
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
     .bar_mobile{
         display: none;
     }
@@ -35,5 +35,20 @@
         display: flex;
     }
 
+    .search{
+        background-color: $bleu;
+        position: absolute;
+        width: 660px !important;
+        height: 369px;
+        right: 0;
+        top: 150px;
+        z-index: 500;
+        box-shadow: 0px 0px 15px $black;
+        opacity: 0.70;
+    }
+    
+    .search:hover{
+        opacity: 1;
+    }
 
   }

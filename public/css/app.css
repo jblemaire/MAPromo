@@ -8361,20 +8361,7 @@ button.close {
 }
 
 .search {
-  background-color: #99cbe4;
-  position: absolute;
-  width: 660px !important;
-  height: 369px;
-  right: 0;
-  top: 150px;
-  z-index: 500;
-  -webkit-box-shadow: 0px 0px 15px #515052;
-          box-shadow: 0px 0px 15px #515052;
-  opacity: 0.70;
-}
-
-.search:hover {
-  opacity: 1;
+  display: block !important;
 }
 
 .titleSearch {
@@ -8692,6 +8679,11 @@ p {
   list-style: none;
 }
 
+.card {
+  max-width: 500px;
+  margin: 0 auto !important;
+}
+
 .card-subtitle {
   margin-bottom: 5px !important;
 }
@@ -8720,6 +8712,7 @@ button {
   color: #ffffff;
   height: 35px;
   min-width: 100px;
+  max-width: 250px;
   text-align: center;
   margin: 10px !important;
 }
@@ -8740,10 +8733,18 @@ input {
   text-align: center;
 }
 
+.input-group-append {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .inputText {
   border: solid 1px #007DBC;
   width: 100%;
   margin-left: 10px;
+  max-width: 250px;
+  margin: 0 auto;
 }
 
 #filters select {
@@ -8834,7 +8835,7 @@ option {
 .input-group {
   border-width: 1px !important;
   border-color: #007DBC !important;
-  margin-top: 30px;
+  margin-top: 40px;
   width: 660px;
   height: 50px;
 }
@@ -9215,7 +9216,7 @@ footer {
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
   .bar_mobile {
     display: none;
   }
@@ -9256,6 +9257,23 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+
+  .search {
+    background-color: #99cbe4;
+    position: absolute;
+    width: 660px !important;
+    height: 369px;
+    right: 0;
+    top: 150px;
+    z-index: 500;
+    -webkit-box-shadow: 0px 0px 15px #515052;
+            box-shadow: 0px 0px 15px #515052;
+    opacity: 0.70;
+  }
+
+  .search:hover {
+    opacity: 1;
   }
 }
 
