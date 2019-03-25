@@ -3,11 +3,11 @@
         <div id="search" class="input-group">
             <input type="hidden" id="latitude">
             <input type="hidden" id="longitude">
-            <input class="inputText" type="text" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
+            <input type="text" class="inputSearchMap" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
             <datalist id="villes"></datalist>
             <div class="input-group-append">
-                <button type="button" id="buttonSetVille" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>
-                <button type="button" id="buttonGeolocalisation" onclick="getGeolocalisation()">Rechercher via ma position</button>
+                <button type="button" class="buttonSearchMap" id="buttonSetVille" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>
+                <button type="button" class="buttonSearchMap" id="buttonGeolocalisation" onclick="getGeolocalisation()">Rechercher via ma position</button>
             </div>
         </div>
         <div class="input-group">

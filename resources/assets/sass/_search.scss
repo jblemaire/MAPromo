@@ -4,8 +4,17 @@
     position: relative;
 }
 
+.inputSearchMap{
+    width: 100%;
+    margin: 0 auto;
+}
+
 .search{
     display: block !important;
+}
+
+.buttonSearchMap{
+    background-color: $bleuFonce !important;
 }
 
 .titleSearch{

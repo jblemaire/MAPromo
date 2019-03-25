@@ -8360,8 +8360,17 @@ button.close {
   position: relative;
 }
 
+.inputSearchMap {
+  width: 100%;
+  margin: 0 auto;
+}
+
 .search {
   display: block !important;
+}
+
+.buttonSearchMap {
+  background-color: #007DBC !important;
 }
 
 .titleSearch {
@@ -8638,6 +8647,7 @@ h2 {
 h3 {
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;
+  text-transform: uppercase;
 }
 
 h4 {
@@ -8679,7 +8689,6 @@ p {
 }
 
 .card {
-  max-width: 500px;
   margin: 0 auto !important;
 }
 
@@ -8736,6 +8745,7 @@ input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
 }
 
 .inputText {
