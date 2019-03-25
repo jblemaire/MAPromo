@@ -35,13 +35,13 @@
 
         <!-- Grid column -->
         <div class="col">
-            <a href="#"><p>Mentions Légales</p></a>
+            <a href="{{ route('mentionslegales') }}"><p>Mentions Légales</p></a>
         </div>
         <div class="col">
             <a href="#"><p>Confidentialité</p></a>
         </div>
         <div class="col">
-            <a href="#"><p>Conditions générales d'utilisation</p></a>
+            <a href="{{ route('cgu') }}"><p>Conditions générales d'utilisation</p></a>
         </div>
 
         <!-- Grid row-->
