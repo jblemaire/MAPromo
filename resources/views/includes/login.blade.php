@@ -53,7 +53,7 @@
                                 Se connecter
                             </button>
                             
-                            <button><a href="{{url('/login/facebook')}}">Se connecter avec Facebook</a></button>
+                            <a href="{{url('/login/facebook')}}"><button>Se connecter avec Facebook</button></a>
 
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 Mot de passe oublié ?

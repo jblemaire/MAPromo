@@ -28,9 +28,9 @@
                             <h5 class="card-subtitle mb-2">Votre nom : {{$User->nomUser}}</h5>
                             <h5 class="card-subtitle mb-2">Votre prénom : {{$User->prenomUser}}</h5>
                             <div class="groupButtonMagasins" style="display: flex; justify-content: space-around">
-                                <button><a href="{{route('editinfos')}}">Modifier mes informations</a></button>
-                                <button><a href="{{route('editpassword')}}">Modifier votre mot de passe</a></button>
-                                <button><a href="{{route('mes_promotions')}}">Promotions favorites</a></button>
+                                <a href="{{route('editinfos')}}"><button>Modifier mes informations</button></a>
+                                <a href="{{route('editpassword')}}"><button>Modifier votre mot de passe</button></a>
+                                <a href="{{route('mes_promotions')}}"><button>Promotions favorites</button></a>
                             </div>
                         </div>
                     </div>

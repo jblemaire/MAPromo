@@ -113,7 +113,7 @@
                                 S'inscrire
                             </button>
 							
-							<button id="btnFb"><a href="{{url('/login/facebook')}}" >S'inscrire avec Facebook</a></button>
+							<a href="{{url('/login/facebook')}}" ><button id="btnFb">S'inscrire avec Facebook</button></a>
                         </div>
                     </div>
                 </form>

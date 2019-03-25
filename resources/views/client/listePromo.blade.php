@@ -43,9 +43,9 @@
                     </div>
                 </div>
                 <div id="cardButton" class="col-md-4">
-                    <button style="width: 100%">
-                        <a href="{{route('details_promo', ['idPromo'=>$promotion->idPromo])}}" >Voir la promotion</a>
-                    </button>
+
+                        <a href="{{route('details_promo', ['idPromo'=>$promotion->idPromo])}}" ><button>Voir la promotion</button></a>
+
                 </div>
             </div>
         </div>

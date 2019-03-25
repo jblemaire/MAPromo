@@ -1,6 +1,6 @@
 <div id="content" class="content">
-    <div class="main-content search">
-        <div id="search" class="input-group">
+    <div id="search" class="main-content search">
+        <div class="input-group inputMap">
             <input type="hidden" id="latitude">
             <input type="hidden" id="longitude">
             <input type="text" class="inputSearchMap" placeholder="Ville" aria-label="Ville" aria-describedby="button-addon2" list="villes" onkeyup="searchVilles()" id="inputVille">
@@ -10,7 +10,7 @@
                 <button type="button" class="buttonSearchMap" id="buttonGeolocalisation" onclick="getGeolocalisation()">Rechercher via ma position</button>
             </div>
         </div>
-        <div class="input-group">
+        <div class="input-group inputMap">
             <select class="custom-select" id="selectType" onchange="searchCategories()">
                 <option value="">--Choisir un type--</option>
                 @foreach($types as $type)
@@ -71,3 +71,6 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>

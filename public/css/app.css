@@ -8629,6 +8629,7 @@ body {
   padding: 0;
   color: #515052;
   font-family: 'Roboto', sans-serif;
+  position: relative;
 }
 
 .row {
@@ -8636,16 +8637,20 @@ body {
 }
 
 h1 {
-  font-family: 'Roboto';
+  font-size: 2rem;
+  font-family: 'UnicaOne';
+  text-transform: uppercase;
 }
 
 h2 {
+  font-family: 'UnicaOne' !important;
   text-transform: uppercase;
   font-size: 35px !important;
 }
 
 h3 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'UnicaOne' !important;
+  text-transform: uppercase;
   font-size: 2rem;
   text-transform: uppercase;
 }
@@ -8659,8 +8664,18 @@ p {
   font-size: 1.5em;
 }
 
+li {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.list-group-item {
+  font-size: 2em;
+}
+
 .logo {
-  height: 23px;
+  height: 30px;
 }
 
 .logo_login {
@@ -8680,6 +8695,18 @@ p {
   text-align: center;
   margin: 0 auto;
   width: 250px;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #blockContent {
@@ -8714,6 +8741,9 @@ b {
 }
 
 button {
+  font-size: 2rem;
+  font-family: 'UnicaOne' !important;
+  text-transform: uppercase;
   border: none;
   border-radius: 25px !important;
   background-color: #99cbe4;
@@ -8739,6 +8769,17 @@ input {
   height: 35px;
   width: 100%;
   text-align: center;
+}
+
+.input-group {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 250px;
+}
+
+.inputMap {
+  max-width: 100% !important;
 }
 
 .input-group-append {
@@ -8774,8 +8815,10 @@ option {
 }
 
 .title {
-  font-size: 1.5rem;
   color: #515052 !important;
+  font-size: 2rem;
+  font-family: 'UnicaOne';
+  text-transform: uppercase;
 }
 
 .dropbtn {
@@ -8855,6 +8898,14 @@ option {
   color: #515052 !important;
 }
 
+.custom-file-label {
+  border-radius: 25px !important;
+}
+
+.custom-file-label::after {
+  border-radius: 25px !important;
+}
+
 #search_desktop {
   display: none;
 }
@@ -8884,6 +8935,11 @@ option {
 .checkboxEtat:checked + .labelEtat::before {
   -webkit-transform: translate3d(2rem, 0, 0);
           transform: translate3d(2rem, 0, 0);
+}
+
+label {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .labelEtat {
@@ -8940,6 +8996,10 @@ option {
 
 .custom-select {
   color: #bfbfc0 !important;
+}
+
+.custom-file {
+  max-width: 250px !important;
 }
 
 .switch {
@@ -9020,6 +9080,9 @@ input:checked + .slider:before {
     left: 0;
     right: 0;
     width: 100%;
+    position: absolute;
+    padding-top: 50px;
+    height: 50px;
   }
 
   .footer1 {

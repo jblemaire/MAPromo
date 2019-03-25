@@ -118,16 +118,22 @@
                     <div class="form-group">
                         <label for="photo1Mag">Photo 1</label>
 
-                        <div>
-                            <input id="photo1Mag" type="file" class="inputText" name="photo1Mag" value="{{ old('photo1Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="photo1Mag" value="{{ old('photo1Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
+                                <label class="custom-file-label" for="inputGroupFile01">Choisir un fichier</label>
+                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="photo2Mag">Photo 2</label>
 
-                        <div>
-                            <input id="photo2Mag" type="file" class="inputText" name="photo2Mag" value="{{ old('photo2Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="photo2Mag" value="{{ old('photo2Mag') }}" accept=".jpg, .jpeg, .png" autofocus>
+                                <label class="custom-file-label" for="inputGroupFile01">Choisir un fichier</label>
+                            </div>
                         </div>
                     </div>
 

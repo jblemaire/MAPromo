@@ -461,9 +461,9 @@ function affichePromo(r){
 
         let aDetails = document.createElement('a');
         aDetails.href = document.location.href + 'details_promotion/'+res[i].idPromo;
-        aDetails.appendChild(document.createTextNode('Voir la promo'));
-        buttonDetails.appendChild(aDetails);
-        li.appendChild(buttonDetails);
+        buttonDetails.appendChild(document.createTextNode('Voir la promo'));
+        aDetails.appendChild(buttonDetails);
+        li.appendChild(aDetails);
 
         let buttonAdhesion = document.createElement('button');
         buttonAdhesion.className="btn btn-primary";
@@ -473,7 +473,7 @@ function affichePromo(r){
         buttonAdhesion.disabled = true;
         if(document.getElementById('userInfos')) {
             let userInfos = JSON.parse(document.getElementById('userInfos').value);
-            if (userInfos.idRole === 2) {
+            if (userInfos.idRole == 2) {
                 buttonAdhesion.disabled = false;
                 buttonAdhesion.onclick = function () {
                     getCodePromo(res[i].idPromo, res[i].codePromo);

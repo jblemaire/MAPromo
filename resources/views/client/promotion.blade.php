@@ -106,9 +106,9 @@
                                                                     <h6 class="card-subtitle mb-2">Vous n'avez mis aucun commentaire</h6>
                                                                 @endif
                                                             </h5>
-                                                            <button>
-                                                                <a href="{{route('details_promo', ['idPromo'=>$adhesion->idPromo])}}">Ajouter un commentaire / Voir la promotion</a>
-                                                            </button>
+
+                                                                <a href="{{route('details_promo', ['idPromo'=>$adhesion->idPromo])}}"><button>Ajouter un commentaire / Voir la promotion</button></a>
+
 
                                                         </div>
                                                     </div>

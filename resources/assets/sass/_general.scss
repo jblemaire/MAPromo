@@ -18,6 +18,7 @@ body{
     padding: 0;
     color: $black;
     font-family: 'Roboto', sans-serif;
+    position: relative;
 }
 
 .row{
@@ -25,16 +26,20 @@ body{
 }
 
 h1{
-    font-family: 'Roboto';
+    font-size: 2rem;
+    font-family: 'UnicaOne';
+    text-transform: uppercase;
 }
 
 h2{
+    font-family: 'UnicaOne' !important;
     text-transform: uppercase;
     font-size: 35px !important;
 }
 
 h3{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'UnicaOne' !important;
+    text-transform: uppercase;
     font-size: 2rem;
     text-transform: uppercase;
 }
@@ -48,8 +53,16 @@ p{
     font-size: 1.5em;
 }
 
+li{
+    justify-content: center;
+}
+
+.list-group-item{
+    font-size: 2em;
+}
+
 .logo{
-    height: 23px;
+    height: 30px;
 }
 
 .logo_login{
@@ -69,6 +82,12 @@ p{
     text-align: center;
     margin: 0 auto;
     width: 250px;
+}
+
+.form-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #blockContent{
@@ -102,6 +121,9 @@ b{
 }
 
 button{
+    font-size: 2rem;
+    font-family: 'UnicaOne' !important;
+    text-transform: uppercase;
     border: none;
     border-radius: 25px !important;
     background-color: $bleu;
@@ -126,6 +148,15 @@ input{
     height: 35px;
     width: 100%;
     text-align: center;
+}
+
+.input-group{
+    justify-content: center;
+    max-width: 250px;
+}
+
+.inputMap{
+    max-width: 100% !important;
 }
 
 .input-group-append{
@@ -159,8 +190,10 @@ option{
 }
 
 .title{
-    font-size: 1.5rem;
     color: $black !important;
+    font-size: 2rem;
+    font-family: 'UnicaOne';
+    text-transform: uppercase;
 }
 
 .dropbtn {
@@ -232,6 +265,14 @@ option{
     color: $black !important;
 }
 
+.custom-file-label{
+    border-radius: 25px !important;
+}
+
+.custom-file-label::after{
+    border-radius: 25px !important;
+}
+
 #search_desktop{
     display: none;
 }
@@ -262,6 +303,11 @@ option{
       }
     }
   }
+
+label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
 
 .labelEtat {
   position: relative;
@@ -310,6 +356,10 @@ option{
 
 .custom-select{
     color: $gris !important;
+}
+
+.custom-file{
+    max-width: 250px !important;
 }
 
 .switch {

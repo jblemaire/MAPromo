@@ -15,3 +15,4 @@
         @endauth
     </div>
 @endif
+</div>

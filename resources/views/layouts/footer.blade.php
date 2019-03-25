@@ -38,9 +38,6 @@
             <a href="{{ route('mentionslegales') }}"><p>Mentions Légales</p></a>
         </div>
         <div class="col">
-            <a href="#"><p>Confidentialité</p></a>
-        </div>
-        <div class="col">
             <a href="{{ route('cgu') }}"><p>Conditions générales d'utilisation</p></a>
         </div>
 
