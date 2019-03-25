@@ -5,9 +5,15 @@
             <img class="logo" src="{{ asset('img/logoFinal.png') }}" alt="logo">
         </div>
         <ul class="list-unstyled components">
+            @if(Auth::user())
             <li>
-            <a href="{{ route('compte') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_account_1575186') }}"/></svg> Mon compte</a>
+                <a href="{{ route('compte') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_account_1575186') }}"/></svg> Mon compte</a>
             </li>
+            @else
+                <li>
+                    <a href="{{ route('compte_menu') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_account_1575186') }}"/></svg> Mon compte</a>
+                </li>
+            @endif
             <li>
                 <a href="{{ route('home') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_contact_643154') }}"/></svg> Contact</a>
             </li>
@@ -68,6 +74,7 @@
                         <li><a href="{{route('magasins')}}"><button>Mes magasins</button></a></li>
                         <li><a href="{{route('promotions')}}"><button>Mes promotions</button></a></li>
                     @endif
+
                     @guest
                         <li><button type="button" data-toggle="modal" data-target="#connexion">Connexion</button></li>
                         <li><button type="button" data-toggle="modal" data-target="#inscription">Inscription</button></li>

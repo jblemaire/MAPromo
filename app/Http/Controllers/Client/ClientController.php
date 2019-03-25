@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
-    public function __construct(){
+    /*public function __construct(){
         $this->middleware('client')->except(['getPromo', 'getListPromo']);
-    }
+    }*/
 
     public function returnView(){
 
