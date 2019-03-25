@@ -157,6 +157,13 @@ input{
 
 .inputMap{
     max-width: 100% !important;
+    margin-top: 0px !important;
+    height: 100px !important;
+}
+
+.inputMap2{
+    max-width: 100% !important;
+    margin-top: 0px !important;
 }
 
 .input-group-append{
@@ -398,6 +405,11 @@ label{
   -webkit-transition: .4s;
   transition: .4s;
 }
+
+input[type="file"] { 
+    border-radius: 25px; 
+    cursor:pointer; 
+} 
 
 input:checked + .slider {
   background-color: $vert;

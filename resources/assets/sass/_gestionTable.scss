@@ -9,9 +9,14 @@
 }
 
 .gestionTable li a:hover{
-    background-color: $vert !important;
+    background-color: $bleuFonce !important;
 }
 
 tbody tr:hover{
-    background-color: $vert !important;
+    background-color: $bleuFonce !important;
+    color: $blanc !important;
+}
+
+tbody tr a:hover{
+    color: $blanc !important;
 }

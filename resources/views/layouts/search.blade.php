@@ -9,17 +9,17 @@
                 <button type="button" class="buttonSearchMap" id="buttonSetVille" onclick="setVille(latitude.value, longitude.value)">Rechercher</button>
                 <button type="button" class="buttonSearchMap" id="buttonGeolocalisation" onclick="getGeolocalisation()">Rechercher via ma position</button>
             </div>
-        </div>
-        <div class="input-group inputMap">
-            <select class="custom-select" id="selectType" onchange="searchCategories()">
-                <option value="">--Choisir un type--</option>
-                @foreach($types as $type)
-                    <option value="{{$type->idType}}">{{$type->libType}}</option>
-                @endforeach
-            </select>
-            <select class="custom-select"id="selectCategorie" disabled>
-                <option value="">--Choisir une categorie--</option>
-            </select>
+            <div class="input-group inputMap2">
+                <select class="custom-select" id="selectType" onchange="searchCategories()">
+                    <option value="">--Choisir un type--</option>
+                    @foreach($types as $type)
+                        <option value="{{$type->idType}}">{{$type->libType}}</option>
+                    @endforeach
+                </select>
+                <select class="custom-select"id="selectCategorie" disabled>
+                    <option value="">--Choisir une categorie--</option>
+                </select>
+            </div>
         </div>
     </div>
     <div id="map">

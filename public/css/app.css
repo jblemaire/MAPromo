@@ -8363,10 +8363,7 @@ button.close {
 .inputSearchMap {
   width: 100%;
   margin: 0 auto;
-}
-
-.search {
-  display: block !important;
+  border: 1px solid #99cbe4;
 }
 
 .buttonSearchMap {
@@ -8780,6 +8777,13 @@ input {
 
 .inputMap {
   max-width: 100% !important;
+  margin-top: 0px !important;
+  height: 100px !important;
+}
+
+.inputMap2 {
+  max-width: 100% !important;
+  margin-top: 0px !important;
 }
 
 .input-group-append {
@@ -9037,6 +9041,11 @@ label {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+}
+
+input[type="file"] {
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 input:checked + .slider {
@@ -9339,8 +9348,8 @@ input:checked + .slider:before {
   .search {
     background-color: #99cbe4;
     position: absolute;
-    width: 660px !important;
-    height: 369px;
+    width: 400px !important;
+    height: 170px;
     right: 0;
     top: 150px;
     z-index: 500;
@@ -9496,10 +9505,15 @@ input:checked + .slider:before {
 }
 
 .gestionTable li a:hover {
-  background-color: #25db71 !important;
+  background-color: #007DBC !important;
 }
 
 tbody tr:hover {
-  background-color: #25db71 !important;
+  background-color: #007DBC !important;
+  color: #ffffff !important;
+}
+
+tbody tr a:hover {
+  color: #ffffff !important;
 }
 

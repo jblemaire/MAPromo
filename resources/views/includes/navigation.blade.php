@@ -41,11 +41,11 @@
                 <a class="title" href="{{ url('/') }}">{{ $title }}</a>
             </div>
             <div class="button_nav">
-                    <div id="showSearch" onclick="search()">
+                    <div onclick="toggle()">
                         <a href="#"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Search_2248535') }}"/></svg></a>
                     </div>
                     <div>
-                        <a href="{{ route('compte') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_User_875020') }}"/></svg></a>
+                        <a href="{{ route('compte_menu') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Log Out_729216') }}"/></svg></a>
                     </div>
             </div>
             <div class="collapse" id="app-navbar-collapse">
@@ -96,14 +96,14 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function(){
-  $("#showSearch").click(function(){
-    $("#search").hide();
-  });
-  $("#showSearch").click(function(){
-    $("#search").show();
-  });
-});
+function toggle() {
+  var x = document.getElementById("search");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
     
 </script>
 

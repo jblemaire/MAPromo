@@ -16,7 +16,7 @@
 			@endif
 			@if(Auth::user()->idRole == 3)
 				<div class="col">
-					<a href="{{ route('magasins') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_discover_1666932') }}"/></svg></a>
+					<a href="{{ route('magasins') }}"><svg class="svg"><use xlink:href="{{ asset('svg/sprite.svg#noun_Store_850694') }}"/></svg></a>
 					<p>Magasins</p>
 				</div>
 				<div class="col">
